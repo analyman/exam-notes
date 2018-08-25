@@ -1,0 +1,129 @@
+\documentclass[a4paper, oneside]{book}
+
+\input{\string~/texrc.tex}
+
+\catcode`@=11
+
+\geometry{tmargin=2cm, bmargin=2cm,
+    rmargin=1.5cm, lmargin=1.5cm}
+
+% colors
+\definecolor{englishcolor}{rgb}{0.3, 0.6, 0.6}
+\definecolor{chinesecolor}{rgb}{0.5, 0.3, 0.6}
+\definecolor{attcolor}{rgb}{0.5, 0.6, 0.7}
+\definecolor{descriprion}{rgb}{0.2, 0.3, 0.7}
+\definecolor{shortcolor}{rgb}{0.8, 0.7, 0.9}
+% styles
+\def\englishstyle{\tt\color{englishcolor}\large}
+\def\chinesestyle{\bf\color{chinesecolor}\small}
+\def\attstyle{\it\color{attcolor}}
+\def\english@phonetic@style{\tt\color{blue}\large}
+
+% English vocabulary environment
+\newcount\vocNum \vocNum=1
+\newcount\vocCount \vocCount=0
+\newenvironment{engvc}[1][$\dagger$]{% before
+\bgroup%
+% insert tabs
+\newcommand{\shortdesc}[1]{\parindent=0pt\par%
+\small\color{shortcolor}\tt\leavevmode\hskip0em plus0pt minus 0pt##1}
+\newcommand{\linetab}[1]{\multicolumn{4}{|l|}{\hbox to.75\hsize{
+    \hsize=.75\hsize\hskip2em\vbox{
+    \medskip\parindent=0pt\leavevmode\shortdesc{##1}}}}\cr\hline}
+\newcommand{\word}[3]{\hbox{{\color{red}##1}\hskip1em{\color{blue}\textipa{[##2]}}\hskip1em{\color{black}##3}}\newline}
+\newcommand{\dword}[1]{{\color{red}##1\hskip.5em\relax}}
+\newcommand{\phrase}[2]{\hbox{{\color{red}##1}\hskip1em\hskip1em{\color{black}##2}}\newline}
+\def\crr{\cr\hline}
+\smallskip%
+\hbox to\hsize{\it\Large Vocabulary\ \the\vocNum.\qquad\leaders\vrule height.5ex depth-.4ex\hfill\qquad{\rm$\langle\,$#1$\,\rangle$}\hskip.05\hsize}
+\global\advance\vocNum\@ne
+\smallskip
+\begin{longtable}{|
+    >{\global\advance\vocCount\@ne\bgroup\englishstyle\hskip1em}p{0.22\hsize}<{\egroup} | %
+    >{\bgroup\english@phonetic@style\textipa\bgroup\quad[}p{0.22\hsize}<{]\hfil\egroup\egroup} | %
+    >{\bgroup\attstyle}p{0.1\hsize}<{\egroup} | %
+    >{\bgroup\chinesestyle}p{0.25\hsize}<{\egroup} |}
+    \hline
+}{%
+\hline
+\end{longtable}
+\vskip-1ex
+\hbox to\hsize{\tt\hskip.1\hsize\color{red}Total \quad\leaders\vrule height.45ex depth-.4ex\hfill\quad\the\vocCount\hskip.1\hsize}
+\egroup%
+}
+\def\example{{
+\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em $\spadesuit$ Example.} \newline}
+\def\defn{{
+\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em$\heartsuit$ Definition.} \newline\color{google@red}\tt\normalsize}
+\def\remark{{
+\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em$\diamondsuit$ Remark.} \newline\color{google@yellow}\tt\normalsize}
+\def\relative{{
+\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em$\clubsuit$ Relative word and phrase.} \newline}
+\def\eng{\color{purple}\tt{\color{green}$\ddagger$}\quad}
+\def\chn{\hfill\color{dist@n}\tt}
+
+% English vocabulary environment ugly...
+\newenvironment{engvcold}[1][$\dagger$]{% before
+\bgroup%
+% insert tabs commands
+\newcommand{\shortdesc}[1]{\small{\bf\color{descriprion}\noindent\hskip-1.5em Description:}\par%
+{\color{shortcolor}\tt##1}}
+\newcommand{\linetab}[1]{\hline\multispan4\vrule width.9pt
+{\hbox to.60\hsize{\hsize=.60\hsize\quad\hskip1.5em\vbox{\medskip\shortdesc{##1}\vskip1.5ex}}}
+\vrule width.9pt\cr\hline}
+\newcommand{\word}[3]{\hbox{{\color{red}##1}\hskip1em{\color{blue}\textipa{[##2]}}\hskip1em{\color{black}##3}}\par}
+\newcommand{\phrase}[2]{\hbox{{\color{red}##1}\hskip1em\hskip1em{\color{black}##2}}\par}
+\smallskip%
+% title
+\hbox to\hsize{\hskip.5em\it\Large Vocabulary\ \the\vocNum.\quad\leaders\vrule height.5ex depth-.4ex\hfill\quad{\rm$\langle\,$#1$\,\rangle$}\hskip.03\hsize}
+\global\advance\vocNum\@ne
+\medskip
+% main
+\def\crr{\cr\hline}
+\halign\bgroup%
+    \vrule width.9pt\global\advance\vocCount\@ne
+          \hbox to.22\hsize{\quad\vbox{\englishstyle\vskip1.5ex\noindent ##\vskip1.5ex}\hfill\quad}&
+    \vrule\hbox to.22\hsize{\quad\vbox{\english@phonetic@style\vskip1.5ex\noindent\textipa{[##]}\vskip1.5ex}\hfill\quad}&
+    \vrule\hbox to.095\hsize{\quad\vbox{\attstyle\vskip1.5ex\noindent ##\vskip1.5ex}\hfill\quad}&
+    \vrule\hbox to.25\hsize{\quad\vbox{\chinesestyle\vskip1.5ex\noindent ##\vskip1.5ex}\hfill\quad}\vrule width.9pt\cr
+    \noalign{\hrule height.7pt depth.2pt}
+}{% after
+    \noalign{\hrule height.7pt depth.2pt}
+\egroup
+\egroup
+}
+
+% writing environment
+\newcount\writingNum \writingNum=1
+\newenvironment{writing}[2][$\dagger$]{% before
+\par\bgroup% new paragraph
+\noindent\index{#2}%
+\hbox to\hsize{\it\Large Writing\ \the\writingNum. #2\qquad\leaders\vrule height.5ex depth-.4ex\hfill\qquad{\rm #1}\quad}\par\bigskip
+\global\advance\writingNum\@ne
+\tt\hrule\bigskip\bgroup
+\pretolerance=300 \tolerance=100
+\leftskip=3em\advance\hsize-6em
+}{% after
+\par\egroup%
+\vskip1.5ex\hrule\bigskip\bigskip\egroup%
+}
+
+\newcount\stc@count \stc@count=1
+\newcommand{\stc}[3][0]{\medskip
+    {\parindent=0pt\hskip2em\relax\dimen33=10em \advance\dimen33 by-#1em \advance\dimen33 by0pt
+    \dimen22=#1em \advance\dimen22by0pt
+    \hbox to 1.01\hsize{\Large
+    \the\stc@count.\hfill\colorbox{google@yellow}{\color{google@green}$#1\over10$}\quad\colorbox{google@blue}{\vrule width0pt height4.5pt depth1.5pt\hskip\dimen33%
+    \colorbox{google@red}{\vrule width0pt height4pt depth1pt\hskip\dimen22\relax}}%
+    }
+    \par\smallskip}
+    \global\advance\stc@count\@ne
+    \fbox{\vbox{
+    \parindent=1em \leftskip=.05\hsize \rightskip=.09\hsize
+    \leavevmode\kern-.05\hsize\noindent\colorbox{red}{\color{green}$\ddagger$}\kern.05\hsize\indent
+    {\color{google@blue}\tt\normalsize #2\vskip.9ex}\hrule\vskip.7ex
+    \leavevmode\kern-.05\hsize\noindent\colorbox{green}{\color{red}$\ddagger$}\kern.05\hsize\indent
+    {\color{google@red}\tt\normalsize #3\par}
+}}}
+
+\catcode`@=12

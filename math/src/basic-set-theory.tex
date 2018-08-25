@@ -1,0 +1,46 @@
+\chapter{集合论基础}
+
+\section{集合论公理}
+% 集合论公理
+\newtheorem{axiomOne}{Axiom}[section]
+\begin{axiomOne}
+    若$A$是集合, 则$A$也是一个对象.
+\end{axiomOne}
+
+\newtheorem{axiomTwo}[axiomOne]{Axiom}
+\begin{axiomTwo}\index{空集}
+    存在一个集合$\emptyset$, 叫作空集, 他不包含任何元素.
+\end{axiomTwo}
+
+\newtheorem{axiomThree}[axiomOne]{Axiom}
+\begin{axiomThree}
+    {\tt (单元素集与双元素集)}\quad
+    若$a$是一个对象, 则存在一个集合$\{a\}$, 它的唯一元素是$a$.
+    进而, 若$a, b$是对象, 则存在一个集合$\{a, b\}$, 其仅有的元素
+    是$a$和$b$.
+\end{axiomThree}
+
+\newtheorem{axiomFour}[axiomOne]{Axiom}
+\begin{axiomFour}
+    {\tt (双并)\quad}
+    给定两个集合 $A, B$, 存在一个集合 $A\cup B$, 
+    使得$x\in A\cup B\quad\Longleftrightarrow\quad x\in~A\;or\; x\in~B$.
+\end{axiomFour}
+
+\newtheorem{axiomFive}[axiomOne]{Axiom}
+\begin{axiomFive}\index{分离公理}
+    {\tt(分离公理)\quad}
+    设$A$ 施一个集合, 并对于每个$x\in A$, 设$P(x)$是一个关于$x$的性质(即$P(x)$或为
+    一个真命题, 或为一个假命题). 那么存在一个集合$\,\{x\in A: P(x)\to \true\}$.
+\end{axiomFive}
+
+\newtheorem{axiomSix}[axiomOne]{Axiom}
+\begin{axiomSix}\index{替换公理}
+    {\tt (替换)\quad}
+    有一集合$A$, 对于任意的对象$x\in A$和任意的对象$y$, 存在一个命题$P(x)$依赖于
+    $x$和$y$, 且对于任意的$x\in A$, 有且仅有一个$y$使得$p(x)$为真, 那么存在一个
+    集合:
+    \begin{align*}
+    \{y: \exists x\in A, P(x,y)\to \true\}
+    \end{align*}
+\end{axiomSix}
