@@ -1,0 +1,41 @@
+\documentclass[a4paper, oneside]{book}
+
+\input{\string~/texrc.tex}
+
+\geometry{tmargin=2cm, rmargin=2cm, bmargin=2cm, lmargin=2cm}
+
+\usetikzlibrary{positioning}
+
+\def\defn{Definition}
+\def\axiom{Axiom}
+\def\remark{Remarks}
+\def\propos{Proposition}
+\def\theorem{Theorem}
+\def\lemma{Lemma}
+\def\example{Example}
+
+\def\true{{True}}
+
+\let\union\cup
+\let\intersection\cap
+\def\oor{\ifmmode \hskip.5em\text{\it or}\hskip.5em\else{\it or}\fi}
+\def\aand{\ifmmode \hskip.5em\text{\it and}\hskip.5em\else{\it and}\fi}
+
+\def\partitionset{\ifmmode\mathscr{P}\else$\mathscr{P}$\ \fi}
+\def\ua{\ifmmode A\else$A$\fi\ }
+\def\ub{\ifmmode B\else$B$\fi\ }
+\def\uc{\ifmmode C\else$C$\fi\ }
+\def\ud{\ifmmode D\else$D$\fi\ }
+
+\def\refc#1#2{{\tt(#1 \ref{#2})}}
+
+% symbols of the complexity function.
+\def\bigo{\ifmmode\mathcal{O}\else$\mathcall{O}$\ \fi}
+
+% symbols of machine
+\def\sto{\ifmmode\relax{\,\vdash_M\,}\else$\vdash_M$\ \fi}
+\def\stoc{\ifmmode\relax{\,\vdash_M^\ast\,}\else$\vdash_M^\ast$\ \fi}
+
+% Algorithm
+\algblockdefx[initial]{Init}{EndInit}
+{{\bf initially}\hskip.5em\relax}{\bf end initially}

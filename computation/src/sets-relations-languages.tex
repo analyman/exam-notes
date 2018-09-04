@@ -1,0 +1,479 @@
+\chapter{Sets, Relations, Languages}
+\newtheorem{theorem_root}{\theorem}[chapter]
+\newtheorem{example_root}{\example}[chapter]
+
+\section{Sets}
+
+\subsection{basic operation}
+\begin{easylist}[checklist]
+\ListProperties(Style*=$\diamondsuit\,$)
+# union:\quad $C = A\union B\,\Leftrightarrow\, C = \{x: x\in A \oor x\in B\}$
+# intersection:\quad $C = A\intersection B\,\Leftrightarrow\,C = \{x: x\in A\aand x\in B\}$
+# difference:\quad $C = A - B\,\Leftrightarrow\,C = \{x: x\in A\aand x\notin B\}$
+\end{easylist}
+
+\subsection{basic properties}
+\halign{
+{\tt #:\qquad} & {\hbox{\parindent=0pt\vtop{$ # $}}}\cr
+Idempotency & A\union A = A\cr
+Commutativity & A\intersection A = A\cr
+Associativity & (A\union B)\union C = A\union(B\union C)\newline
+                (A\intersection B) C = A\intersection(B\intersection C)\cr
+Distributivity & (A\union B)\intersection C = (A\intersection C)\union(B\intersection C)\newline
+                 (A\intersection B)\union C = (A\union C)\intersection(B\union C)\cr
+Absorption & (A\union B)\intersection A = A\newline
+             (A\intersection B)\union A = A\cr
+DeMorgan's laws & A - (B\union C) = (A - B)\intersection(A - C)\newline
+                  A - (B\intersection C) = (A - B)\union (A - C)\cr
+}
+
+\newtheorem{disjoint}[theorem_root]{Definition}
+\begin{disjoint}
+If $A\intersection B = \emptyset$, then sets $A$ and $B$ are disjoint.\index{disjoint}
+\end{disjoint}
+
+\newtheorem{powerset}[theorem_root]{Definition}
+\begin{powerset}
+\index{power set}
+The collection of all subsets of a set A is itself a set, called the {\bf power set}
+of A and denoted $2^A$.
+\end{powerset}
+
+\index{partition}
+A {\bf partition } of a nonempty set $A$ is a subset $\mathscr{P}$ of $2^A$ such that 
+$\emptyset$ is not an element of \partitionset and such that each element of \ua is in one 
+and only one set in \partitionset. That is, \partitionset is partition of \ua if \partitionset
+is a set of subsets \ua such that:
+\begin{easylist}[tractatus]
+# each element of \partitionset is nonempty.
+# distinct members of \partitionset are disjoint.
+# $\bigcup\partitionset = \ua$
+\end{easylist}
+
+\section{Relations and Functions}
+
+\newtheorem{cartesianproduct}[theorem_root]{Definition}
+\begin{cartesianproduct}
+\index{Cartesian product}
+The {\bf Cartesian product} of two sets \ua and \ub, denoted by $A\times B$, and we have:
+\begin{align}
+    A\times B = \{(a, b): a\in A \aand b\in B\}
+\end{align}
+\end{cartesianproduct}
+
+For example, $\{a, b\}\times \{c\} = \{(a,c), (b,c)\}$, and the ordered pair $(a, b) \ne (b, a)$ which are totally
+different.
+
+\newtheorem{binaryrelation}[theorem_root]{Definition}
+\begin{binaryrelation}
+\index{binary relation}
+A binary relation on two sets \ua and \ub is a subset of $A\times B$.
+\end{binaryrelation}
+
+\newtheorem{orderedtuple}[theorem_root]{Definition}
+\begin{orderedtuple}
+\index{orderedtuple}
+$(a_1,\ldots,a_n)$ is a $n$-ordered tuple, which is a subset of $n$-fold cartesian product 
+$a_1\times a_2\times\cdots\times a_n$.
+\end{orderedtuple}
+
+{\bf function} ($f: a\mapsto b$ ) is a binary relation such set $a$ to $b$ and for each element $a\in a$, there
+is exactly one ordered pair in $f$ with first component. 
+for each $a\in a$, $f(a)$ was called the {\bf image} of $a$ under $f$.
+here $a$ is the {\bf domain} of function $f$, and
+$b$, and the {\bf range} of $f$ is the image of its domain.
+
+\newtheorem{injection}[theorem_root]{definition}
+\newtheorem{surjection}[theorem_root]{definition}
+\newtheorem{bijection}[theorem_root]{definition}
+\begin{surjection}[surjection]
+\index{surjection}
+a function $f: a\mapsto b$ be called surjection, when:
+\begin{align*}
+\forall b\in b,\,\exists a\in a,\,\text{let}\ f(a) = b
+\end{align*}
+\end{surjection}
+\begin{injection}[injection]
+\index{injection}
+a function $f: a\mapsto b$ be called injection, when:
+\begin{align*}
+\forall a_1, a_2\in a,\, f(a_1) = f(a_2) \,\longrightarrow\, a_1 = a_2
+\end{align*}
+\end{injection}
+\begin{bijection}[bijection]
+\index{bijection}
+function $f: a\mapsto b$ be called bijection, when $f$ is both of surjection and bijection.
+\end{bijection}
+
+\section{Special Types of Binary Relations}
+
+\newtheorem{directedgraph}[theorem_root]{Definition}
+\begin{directedgraph}[directed graph]
+    A relation $R = \{(a, b), (a, a), (b, a), (b, c), (c, d), (d,a)\}$ can be represented by a directed graph.
+    Each element $e\in R$ be called {\bf edge}, so $R$ is the set of edges.
+    \begin{figure}[H]
+    \begin{center}
+    \begin{tikzpicture}[gnode/.style={circle, draw=blue!70, thick, minimum size=5mm}]
+        \node [gnode] (a)              {a};
+        \node [gnode] (b) [above=of a] {b};
+        \node [gnode] (c) [right=of b] {c};
+        \node [gnode] (d) [right=of a] {d};
+        \draw [->, bend left=30]  (a) to (b);
+        \draw [<-, bend right=30] (a) to (b);
+        \draw [->] (b) to (c);
+        \draw [->] (c) to (d);
+        \draw [->] (d) to (a);
+        \draw [->] (a) .. controls +(200:10mm) and +(250:10mm) .. (a);
+    \end{tikzpicture}
+    \caption{A demonstrative graph}
+    \label{fig:demo-graph}
+    \end{center}
+    \end{figure}
+\end{directedgraph}
+
+\newtheorem{reflexivegraph}[theorem_root]{definition}
+\begin{reflexivegraph}[Reflexive relation]
+A relation $R\subseteq A\times A$ is {\bf reflexive} if $(a, a) \in R$ for each $a\in A$.
+For example, $R = \{(a,a), (a,b), (b, b), (b, c), (c, c)\}$:
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}[gnode/.style={circle, draw=blue!70, thick, minimum size=5mm}]
+\node [gnode] (a) {a};
+\node [gnode] (b) [right=of a] {b};
+\node [gnode] (c) [above=of b] {c};
+\draw [->] (a) to (b);
+\draw [->] (b) to (c);
+\draw [->] (a) .. controls +(200:10mm) and +(250:10mm) .. (a);
+\draw [->] (b) .. controls +(290:10mm) and +(340:10mm) .. (b);
+\draw [->] (c) .. controls +(100:10mm) and +(150:10mm) .. (c);
+\end{tikzpicture}
+\end{center}
+\caption{A reflexive graph}
+\label{fig:refexive-graph}
+\end{figure}
+\index{reflexive graph}
+\end{reflexivegraph}
+
+\newtheorem{symmetricgraph}[theorem_root]{Definition}
+\begin{symmetricgraph}[Symmetric relation]
+\index{symmetricgraph}
+A relation $R\subseteq A\times A$ is symmetric if $(b, a)\in R$ whenever $(a,b)\in R$.
+\end{symmetricgraph}
+
+\newtheorem{undirectedgraph}[theorem_root]{definition}
+\begin{undirectedgraph}[Graph or undirected Graph]
+Directed graph or simply graph is symmetric relation without pairs of the form $(a,a)$.
+\end{undirectedgraph}
+
+\newtheorem{transitiverelation}[theorem_root]{definition}
+\begin{transitiverelation}[Transitive relation]
+A binary relation $R$ is transitive if whenever $(a,b)\in R$ and $(b,c)\in R$, then
+$(a, c)\in R$.
+\end{transitiverelation}
+
+\newtheorem{equivalencerelation}[theorem_root]{definition}
+\begin{equivalencerelation}[Equivalence relation]
+A relation that is reflexive, symmetric, and transitive is called an equivalence relation.
+\end{equivalencerelation}
+
+\newtheorem{equivalenceclass}[theorem_root]{definition}
+\begin{equivalenceclass}[Equivalence Class]
+    For a equivalence relation $R$, $[a] = \{b: (a,b)\in R\}$ represent a equivalence class.
+    Since $R$ is symmetric, $[a] = \{b: (b, a)\}$.
+\end{equivalenceclass}
+
+\newtheorem{equivalencepartition}[theorem_root]{\theorem}
+\begin{equivalencepartition}
+    $R$ is an equivalence relation on a nonempty set $A$,
+    let $\partitionset = \{[a]: a\in R\}$. Then the quivalence classes of $R$ constitute partition of $A$. 
+\end{equivalencepartition}
+\begin{proof}
+\ \newline
+1. \partitionset is not $\emptyset$.\qquad  $a\in [a]$ for all $a\in A$, by reflexitivity. So \partitionset is not empty.\newline
+2. Every element in \partitionset is disjoint with another.\qquad consider any two distinct element
+$[a]$ and $[b]$ in \partitionset, if $[a]$ and $[a]$ aren't disjoint, so let $c\in [a]\intersection [b]$.
+In respect of $c$, $(a,c)\in R$ and $(c, b)\in R$ by definition of $c$, thus $(a, b)\in R$ by transitivity.
+$\forall d\in [a]$:\newline
+$(b,a)\in R$ and $(a,d)\in R$\quad$\Longrightarrow$\quad $(b, d)\in R$
+\quad$\Longrightarrow$\quad $d\in [b]$\quad$\Longrightarrow$\qquad $[a]\subseteq [b]$, likewise $[b]\subseteq [a]$, 
+hence $[a] = [b]$. But this contradicts the assumption that $[a]$ and $[b]$ are distinct.\newline
+3. $\bigcup\partitionset = A$\quad $a\in [a]$ for all $a\in A$ by reflexitivity, thus $a\in\bigcup\partitionset$.
+\end{proof}
+
+\newtheorem{partialorder}[theorem_root]{definition}
+\begin{partialorder}[Partial order]
+A relation that is reflexive, antisymmetric, and transitive is called a partial order.
+\end{partialorder}
+
+\newtheorem{totalorder}[theorem_root]{definition}
+\begin{totalorder}[Total order]
+A partial order $R\subseteq A\times A$ is a total order if, for all $a, b\in A$, either
+$(a,b)\in R$ or $(b, a)\in R$.
+\end{totalorder}
+
+\section{Finite and Infinite Sets}
+\newtheorem{equinumerous}[theorem_root]{\defn}
+\begin{equinumerous}[Equinumerous]
+    sets \ua and \ub equinumerous if there is a bijeciton $f:\ua\mapsto\ub$.
+\end{equinumerous}
+
+{\bf finite}, {\bf infinite}, {\bf countabe}, {\bf uncountable} are relative concept in sets.
+\begin{easylist}[checklist]
+\ListProperties(Style**=\tt)
+# finite\quad A set is finite if and only if it is equinumerous with $\{1, 2,\ldots, n\}$.
+# infinite\quad A set if infinite if it's not finite.
+# countable\quad A set is countable, if and only if it is equinumerous with $N$.
+# countable\quad A set is uncountable, if and only if it is nethier finite nor countable.
+\end{easylist}
+
+\newtheorem{powersetequinumerous}[theorem_root]{\theorem}
+\begin{powersetequinumerous}
+If $A$ is a set, then $A$ and $2^A$ aren't equinumerous.
+\end{powersetequinumerous}
+\begin{proof}
+Assuming \ua and $2^A$ are equinumerous, then existing a function $f:A\mapsto 2^A$ is
+a bijection. Let $B = \{x: x\notin f(x)\}$, firstly we need prove \ub is not empty set.
+If \ub is empty set, then for all $x\in A$, $x\in f(x)$. And because we always have 
+$x\in \{x\}$ and $f$ is a bijection, so we can conclude $f(x) = \{x\}$, obviously it's 
+erroneous. Hence \ub isn't a emptyset, and let $f(b) = B$. When $b\in B = f(b)$, by the definition of 
+\ub, we can induce $b\notin B = f(b)$, but if $b\notin B = f(b)$, we can infer $b\in B = f(b)$, thus 
+that is a contradiction.
+\end{proof}
+
+\section{Funcdamental proof Techniques}
+
+\newtheorem*{mathinduction}{}
+\begin{mathinduction}[\bf The Principle of Mathematical Induction]
+Let \ua be a set of natural numbers such that:
+\begin{enumerate}
+    \item $0\in A$
+    \item for each natrual number n, if $\{0, 1,\ldots,n\}\subseteq A$, then
+    $n+1\in A$
+\end{enumerate}
+Then $A = N$
+\end{mathinduction}
+
+\newtheorem*{pigeonholeprinciple}{}
+\begin{pigeonholeprinciple}[\bf The Pigeonhole Principle]
+    If \ua and \ub are finite sets and |\ua| > |\ub|, then there is no one-to-one funciton from \ua to \ub.
+\end{pigeonholeprinciple}
+\begin{proof}
+    By the principle of mathematical induction, it's easy.
+\end{proof}
+
+\newtheorem*{diagonalizationprinciple}{}
+\begin{diagonalizationprinciple}[\bf The Diagonalization Principle]
+    Let $R$ be a binary relation on a set \ua, and let \ud, the diagonal set for $R$, 
+    be $\{a: a\in A \aand (a, a)\notin R\}$. For each $a\in A$, let 
+    $R_a = \{b: b\in A \aand (a,b)\in R\}$. Then \ud is distinct from each $R_a$.
+\end{diagonalizationprinciple}
+\begin{proof}
+    If existing $R_a$ equal to \ud, then:
+    \begin{enumerate}
+        \item Assuming $a\in\ud$, because of $\ud = R_a$, by the definition of $R_a$, $(a, a)\in R$ 
+        contradicts with $(a, a)\notin R$ infered by the definition of \ud.
+        \item So $a\notin\ud$, by the definition of \ud, $(a, a)\in R$ contradicts with 
+        $(a, a)\notin R$ infered by the definition of $R_a$.
+    \end{enumerate}
+\end{proof}
+
+\section{Closures and Algorithms}
+
+\newtheorem{reflexive-transitive-closure}[theorem_root]{\defn}
+\begin{reflexive-transitive-closure}
+    \label{def:relative_transitive_closure}
+Let $R\subseteq A^2$ be a directed graph defined on a set \ua. The 
+reflexive transitive closure of $R$ is the relation.
+\begin{align*}
+    R^\ast = \{(a,b): a, b\in A \aand \text{there is a path from $a$ to $b$ in $R$}\}
+\end{align*}
+\end{reflexive-transitive-closure}
+
+\subsection{Algorithm}
+
+\refc{Definition}{def:relative_transitive_closure} immediately suggests an algorithm for computing
+the reflexive transitive closure $R^\ast$ of any given binary relation $R$ over some finite 
+set $A := {a_1, a_2,\ldots, a_n}$:
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Init $R^\ast:=\emptyset$\EndInit
+\For{$i=1,\ldots,n$}
+\ForAll{i-tuple$(b_1,\ldots,b_i)\in A_i$}
+\If{$(b_1,\ldots,b_i)$ is the path in $R$}
+\State\Call{addTo$R^\ast$}{$(b_1, b_i)$}
+\EndIf
+\EndFor
+\EndFor
+\end{algorithmic}
+\caption{Compute reflexive transitive closure. version 1}
+\label{alg:closure_computation_vo}
+\end{algorithm}
+
+\newtheorem{orderoffunc}[theorem_root]{\defn}
+\begin{orderoffunc}
+Let $f: N\mapsto N$ be a function from the natural numbers to the natural numbers.
+The order of $f$, denoted $\mathcal{O}(f)$, is the set of all functions $g: N\mapsto N$ with
+the property that there are positive natural numbers $c>0$ and $d>0$ such that, for all
+$n\in N$, $g(n)\le c\cdot f(n) + d$. If in fact this inequality holds for all $n$, 
+we say that $g(n) \in \mathcal{O}(f(n))$ with constants $c$ and $d$.
+\end{orderoffunc}
+
+If for two functions $f,g: N\mapsto N$ we have that $f\in\bigo(g)$ and $g\in\bigo(f)$,
+then we write $f\asymp g$. It is clear that the relation $\asymp$(Asymptote) defined on 
+functions is an equivalence relation:
+\begin{enumerate}
+    \item It's symmetric (because the rules of $f$ and $g$ are completely interchangeble in 
+    the definition of $\asymp$).
+    \item It's reflexive.
+    \item It's transitive.
+\end{enumerate}
+
+Thus, all functions from the set of natural numbers to itself are partitioned by $\asymp$ into 
+equivalence classes. The equivalence class of $f$ with respect to $\asymp$ is called 
+the rate of growth of $f$.
+
+\newtheorem{inferior-of-func}[theorem_root]{\defn}
+\begin{inferior-of-func}
+$f(n)\in\Omega(g(n))\quad\Longleftrightarrow\quad g(n)\in\bigo(f(n))$, which like a inferior.
+\end{inferior-of-func}
+\newtheorem{same-growth-of-func}[theorem_root]{\defn}
+\begin{same-growth-of-func}
+$f(n)\in\Theta(g(n))\quad\Longleftrightarrow\quad f(n)\in\bigo(g(n)) \aand g(n)\in\bigo(f(n))$, which is same with $\asymp$.
+\end{same-growth-of-func}
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Init
+\State $R\ast := R\union \{(a, a): a\in A\}$
+\State $i\gets 0$ \Comment{$i$ is for checking violation of transtive} 
+\EndInit
+\While{($i == 0$)}
+\State $i\gets 1$
+\ForAll{$a_i, a_j, a_k\in A$}
+\If{($(a_i,a_j), (a_j, a_k)\in R^\ast \aand (a_i, a_k)\notin R^\ast$)}
+\State\Call{addTo$R^\ast$}{$(a_i, a_k)$}
+\State $i\gets 0$
+\EndIf
+\EndFor
+\EndWhile
+\end{algorithmic}
+\caption{Compute reflexive transitive relation. version 2}
+\label{alg:reflexive_transitive_closure_of_relation_vt}
+\end{algorithm}
+
+\refc{Algorithm}{alg:reflexive_transitive_closure_of_relation_vt} is better than \refc{Algorithm}{alg:closure_computation_vo}.
+Which firstly guarantee $R^\ast$ is reflexive, and throught checking every possible transitive relation to ensure
+the final $R^\ast$ is transitive.
+
+In \refc{Algorithm}{alg:reflexive_transitive_closure_of_relation_vt}, the {\bf While} loop at most iterate 
+$n^2 = |A|^2$ times. And the complexity of the statement in the {\bf while} loop is $\bigo(n^3)$, so
+the complexity of this algorithm is $\bigo(n^2\times n^3) = \bigo(n^5)$ that is a polynomial rate of growth.
+
+To improve \refc{algorithm}{alg:reflexive_transitive_closure_of_relation_vt}, the main idea is
+to guarantee violation checking always true. Why after the loop may exist some 
+violation condition? For $a_i, a_j, a_k$, here correspon to the order of loop $i\le j\le k$.
+If $(a_i, a_k)\in R^{\ast"}$ but not add to $R^\ast$, the reason must be one of 
+$(a_i, a_j)$ or $(a_j, a_k)$ added after 
+$i, j, k$ checking. Let consider $(a_i, a_j)$ is added after $i, j, k$ checking,
+here existing $m$, let $(a_i, a_m)\in R^{\ast"}$ and $(a_m, a_j)\in R^{\ast"}$,
+and because checking $i, m, j$ is after checking $i, j, k$, so $m\ge j$.
+Likewise we can infer $m\ge i$ in condition of $(a_j, a_k)$.
+So we can assume $i\ge j \le k$ in loop, and we can proof the form condition 
+will not exist under $i\ge j\le k$. Then we get the algorithm whose time complexity is
+$\bigo(n^3)$.
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Init
+\State $R\ast := R\union \{(a, a): a\in A\}$
+\EndInit
+\For{($j = 1,\ldots, n$)}
+\For{($i = 1,\dots, n$ and $k = 1,\dots, n$)}
+\If{($(a_i, a_j)\in R^\ast \aand (a_j, a_k)\in R^\ast \aand (a_i, a_k)\notin R^\ast$)}
+\State\Call{addTo$R^\ast$}{$(a_i, a_j)$}
+\EndIf
+\EndFor
+\EndFor
+\end{algorithmic}
+\caption{Improved Algorithm for Computing reflexive transitive closure.}
+\end{algorithm}
+
+\newtheorem{closure-def}[theorem_root]{\defn}
+\begin{closure-def}
+\label{def:closure_definition}
+Let \ud be a set, let $n\ge 0$, and let $R\subseteq D^{n+1}$ be a $(n+1)$-ary relation on
+\ud. The a subset \ub of \ud is said to be closed under $R$ if $b_{n+1}\in\ub$ whenever
+$b_1,\ldots,b_n\in\ub$ and $(b_1,\ldots,b_n, b_{n+1})\in R$. Any property of the form
+"the set \ub is closed under relations $R_1, R_2,\ldots,R_m$" is called a closure 
+property of \ub. (I think this concept is similar with completeness in mathematical.)
+\end{closure-def}
+
+\newtheorem{inclusion_property}[example_root]{\example}
+\begin{inclusion_property}
+Let \ua be a fixed set. We say that set $S$ satisties the inclusion property associated
+with \ua if $A\subseteq S$, Any inclusion property is a closure property, 
+by taking the relaiton $R$ to be the unary relation $\{(a): a\in A\}$(notice that we must take $n=0$ in \refc{Definition}{def:closure_definition})
+\end{inclusion_property}
+
+\newtheorem{natural_closure_property}[example_root]{\example}
+\begin{natural_closure_property}
+We shall occasionally say that a set $A\subseteq D$ is closed under a function 
+$f: D^k\mapsto D$. For example, we may say that the natural numbers are closed under 
+addition, also multiplication. We mean that for any $m, n\in N$ we also 
+have $m+n\in N$, since $(m, n, m+n)$ is a traple in the "addition relation", likewise in 
+natural multiplication.
+\end{natural_closure_property}
+
+\newtheorem{minimal_property_set}[theorem_root]{\theorem}
+\begin{minimal_property_set}
+Let $P$ be a closure property defined by relations on a set \ud,
+and let \ua be a subset of \ud. Then there is a unique minimal set \ub that
+contains \ua and has property $P$.
+\end{minimal_property_set}
+
+\begin{proof}
+        Let $S$ be the set of all subsets of $D$ that are closed under $R_1, R_2, \ldots, R_m$
+        and that have $A$ as a subset. $S$ is nonempty, because $S$ at least contain $D$.
+
+        Consider then the set $B$ which is the intersection of all sets in $S$,
+        \begin{align*}
+            B = \bigcap S
+        \end{align*}
+        Remaining proof is very obvious.
+\end{proof}
+
+\newtheorem{closure_computation_is_polynomial}[theorem_root]{\theorem}
+\begin{closure_computation_is_polynomial}
+Any closure property over a finite set can be computed in polynomial time
+\end{closure_computation_is_polynomial}
+
+\section{Alphabets and Languages}
+
+Data(relations, sets) are encoded in the computer's memory as string of bits
+or other symbols appropriate for manipulation by a computer.
+
+Start with the notion of an {\bf alphabet}: a finite set of symbols.
+An example is, naturally, the Roman alphabet $\{1, b,\ldots, z\}$. An
+alphabet particularly pertinent to the theory of computation if thee binary alphabet 
+$\{0,1\}$.
+
+A {\bf string} over an alphabet is a finite sequence of symbols from the
+alphabet. Instead of writing strings with parentheses and commas, as we have
+written other sequences, we simply juxtapose the sumbols.
+A string may have no symbols at all; in this case it is called the 
+{\bf empty string} and denoted by $e$.
+The set of all strings, including the empty string, over an alphabet $\Sigma$ is 
+denoted by $\Sigma^\ast$. And follow is some concept.
+
+\begin{easylist}[checklist]
+\ListProperties(Style*=$\ddagger\hskip.5em$, Style**=\tt)
+# {\bf concatenation}\quad $x, y$ is string. and $\omega = x\circ y$ is string combined by $x$ and $y$.
+# {\bf substring}\quad A string $v$ is a substring of a string $w$ if and only if there are strings
+$x$ and $y$ such that $w = xvy$.
+\end{easylist}
+
+Any set of string over a alphabet $\Sigma$ that is any subset of $\Sigma^\ast$ will be called
+a {\bf language.}
+
+
+\section{Finite Representations of Languages}

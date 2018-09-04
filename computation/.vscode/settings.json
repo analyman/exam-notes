@@ -1,0 +1,11 @@
+{
+    "latex-workshop.chktex.enabled": false,
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex",
+            "tools": [
+                "pdflatex"
+            ]
+        }
+    ]
+}

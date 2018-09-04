@@ -1,0 +1,41 @@
+\chapter{Finite Automata}
+
+\section{Deterministic Finite Automata}
+
+\newtheorem{deterministic_finite_state_machine}[theorem_root]{\defn}
+
+\begin{deterministic_finite_state_machine}[finite-state machine]
+A deterministic finite automation is a quintuple $M = (K,\Sigma, \delta, s, F)$ where\newline
+\hbox{\quad\vtop{\begin{easylist}[tractatus]
+# $K$ is a finite set of states
+# $\Sigma$ is an alphabet
+# $s\in K$ is the initial state
+# $F\subseteq K$ is the set of final states
+# $\delta$ is the transition function, $\delta: K\times\Sigma\mapsto K$
+\end{easylist}}}
+\end{deterministic_finite_state_machine}
+
+Deterministic finite automata is n't allowed to move its reading head back into 
+the part of the input string that has aslready been read, the portion of the 
+string to the left of the reading head cann't influence the future operation of 
+the machine. Thus a configureation is determined by the current state and the 
+unread part of the string being processed. In other words, a {\bf configuration of a deterministic
+finite automaton} $(K, \Sigma, \delta, s, F)$ is any element of $K\times\Sigma^\ast$.
+
+The binary relation \sto holds between two configurations of $M$ if and only if
+the machine can pass from one to the others as a result of a single move.
+Thus if $(q, w)$ and $(q^\prime, w^\prime)$ are two configuations of $M$, then 
+$(q, w)\sto (q^\prime, w^\prime)$ if and only if $w = aw^\prime$ for some symbol $a\in\Sigma$, and
+$\delta(q, a) = q^\prime$. In this case we say that $(q, w)$ {\bf yields} $(q^\prime, w^\prime)$ {\bf in one step}.
+Note that in fact \sto is a function $\sto: K\times\sigma^+\mapsto K\times\Sigma^\ast$.
+\footnote{$\Sigma^+ = \Sigma^\ast - \emptyset$} A configuration of the form $(q, e)$ signifies 
+that $M$ has consumed all its input, and hence its operation ceases at this point.
+
+We denote the reflexive, transitive closure of \sto by $\stoc$;
+$(q, w) \stoc (q^\prime, w^\prime)$ is read, $(q, w)$ yields $(q^\prime, w^\prime)$
+(after some number, possibly zero, of steps).
+A string $w\in\Sigma^\ast$ is said to be accepted by $M$ if and only if there is a state
+$q\in F$ such that $(s, w)\stoc (q, e)$. Finally, the language accepted by $M$, $L(M)$, 
+is the set of all strings accepted by $M$. 
+
+\section{Nondeterministic Finite Automata}
