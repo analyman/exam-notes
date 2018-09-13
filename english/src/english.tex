@@ -10,6 +10,15 @@
 
 \mainmatter
 
+% if \EXPERIMENT is defined in preamble.tex, just include experiment.tex
+\ifdefined\EXPERIMENT\else
+\begin{comment}
+\fi
+\include{experiment}
+
+\end{document}
+\end{comment}
+
 \include{vocabulary}
 
 \include{grammar}
@@ -17,6 +26,8 @@
 \include{sentence}
 
 \include{writing}
+
+\include{lyrics}
 
 \backmatter
 \include{english-phonetic-table}

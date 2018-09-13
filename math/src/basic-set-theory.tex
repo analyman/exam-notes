@@ -2,17 +2,17 @@
 
 \section{集合论公理}
 % 集合论公理
-\newtheorem{axiomOne}{Axiom}[section]
+\newtheorem{axiomOne}[theorem_root]{Axiom}
 \begin{axiomOne}
     若$A$是集合, 则$A$也是一个对象.
 \end{axiomOne}
 
-\newtheorem{axiomTwo}[axiomOne]{Axiom}
+\newtheorem{axiomTwo}[theorem_root]{Axiom}
 \begin{axiomTwo}\index{空集}
     存在一个集合$\emptyset$, 叫作空集, 他不包含任何元素.
 \end{axiomTwo}
 
-\newtheorem{axiomThree}[axiomOne]{Axiom}
+\newtheorem{axiomThree}[theorem_root]{Axiom}
 \begin{axiomThree}
     {\tt (单元素集与双元素集)}\quad
     若$a$是一个对象, 则存在一个集合$\{a\}$, 它的唯一元素是$a$.
@@ -20,21 +20,21 @@
     是$a$和$b$.
 \end{axiomThree}
 
-\newtheorem{axiomFour}[axiomOne]{Axiom}
+\newtheorem{axiomFour}[theorem_root]{Axiom}
 \begin{axiomFour}
     {\tt (双并)\quad}
     给定两个集合 $A, B$, 存在一个集合 $A\cup B$, 
     使得$x\in A\cup B\quad\Longleftrightarrow\quad x\in~A\;or\; x\in~B$.
 \end{axiomFour}
 
-\newtheorem{axiomFive}[axiomOne]{Axiom}
+\newtheorem{axiomFive}[theorem_root]{Axiom}
 \begin{axiomFive}\index{分离公理}
     {\tt(分离公理)\quad}
     设$A$ 施一个集合, 并对于每个$x\in A$, 设$P(x)$是一个关于$x$的性质(即$P(x)$或为
     一个真命题, 或为一个假命题). 那么存在一个集合$\,\{x\in A: P(x)\to \true\}$.
 \end{axiomFive}
 
-\newtheorem{axiomSix}[axiomOne]{Axiom}
+\newtheorem{axiomSix}[theorem_root]{Axiom}
 \begin{axiomSix}\index{替换公理}
     {\tt (替换)\quad}
     有一集合$A$, 对于任意的对象$x\in A$和任意的对象$y$, 存在一个命题$P(x)$依赖于
@@ -44,3 +44,33 @@
     \{y: \exists x\in A, P(x,y)\to \true\}
     \end{align*}
 \end{axiomSix}
+
+\newtheorem{infinityDescartesProduct}[theorem_root]{Definition}
+\begin{infinityDescartesProduct}[无限笛卡尔积]
+\(I\) 是集合, 并且对于每个\(\alpha\in I\), 设\(X_\alpha\)是一个集合, 定义笛卡尔积\(\,\prod\limits_{\alpha\in I}\,X_\alpha\,\)
+\begin{align*}
+    \prod\limits_{\alpha\in I}\,X_\alpha := \left\{(x_\alpha)_{\alpha\in I}\in\left(\bigcup\limits_{\beta\in I}\,X_\beta\right)^I\,:\,\forall\alpha\in I, a_\alpha\in X_\alpha\,\right\}
+\end{align*}
+\end{infinityDescartesProduct}
+
+\newtheorem{axiomOfChoice}[theorem_root]{Axiom}
+\begin{axiomOfChoice}[选择公理]
+选择公理的两种等价的表达形式
+\begin{enumerate}
+\item \(I\) 是集合, 并且对于每个\(\alpha\in I\), 设\(X_\alpha\)是一个非空集合. 那么\(\,\prod\limits_{\alpha\in I}\,X_\alpha\,\)也是不空的. In other word, 
+存在\(\,(x_\alpha)_{\alpha\in I}\,\), 把每个\(\,\alpha\in I\,\)对应给一个元素\(\,x_\alpha\in X_\alpha\).
+\item 设\(\,X\,\)和\(\,Y\,\)是集合, 并且对于每个\(\,x\in X\,\)都存在\(\,y\in Y\,\)使得命题\(\,P(x,y)\,\)成立. 那么存在一个函数\(\,f\,:X\mapsto Y\,\), 使得
+对于一切\(\,x\in X\,\), \(\,P(x, f(x))\,\)成立.
+\end{enumerate}
+
+\begin{proof}
+两种表达形式之间的循环论证.
+\begin{description}
+\item{\(1\,\rightarrow\,2\)\quad}
+设\(\,Y_x=\{y\in Y, P(x,y)\to \true\}\,\), 由(1)知, \(\,\prod\limits_{x\in X}\,Y_x\,\)非空, 既存在有函数\(\,(y_x)_{x\in X}\,\), 对于一切\(\,x\in X\,\), \(\,P(x,y_x)\,\)成立.
+\item{\(2\,\rightarrow\,1\)\quad}
+设\(\,Y=\bigcup\limits_{\beta\in I}\,X_\beta\), \(\,P(\alpha,x)\,\)为真当且仅当\(\,x\in X_\alpha\,\), 由(2)可知存在\(\,f\,:I\mapsto Y\,\), 对于一切\(\,\alpha\in I\,\), 都有\(\,P(\alpha, x)\,\)成立.
+且可知\(\,f\in \prod\limits_{\alpha\in I}\,X_\alpha\,\), 故其非空.
+\end{description}
+\end{proof}
+\end{axiomOfChoice}

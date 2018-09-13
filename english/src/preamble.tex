@@ -7,47 +7,53 @@
 \geometry{tmargin=2cm, bmargin=2cm,
     rmargin=1.5cm, lmargin=1.5cm}
 
+\def\index@voc#1\relax{\index{#1}#1}
+
 % colors
 \definecolor{englishcolor}{rgb}{0.3, 0.6, 0.6}
-\definecolor{chinesecolor}{rgb}{0.5, 0.3, 0.6}
+\definecolor{chinesecolor}{rgb}{0.5, 0.25, 0.5}
 \definecolor{attcolor}{rgb}{0.5, 0.6, 0.7}
 \definecolor{descriprion}{rgb}{0.2, 0.3, 0.7}
 \definecolor{shortcolor}{rgb}{0.8, 0.7, 0.9}
 % styles
 \def\englishstyle{\tt\color{englishcolor}\large}
-\def\chinesestyle{\bf\color{chinesecolor}\small}
+\def\chinesestyle{\kaishu\color{chinesecolor}\small}
 \def\attstyle{\it\color{attcolor}}
 \def\english@phonetic@style{\tt\color{blue}\large}
 
 % English vocabulary environment
 \newcount\vocNum \vocNum=1
 \newcount\vocCount \vocCount=0
+\newcount\today@count
 \newenvironment{engvc}[1][$\dagger$]{% before
 \bgroup%
+\today@count-\vocCount%
 % insert tabs
 \newcommand{\shortdesc}[1]{\parindent=0pt\par%
 \small\color{shortcolor}\tt\leavevmode\hskip0em plus0pt minus 0pt##1}
 \newcommand{\linetab}[1]{\multicolumn{4}{|l|}{\hbox to.75\hsize{
     \hsize=.75\hsize\hskip2em\vbox{
     \medskip\parindent=0pt\leavevmode\shortdesc{##1}}}}\cr\hline}
-\newcommand{\word}[3]{\hbox{{\color{red}##1}\hskip1em{\color{blue}\textipa{[##2]}}\hskip1em{\color{black}##3}}\newline}
+\newcommand{\word}[3]{\index{##1}\hbox{{\color{red}##1}\hskip1em{\color{blue}\textipa{[##2]}}\hskip1em{\color{black}##3}}\newline}
 \newcommand{\dword}[1]{{\color{red}##1\hskip.5em\relax}}
-\newcommand{\phrase}[2]{\hbox{{\color{red}##1}\hskip1em\hskip1em{\color{black}##2}}\newline}
+\newcommand{\phrase}[2]{\index{##1}\hbox{{\color{red}##1}\hskip1em\hskip1em{\color{black}##2}}\newline}
 \def\crr{\cr\hline}
 \smallskip%
 \hbox to\hsize{\it\Large Vocabulary\ \the\vocNum.\qquad\leaders\vrule height.5ex depth-.4ex\hfill\qquad{\rm$\langle\,$#1$\,\rangle$}\hskip.05\hsize}
 \global\advance\vocNum\@ne
 \smallskip
 \begin{longtable}{|
-    >{\global\advance\vocCount\@ne\bgroup\englishstyle\hskip1em}p{0.22\hsize}<{\egroup} | %
-    >{\bgroup\english@phonetic@style\textipa\bgroup\quad[}p{0.22\hsize}<{]\hfil\egroup\egroup} | %
+    >{\global\advance\vocCount\@ne\bgroup\englishstyle\hskip1em}p{0.25\hsize}<{\egroup} | %
+    >{\bgroup\english@phonetic@style\textipa\bgroup\quad[}p{0.25\hsize}<{]\hfil\egroup\egroup} | %
     >{\bgroup\attstyle}p{0.1\hsize}<{\egroup} | %
-    >{\bgroup\chinesestyle}p{0.25\hsize}<{\egroup} |}
+    >{\bgroup\chinesestyle}p{0.28\hsize}<{\egroup} |}
     \hline
 }{%
 \hline
 \end{longtable}
 \vskip-1ex
+\advance\today@count\vocCount%
+\hbox to\hsize{\tt\hskip.1\hsize\color{google@red}Today \quad\leaders\vrule height.45ex depth-.4ex\hfill\quad\the\today@count\hskip.1\hsize}%
 \hbox to\hsize{\tt\hskip.1\hsize\color{red}Total \quad\leaders\vrule height.45ex depth-.4ex\hfill\quad\the\vocCount\hskip.1\hsize}
 \egroup%
 }
@@ -126,4 +132,30 @@
     {\color{google@red}\tt\normalsize #3\par}
 }}}
 
+% lyrics typeset
+%% ^^M macro
+\newbox\number@box
+\def\out@newline{%
+\par\advance\lyrics@linenum\@ne%
+\setbox\number@box\hbox{{\color{google@blue}\small\the\lyrics@linenum}}%
+\leavevmode\qquad\kern-\wd\number@box\unhbox\number@box\quad}%
+\def\exec@tok{\ifx\next@ch@r\vskip\relax\else\out@newline\fi}%
+{\catcode`\^^M\active \gdef^^M{\futurelet\next@ch@r\exec@tok}}
+%% ^^M end
+\def\blyrics#1{%
+\bgroup\everypar{} \tt\normalsize%
+\newcount\lyrics@linenum \lyrics@linenum=0%
+\hrule depth.3pt height.7pt\vskip1.2ex\relax%
+\hbox to\hsize{\hfill\bf\color{google@red} #1\hfill}
+\catcode`\^^M\active%
+\xx@@bbll
+}
+\let\elyrics\egroup
+\long\def\xx@@bbll#1\elyrics{#1%
+\vskip1.2ex\relax%
+\hrule depth.3pt height.7pt\relax%
+\egroup\vskip1ex}
+
 \catcode`@=12
+
+%\def\EXPERIMENT{}

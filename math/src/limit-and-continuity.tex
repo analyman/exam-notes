@@ -1,3 +1,85 @@
 \chapter{极限与连续}
+\def\unseq{{\ifmmode\,(a_n)_{n=1}^\infty\,\else\(\,(a_n)_{n=1}^\infty\,\)\fi}}
+\def\equalwith{{\ifmmode\quad\Longleftrightarrow\quad\else\(\quad\Longleftrightarrow\quad\)\fi}}
 
 \section{数列的极限}
+
+\newtheorem{bounded_sequence}[theorem_root]{\defn}
+\begin{bounded_sequence}[有界序列]
+序列\(\,(a_n)_{n=1}^\infty\,\)有界\(\quad\Longleftrightarrow\quad\)\(\forall\,n\in\mathbb{N},\hskip.5em\relax\exists\,N\in \mathbb{R}\,\), 使得\(\,a_n\le N\).
+\end{bounded_sequence}
+
+\newtheorem{superior}[theorem_root]{\defn}
+\begin{superior}[上确界]
+\(S\,\)是集合\(\,E\,\)的上确界\equalwith \(S\,\)是\(\,E\,\)的上界, 并且对于任何\(\,E\,\)的上界\(\,S^\prime\,\), 有\(\,S<S^\prime\)
+\end{superior}
+
+\newtheorem{inferior}[theorem_root]{\defn}
+\begin{inferior}[下确界]
+\(S\,\)是集合\(\,E\,\)的下确界\equalwith \(S\,\)是\(\,E\,\)的下界, 并且对于任何\(\,E\,\)的下界\(\,S^\prime\,\), 有\(\,S>S^\prime\)
+\end{inferior}
+
+\newtheorem{superma_of_sequence}[theorem_root]{\defn}
+\newtheorem{infima_of_sequence}[theorem_root]{\defn}
+\begin{superma_of_sequence}[序列的\(\,\sup\)]
+\((a_n)_{n=m}^\infty\,\)是实数序列, 称\(\,\sup\,(a_n)_{n=m}^\infty\,\)为集合\(\,\{a_n:\, n\ge m\}\)的上确界.
+\end{superma_of_sequence}
+\begin{infima_of_sequence}[序列的\(\,\inf\)]
+\((a_n)_{n=m}^\infty\,\)是实数序列, 称\(\,\inf\,(a_n)_{n=m}^\infty\,\)为集合\(\,\{a_n:\, n\ge m\}\)的下确界.
+\end{infima_of_sequence}
+
+\newtheorem{cauchy_sequence}[theorem_root]{\defn}
+\begin{cauchy_sequence}[Cauchy Sequence]
+\((a_n)_{n=1}^\infty\,\)为{\bf Cauchy Sequence}当且仅当, \(\forall\,\varepsilon>0, \exists\,N>1\), 
+使得\(\,n_1, n_2>N\,\)时有\(\,|a_{n_1}-a_{n_2}|<\varepsilon\).
+\end{cauchy_sequence}
+
+\newtheorem{existence_of_superior}[theorem_root]{\theorem}
+\begin{existence_of_superior}[实数系中最下上界的存在性]
+设\(\,{E}\,\)是\(\,\mathbb{R}\,\)的一个非空子集合, 如果\(\,{E}\,\)有上界, 那么它恰有一个上确界.
+\begin{proof}
+构造序列\(\,({m_n\over n})_{n=1}^\infty\,\), 使得\(\,{m_n\over n}\,\)是\(\,{E}\,\)的上界, 而\(\,{m_n-1\over n}\,\)不是.
+可以证明\(\,({m_n\over n})_{n=1}^\infty\,\)是柯西序列, 可以得到\(\,S:=\lim\limits_{n\to\infty}\,{m_n\over n}=%
+\lim\limits_{n\to\infty}\,{m_n - 1\over n}\,\),
+接着证明\(\,S\,\)是\(\,{E}\,\)的上确界.
+\end{proof}
+\end{existence_of_superior}
+
+对于有界的序列, 在完备的度量空间中, 即柯西序列收敛, 上确界和下确界总是存在(证明如下). 并且, 确界存在和柯西序列收敛
+是等价的. 有\quad 柯西序列收敛\equalwith 有界序列的上确界和下确界存在\equalwith 单调有界序列收敛\equalwith 数系完备. 
+
+\newtheorem{sequence_convergence}[theorem_root]{\defn}
+\begin{sequence_convergence}
+数列\(\,(a_n)_{n=1}^\infty\,\)收敛的等价定义
+\begin{enumerate}
+\item 存在实数\(\,a\,\), \(\forall\,\varepsilon>0, \exists\,N>0,\,\)使得当\(\,n>N\,\)时, \(|a_n - a|<\varepsilon\).
+\item 数列\((a_n)_{n=1}^\infty\,\)有界, 并且上极限等于下级限, 即\(\,\lim\,\sup\limits_{n\to\infty}\,a_n=\lim\,\sup\limits_{n\to\infty}\,a_n\)
+\item \((a_n)_{n=1}^\infty\,\)是柯西序列.
+\end{enumerate}
+\end{sequence_convergence}
+
+\newtheorem{limit_superior}[theorem_root]{\defn}
+\newtheorem{limit_inferior}[theorem_root]{\defn}
+\begin{limit_superior}[上极限 limit superior]
+序列\unseq 的上极限定义为, \(\,\limsup\limits_{n\to\infty}\,a_n\,:=\,\inf(\sup(a_n)_{n=n}^\infty)_{n=m}^\infty\)
+\end{limit_superior}
+\begin{limit_inferior}[下极限 limit inferior]
+序列\unseq 的下极限定义为, \(\,\liminf\limits_{n\to\infty}\,a_n\,:=\,\sup(\inf(a_n)_{n=n}^\infty)_{n=m}^\infty\)
+\end{limit_inferior}
+
+\newtheorem{limit_point}[theorem_root]{\defn}
+\begin{limit_point}[极限点]
+有序列\unseq, 称\(\,x\,\)是\unseq 的极限点, \(\forall\,\varepsilon>0\hskip.8em\relax\forall\,N>0,\,\exists\,m>N\), 使得\(\,|a_m - x|<\varepsilon\)
+\end{limit_point}
+
+\newtheorem{subsequences}[theorem_root]{\defn}
+\begin{subsequences}[子序列]
+设\unseq 和\(\,(b_n)_{n=1}^\infty\,\)是实数序列, \(\,(a_n)_{n=1}^\infty\,\)是\unseq 的子序列
+\equalwith \(\exists\,f:\,\mathbb{N}\mapsto\mathbb{N}\), 严格递增(\(n\in\mathbb{N}, f(n+1)>f(n)\)), 对于一切\(\,n\in\mathbb{N}\)
+\begin{align*}
+b_n = a_{f(n)}
+\end{align*}
+\end{subsequences}
+
+
+

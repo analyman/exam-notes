@@ -1,6 +1,20 @@
 \chapter{Grammar}
 
+\def\pronoun#1{{\tt\colorbox{gray@v}{#1}}}
+\long\def\demoline#1#2{{\parindent=0pt\relax\fbox{\hbox to\hsize{%
+\hbox to.65\hsize{\hsize=.63\hsize\colorbox{gray@x}{\it\vtop{\color{google@blue}#1}}}%
+\hskip.035\hsize\lower1.25ex\hbox to.3\hsize{\hsize=.29\hsize\relax\everypar{}\vtop{#2}}\hfill}}}}
+\def\specific#1{{\tt\colorbox{gray@v}{\color{google@green}#1}}}
+\def\outs#1{{\tt\colorbox{gray@c}{\color{google@red}#1}}}
+
+\bgroup
+% adjust paragraph
+\parskip=.8ex\relax
+\baselineskip=3.8ex\relax
+\lineskip=.9ex\relax
+
 \section{Clause}
+\index{clause}
 \makeatletter
 \newbox\b@xbigstar \setbox\b@xbigstar=\hbox{\scalebox{2}{$\star$}}
 \def\bigstar{{\copy\b@xbigstar}}
@@ -10,12 +24,13 @@
 And clause is an important and hard part in english grammar, so today I spend some
 time to learn and note something about clause.
 
-The different types of clause include \emph{Main clause(independent clause)} and 
-\emph{subodinate clause(dependent clause)}.
+The different types of clause include \emph{Main clause}(independent clause) and 
+\emph{subodinate clause}(dependent clause).
 The former can express complete meaning, and the latter are those that would be
 awkward or incomplete if the were alone.
 
 \section{subodinate clause}
+\index{subodinate clause}
 
 Firstly, we should know the kind of subodinate clause.\par
 {\leftskip=3em \medskip \tt \baselineskip=.8\baselineskip
@@ -32,6 +47,162 @@ Firstly, we should know the kind of subodinate clause.\par
 # adverbial clause
 \end{easylist}
 }
+
+\subsection{relative clause}
+\index{relative clause}
+
+Relative clauses in the English language are formed principally by means of relative pronouns.
+\index{relative pronouns}
+The basic relative pronouns are {\it who, which} and {\it that}, {\it who} also has the derivedc forms
+{\it whom} and {\it whose}. Various gramatical rules and style guides determine which relative
+pronouns may be suitable in various situations, especially for formal settings. In some cases the relative
+pronoun may be omitted and merely implied.
+
+Relative clauses are non-essential parts of a sentene. They may add meaning, but if they are removed, 
+the sentence will still funciton grammatically. There are two broad types of relative clauses in English. 
+It is important to distinguish between them because it affects the choice of pronoun 
+used to introduce the clause.
+
+The basic grammatical rules for the formation of relative clauses in English are given here.
+\begin{easylist}[tractatus]
+\ListProperties(FinalSpace=1em, Hang=true, Style*=\color{blue})
+# The basic \specific{relative pronouns} are \pronoun{who}, \pronoun{which} and \pronoun{that}.
+# The \specific{relative pronoun} comes at the very start of the relative clause unless it is preceded by 
+a fronted preposition. In informal use it is normal to slide the preposition to the \specific{end of the clause} 
+and leave it stranded. The relative clause may start with a larger phrase containing the relative pronoun 
+after a preposition.\newline
+\demoline{The bed \pronoun{on which} I was lying.}{formal use, preposition precede pronoun.}
+\demoline{The bed which I was lying on.}{informal use, sliding the preposition to end of clause.}
+\demoline{The bed, the owner \pronoun{of which} we had seen previously, ...}{large phrase \outs{the owner of which}}
+\demoline{The bed, lying on which was a small cat, ...}{large phrase \outs{lying on which}}
+# \pronoun{who} is used only with its antecedent referring to a person; 
+  \pronoun{which}, referring to a thing;
+  \pronoun{that}, referring to either a person or thing.
+# \pronoun{that} is used only in \specific{restrictive relative clauses}, and is not preceded
+by a comma; but \pronoun{who} and \pronoun{which} may be used in both \specific{restrictive} and
+\specific{non-restrictive clauses}, and may or may not take a comma. In some styles of formal 
+English, particularly American, using \pronoun{which} in \specific{restrictive clauses} is avoided
+where possible.
+# \pronoun{whom} is used only when its antecedent is the \outs{object} of the 
+\specific{relative clause}, but not when its antecedent is the \outs{subject} 
+of a sentence or clause.
+# when a \specific{preposition} in the \specific{relative clause} is paced in front,
+\outs{only} \pronoun{whom} or \pronoun{which} is used, and never acceptable is \pronoun{who}
+or \pronoun{that}.With informal style the \specific{preposition} is often dangled (or stranded),
+not fronted, and \pronoun{who} and \pronoun{that} may also be used; and \specific{zero relative pronoun}
+is frequently used in this situation.
+# when \pronoun{that} is used in a restrictive relative clause that is not fronted by
+a \pronoun{preposition}, and it is not the \outs{subject} of the relative clause, it may
+be omitted entirely.
+But any relative pronoun when used in a \specific{non-restrictive} relative clause must 
+not be ommitted, nor when its preposition is fronted, nor when its antecedent is the \outs{subject} of
+the \outs{relative} clause.\newline
+\demoline{The dentist \pronoun{(that)} I saw ...}{\pronoun{that} is the object of relative clause, and which can be omitted.}
+\demoline{My dentist, whom I saw, ...\newline My dentist, who spoke to me, ...}{In non-restrictive relative clause, pronoun must not be ommitted.}
+\demoline{The dentist that saw me ...\newline The dentist who saw me ...}{pronoun is subject of relative clause}
+#  The verb in relative clause takes the same \outs{persion}(firset, second, third) and \outs{number}(singular or plural) as that of the 
+antecedent of the relative pronoun.\newline
+\demoline{1. The people who were present ...\newline 2. I, who am normally very tolerant ...}{%
+First example, the antecedent of \pronoun{who} is peope(third persion, plural), 
+so ther verb to be takes its form (\outs{were}) for third person and plural number.\newline
+Second example, \pronoun{who}'s antecedent is the pronoun \outs{I}(first person, singular), so the verb to be takes its form \outs{am}.}
+\end{easylist}
+
+\begin{table}[H]
+\bgroup
+\long\def\crr{\cr\noalign{\hrule}}
+\halign\bgroup
+\vrule width1pt\strut\vbox{\vfill\hbox to.12\hsize\bgroup\hfill \pronoun{\large #} \hfill\egroup\vskip4ex}\vrule &%
+\bgroup\setbox0\hbox to.85\hsize\bgroup\vbox{\hsize=.8\hsize #}\egroup%
+\dimen0=\ht0 \advance\dimen0 by2ex\relax \ht0=\dimen0%
+\dimen0=\dp0 \advance\dimen0 by1.4ex\relax \dp0=\dimen0%
+\quad\box0\egroup\vrule width1pt\cr
+\noalign{\hrule depth.3pt height.7pt}
+that &
+\begin{enumerate}
+\baselineskip=.8\baselineskip
+\item used in \outs{both} human antecedent \outs{and} non-human antecedent.
+\item used \outs{only} in restrictive relative clause.
+\item \pronoun{that} can't be preceded by a fronted preposition.
+\item \pronoun{that} can be ommitted entirely when it's not the \outs{subject} of relative clause.
+\end{enumerate}
+\crr
+which &
+\begin{enumerate}
+\baselineskip=.8\baselineskip
+\item only used when antecedent is \outs{non-human}.
+\item can be used in non-restrictive relative clause, and mostly used in non-restrictive
+\newline relative clause.
+\item can be preceded by a \outs{fronted preposition}.
+\end{enumerate}
+\crr
+who & 
+\begin{enumerate}
+\baselineskip=.8\baselineskip
+\item used in non-restrictive relative clause
+\item used only when antecedent is human
+\item can't be preceded by a fronted preposition
+\item can refer to \outs{subject} or \outs{object} of relative clause
+\end{enumerate}
+\crr
+\noalign{\hrule depth.3pt height.7pt}
+\egroup\egroup
+\caption{Summary about relative pronoun}
+\end{table}
+
+
+
+\begin{table}[H]
+\bgroup
+\long\def\crr{\cr\noalign{\hrule}}
+\def\true{{$\angle$}}
+\def\false{{$\diamondsuit$}}
+\halign\bgroup
+\vrule width1pt\strut\vbox{\vskip1ex\hbox to.12\hsize\bgroup\hfill \pronoun{\large #} \hfill\egroup\vskip.5ex}\vrule &%
+%
+\vbox{\vskip.5ex\hbox to.11\hsize\bgroup\hfill \small\color{google@blue}#\hfill\egroup\vskip.5ex}\vrule &%
+\vbox{\vskip.5ex\hbox to.13\hsize\bgroup\hfill \small\color{google@blue}#\hfill\egroup\vskip.5ex}\vrule &%
+\vbox{\vskip.5ex\hbox to.11\hsize\bgroup\hfill \small\color{google@blue}#\hfill\egroup\vskip.5ex}\vrule &%
+\vbox{\vskip.5ex\hbox to.11\hsize\bgroup\hfill \small\color{google@blue}#\hfill\egroup\vskip.5ex}\vrule &%
+\vbox{\vskip.5ex\hbox to.11\hsize\bgroup\hfill \small\color{google@blue}#\hfill\egroup\vskip.5ex}\vrule &%
+\vbox{\vskip.5ex\hbox to.11\hsize\bgroup\hfill \small\color{google@blue}#\hfill\egroup\vskip.5ex}\vrule &%
+\vbox{\vskip.5ex\hbox to.11\hsize\bgroup\hfill \small\color{google@blue}#\hfill\egroup\vskip.5ex}\vrule &%
+\vbox{\vskip.5ex\hbox to.11\hsize\bgroup\hfill \small\color{google@blue}#\hfill\egroup\vskip.5ex}\vrule width1pt%
+%
+\cr
+\noalign{\hrule depth.3pt height.7pt}
+Class & restrictive & non-restrictive & human & non-human 
+& preposition & subject & object & ommitted\crr
+%
+that & \true & \false & \true & \true & \false & \true & \true & \true\crr
+%
+\noalign{\hrule depth.3pt height.7pt}
+\egroup\egroup
+\caption{Relative Pronoun Quick Summary}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{To For Of}
 
@@ -194,3 +365,7 @@ infinitive, in particular.
 ## free on rail.
 ## foreign
 \end{easylist}
+
+
+
+\egroup % accord with first \bgroup in this file

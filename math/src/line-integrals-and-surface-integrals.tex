@@ -1,0 +1,22 @@
+\chapter{曲线积分与曲面积分}
+
+\makeatletter
+\newcommand*\bigcdot{\mathpalette\bigcdot@{}}
+\newcommand*\bigcdot@[1]{\mathbin{\vcenter{\hbox{\scalebox{.55}{$#1\bullet$}}}}}
+\renewcommand\indexmarker{\bigcdot}
+\makeatother
+
+\section{散度与旋度}
+\newtheorem{divergence}[theorem_root]{\defn}
+\newtheorem{curl}[theorem_root]{\defn}
+
+\begin{divergence}[张量场函数的散度]
+有任意阶张量\(\,\tnsrbs{\bm{T}}{}=\tnsrbs{{T}}{^i^j^k_l_m_n}\,\), 定义\(\,\bm{T}\,\)的散度为
+\begin{align*}
+    \bm{T}\bigcdot\nabla &= {\partial\bm{T}\over\partial x_s}\bigcdot\bm{g}^s
+\end{align*}
+\end{divergence}
+
+\section{曲面积分}
+
+\section{曲线积分}
