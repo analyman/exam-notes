@@ -21,95 +21,57 @@
 \def\attstyle{\it\color{attcolor}}
 \def\english@phonetic@style{\tt\color{blue}\large}
 
-% English vocabulary environment
 \newcount\vocNum \vocNum=1
 \newcount\vocCount \vocCount=0
 \newcount\today@count
-\newenvironment{engvccc}[1][$\dagger$]{% before
-\bgroup%
-\today@count-\vocCount%
-% insert tabs
-\newcommand{\shortdesc}[1]{\parindent=0pt\par%
-\small\color{shortcolor}\tt\leavevmode\hskip0em plus0pt minus 0pt##1}
-\newcommand{\linetab}[1]{\multicolumn{4}{|l|}{\hbox to.75\hsize{
-    \hsize=.75\hsize\hskip2em\vbox{
-    \medskip\parindent=0pt\leavevmode\shortdesc{##1}}}}\cr\hline}
-\newcommand{\word}[3]{\index{##1}\hbox{{\color{red}##1}\hskip1em{\color{blue}\textipa{[##2]}}\hskip1em{\color{black}##3}}\newline}
-\newcommand{\dword}[1]{{\color{red}##1\hskip.5em\relax}}
-\newcommand{\phrase}[2]{\index{##1}\hbox{{\color{red}##1}\hskip1em\hskip1em{\color{black}##2}}\newline}
-\def\crr{\cr\hline}
-\smallskip%
-\hbox to\hsize{\it\Large Vocabulary\ \the\vocNum.\qquad\leaders\vrule height.5ex depth-.4ex\hfill\qquad{\rm$\langle\,$#1$\,\rangle$}\hskip.05\hsize}
-\global\advance\vocNum\@ne
-\smallskip
-\begin{longtable}{|
-    >{\global\advance\vocCount\@ne\bgroup\englishstyle\hskip1em}p{0.25\hsize}<{\egroup} | %
-    >{\bgroup\english@phonetic@style\textipa\bgroup\quad[}p{0.25\hsize}<{]\hfil\egroup\egroup} | %
-    >{\bgroup\attstyle}p{0.1\hsize}<{\egroup} | %
-    >{\bgroup\chinesestyle}p{0.28\hsize}<{\egroup} |}
-    \hline
-}{%
-\hline
-\end{longtable}
-\vskip-1ex
-\advance\today@count\vocCount%
-\hbox to\hsize{\tt\hskip.1\hsize\color{google@red}Today \quad\leaders\vrule height.45ex depth-.4ex\hfill\quad\the\today@count\hskip.1\hsize}%
-\hbox to\hsize{\tt\hskip.1\hsize\color{red}Total \quad\leaders\vrule height.45ex depth-.4ex\hfill\quad\the\vocCount\hskip.1\hsize}
-\egroup%
-}
 \def\example{{
-\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em $\spadesuit$ Example.} \newline}
+\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em $\spadesuit$ Example.}\newline}
 \def\defn{{
-\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em$\heartsuit$ Definition.} \newline\color{google@red}\tt\normalsize}
+\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em$\heartsuit$ Definition.}\newline\color{google@red}\tt\normalsize}
 \def\remark{{
-\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em$\diamondsuit$ Remark.} \newline\color{google@yellow}\tt\normalsize}
+\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em$\diamondsuit$ Remark.}\newline\color{google@yellow}\tt\normalsize}
 \def\relative{{
-\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em$\clubsuit$ Relative word and phrase.} \newline}
+\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em$\clubsuit$ Relative word and phrase.}\newline}
 \def\eng{\color{purple}\tt{\color{green}$\ddagger$}\quad}
 \def\chn{\hfill\color{dist@l}\tt}
 
-% English vocabulary environment ugly...
-\newenvironment{engvcold}[1][$\dagger$]{% before
-\bgroup%
-% insert tabs commands
-\newcommand{\shortdesc}[1]{\small{\bf\color{descriprion}\noindent\hskip-1.5em Description:}\par%
-{\color{shortcolor}\tt##1}}
-\newcommand{\linetab}[1]{\hline\multispan4\vrule width.9pt
-{\hbox to.60\hsize{\hsize=.60\hsize\quad\hskip1.5em\vbox{\medskip\shortdesc{##1}\vskip1.5ex}}}
-\vrule width.9pt\cr\hline}
-\newcommand{\word}[3]{\hbox{{\color{red}##1}\hskip1em{\color{blue}\textipa{[##2]}}\hskip1em{\color{black}##3}}\par}
-\newcommand{\phrase}[2]{\hbox{{\color{red}##1}\hskip1em\hskip1em{\color{black}##2}}\par}
-\smallskip%
-% title
-\hbox to\hsize{\hskip.5em\it\Large Vocabulary\ \the\vocNum.\quad\leaders\vrule height.5ex depth-.4ex\hfill\quad{\rm$\langle\,$#1$\,\rangle$}\hskip.03\hsize}
-\global\advance\vocNum\@ne
-\medskip
-% main
-\def\crr{\cr\hline}
-\halign\bgroup%
-    \vrule width.9pt\global\advance\vocCount\@ne
-          \hbox to.22\hsize{\quad\vbox{\englishstyle\vskip1.5ex\noindent ##\vskip1.5ex}\hfill\quad}&
-    \vrule\hbox to.22\hsize{\quad\vbox{\english@phonetic@style\vskip1.5ex\noindent\textipa{[##]}\vskip1.5ex}\hfill\quad}&
-    \vrule\hbox to.095\hsize{\quad\vbox{\attstyle\vskip1.5ex\noindent ##\vskip1.5ex}\hfill\quad}&
-    \vrule\hbox to.25\hsize{\quad\vbox{\chinesestyle\vskip1.5ex\noindent ##\vskip1.5ex}\hfill\quad}\vrule width.9pt\cr
-    \noalign{\hrule height.7pt depth.2pt}
-}{% after
-    \noalign{\hrule height.7pt depth.2pt}
-\egroup
-\egroup
+\newif\if@intword\@intwordfalse%
+\newdimen\baselineskip@holder%
+\newcommand\tword[3]{%
+\baselineskip@holder\baselineskip\baselineskip=0pt%
+\if@intword\relax\else\global\@intwordtrue\relax\tword@begin\fi%
+#1&#2&#3%
+\@ifnextchar\tword{\tword@cont}{\tword@stop}
+}
+\newcommand\tphrase[2]{%
+\baselineskip@holder\baselineskip\baselineskip=0pt%
+\if@intword\relax\else\global\@intwordtrue\relax\tword@begin\fi%
+#1\span\omit &#2%
+\@ifnextchar\tword{\tword@cont}{\tword@stop}
+}
+\def\tword@cont{\cr\relax}
+\def\tword@stop{\@ifnextchar\tphrase{\tword@cont}{\tword@stop@}}
+\def\tword@stop@{\cr\egroup\@ifnextchar\vskip{}{\smallskip}\global\@intwordfalse\baselineskip\baselineskip@holder}
+\long\def\tword@begin{%
+    \halign to\hsize\bgroup%
+    \strut{\tt\color{red}##} \quad&%
+    {\color{blue}\textipa{[##]}} \quad&%
+    {\parindent=0pt\vbox\bgroup\lishu\color{gray@h}##\egroup\hfill}\cr%
 }
 
 % 18-9-15 version of engvc environment
 \newbox\box@for@store
 \newenvironment{engvc}[1][$\dagger$]{% before
-\newpage%
 \bgroup%
+\newdimen\halve@pagegoal \halve@pagegoal.5\pagegoal%
+\ifnum\pagetotal>\halve@pagegoal\newpage\else\bigskip\fi%
 \today@count-\vocCount% get quantity of today's vocabulary
 %%% commands
 \long\def\linetab##1{%
     \noalign{\med@hrule}%
     \multispan4{\vrule width1pt\hbox to.85\hsize\bgroup%
     \hskip.08\hsize\vbox\bgroup\parindent=0pt\hsize=.75\hsize%
+    \tt\color{style@x}\kaishu%
     \vskip1.5ex\relax##1\vskip1.5ex%
     \egroup\egroup%
     \hfill\vrule width1pt\relax}\cr@rr%
