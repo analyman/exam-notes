@@ -25,7 +25,7 @@
 \newcount\vocNum \vocNum=1
 \newcount\vocCount \vocCount=0
 \newcount\today@count
-\newenvironment{engvc}[1][$\dagger$]{% before
+\newenvironment{engvccc}[1][$\dagger$]{% before
 \bgroup%
 \today@count-\vocCount%
 % insert tabs
@@ -98,6 +98,66 @@
 \egroup
 \egroup
 }
+
+% 18-9-15 version of engvc environment
+\newbox\box@for@store
+\newenvironment{engvc}[1][$\dagger$]{% before
+\newpage%
+\bgroup%
+\today@count-\vocCount% get quantity of today's vocabulary
+%%% commands
+\long\def\linetab##1{%
+    \noalign{\med@hrule}%
+    \multispan4{\vrule width1pt\hbox to.85\hsize\bgroup%
+    \hskip.08\hsize\vbox\bgroup\parindent=0pt\hsize=.75\hsize%
+    \vskip1.5ex\relax##1\vskip1.5ex%
+    \egroup\egroup%
+    \hfill\vrule width1pt\relax}\cr@rr%
+}
+\newcommand{\word}[3]{\index{##1}\hbox{{\tt\color{red}##1}\hskip1em{\color{blue}\tt\textipa{[##2]}}\hskip1em{\lishu\color{black}##3}}\@ifnextchar\vskip{}{\par}}
+\newcommand{\dword}[1]{{\color{red}##1\hskip.5em\relax}}
+\newcommand{\phrase}[2]{\index{##1}\hbox{{\tt\color{red}##1}\hskip1em\hskip1em{\lishu\color{black}##2}}\@ifnextchar\vskip{}{\par}}
+\def\crr{\@ifnextchar\linetab{\cr}{\cr@rr}}
+%%% end commands
+\hbox to\hsize{\it\Large Vocabulary\ \the\vocNum.\qquad\leaders\vrule height.5ex depth-.4ex\hfill\qquad{\rm$\langle\,$#1$\,\rangle$}\hskip.05\hsize}\nobreak%
+\global\advance\vocNum\@ne%
+\bigskip%
+\bhalign%
+}{%
+\ehalign%
+\vskip1ex%
+\advance\today@count\vocCount%
+\hbox to\hsize{\tt\hskip.1\hsize\color{google@red}Today \quad\leaders\vrule height.45ex depth-.4ex\hfill\quad\the\today@count\hskip.05\hsize}%
+\hbox to\hsize{\tt\hskip.1\hsize\color{red}Total \quad\leaders\vrule height.45ex depth-.4ex\hfill\quad\the\vocCount\hskip.05\hsize}
+\egroup%
+}
+
+%%% provide \bhalign and \ehalign
+\def\med@hrule{\hrule depth.3pt height.3pt\relax}
+\def\out@hrule{\hrule depth.4pt height.6pt\relax}
+\def\cr@rr{\cr\egroup\egroup%
+    \vbox{\vskip-2pt\out@hrule\unvbox\box@for@store\out@hrule}%
+    \setbox\box@for@store\vbox\bgroup\b@halign@%
+}
+\def\bhalign{\setbox\box@for@store\vbox\bgroup\b@halign@}
+\def\b@halign@{\halign\bgroup%
+    \vrule width1pt%
+    \global\advance\vocCount\@ne%
+    \strut\hbox to.28\hsize\bgroup\hskip2em\relax\vbox\bgroup%
+        \noindent\englishstyle##\egroup\egroup &%
+    \vrule%
+    \strut\hbox to.28\hsize\bgroup\hskip2em\relax\vbox\bgroup%
+        \noindent\english@phonetic@style\textipa{[##]}\egroup\egroup &%
+    \vrule%
+    \strut\hbox to.14\hsize\bgroup\hskip1em\relax\vtop\bgroup\noindent\attstyle##\vskip.5em\egroup\egroup &%
+    \vrule%
+    \strut\hbox to.30\hsize\bgroup\hskip1em\relax\vtop\bgroup\noindent\chinesestyle##\vskip.5em\egroup\egroup %
+    \vrule width1pt%
+    \cr%
+}
+\def\ehalign{\egroup\egroup}
+%%% end \hhalign and \ehalign
+% end 18-9-15 version of engvc environment
 
 % writing environment
 \newcount\writingNum \writingNum=1
