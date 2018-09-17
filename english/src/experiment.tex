@@ -4,11 +4,44 @@
 
 \makeatletter
 
-
 \tracingmacros=1
-\tword{Hello}{"hAlO}{你好}
-\tphrase{Hello World!}{你好世界!}
-\tword{Hello}{"hAlO}{你好}
+
+\def\big@para{\futurelet\big@nextchar\augment@char}
+\def\augment@char{%
+    \leavevmode\lower1ex\hbox{\Huge\big@nextchar}\omit@first}
+\def\omit@first#1{\relax}
+
+\everypar{\hskip-\parindent\big@para}
+Exectives and headhunters have adhered to the rule that 
+the most attractive CEO candidates are the ones who must be poached.
+
+Exectives and headhunters have adhered to the rule that 
+the most attractive CEO candidates are the ones who must be poached.
+
+Exectives and headhunters have adhered to the rule that 
+the most attractive CEO candidates are the ones who must be poached.
+
+Exectives and headhunters have adhered to the rule that 
+the most attractive CEO candidates are the ones who must be poached.\cite{impj}
+
 \tracingmacros=0
+
+
+\begin{thebibliography}{1}
+
+\bibitem{notes} John W. Dower {\em Readings compiled for History
+21.479.}  1991.
+
+\bibitem{impj}  The Japan Reader {\em Imperial Japan 1800-1945} 1973:
+Random House, N.Y.
+
+\bibitem{norman} E. H. Norman {\em Japan's emergence as a modern
+state} 1940: International Secretariat, Institute of Pacific
+Relations.
+
+\bibitem{fo} Bob Tadashi Wakabayashi {\em Anti-Foreignism and Western
+Learning in Early-Modern Japan} 1986: Harvard University Press.
+
+\end{thebibliography}
 
 \makeatother

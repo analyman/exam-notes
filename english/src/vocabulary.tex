@@ -1,5 +1,8 @@
 \chapter{Vocabulary}
 
+% seperator for pronunciation
+\def\sepe{\ifmmode\cdot\else$\cdot$\fi}
+\def\twocol#1#2{\hbox{\hsize=.6\hsize\vbox{#1}\relax\vbox{#2}}}
 %%%% amazing vscode vim plugin... I don't know when I press "vjkjj...u".
 %%% tipa
 \let\ca\textscripta%
@@ -463,7 +466,8 @@ toddlers & "t\ca dl\textrhookschwa & noun. & 学步的儿童\crr
 delight & d\ci "la\ci t & noun.\newline verb. & 高兴; 快乐\newline 使高兴\crr
 \linetab{
     \exx\eng \cs he clapped her hands in delight.\newline
-    \eng \cs he won the game easily, to the delight of all her fans.
+    \eng \cs he won the game easily, to the delight of all her fans.\newline
+    \eng Your visit yesterday delight us.
 }
 counterpart & "ka\cu nt\textrhookschwa p\ca rt & noun. & 职务相当的人; 对应物; 副本\crr
 mock & m\ca k & verb.\newline adj. \newline noun. & 嘲笑; 嘲弄\newline 仿制的; 虚假的\newline 模拟考试; 嘲弄\crr
@@ -516,6 +520,11 @@ turnaround & "t\textrhookschwa n\textrhookschwa a\cu nd & verb. & 转向; 好装
     \tword{upturn}{"\ca pt\textrhookschwa n}{好转; 转机}
 }
 intuition & ""\ci ntu"\ci \cs n & noun. & 直觉\crr
+\linetab{
+    \relative
+    \tword{intuitive}{In"tjuItIv}{直觉的}
+    \tword{intuit}{In"tuIt}{有直觉知道}
+}
 tuition & tu"\ci \cs n & noun. & 学费; 指导\crr
 instinct & "\ci n""st\ci \cn kt & noun. & 本能; 直觉\crr
 confuse & k@n"fjuz & verb. & 迷惑; 混淆\crr
@@ -576,6 +585,7 @@ product & "pr\ca d2kt & noun. & 产品; 产物; 成果; 数积\crr
     \tword{productive}{pr@"d2kt\ci v}{生产的; 多产的; 富有成效的}
     \tword{productivity}{""pr\ca d2k"t\ci v@ti}{生产力; 生产率}
     \tword{invention}{\ci n"v\ce n\cs @n}{发明}
+    \tword{reproduce}{""ripr@"dus}{繁殖; 复制}
 }
 mechanic & m\ci "k\ae n\ci k & noun. & 技工; 机械师\crr
 curtain & "k\textrhookschwa tn & noun. & 帷幕; 窗帘\crr
@@ -1030,7 +1040,9 @@ everlasting & ""ev\rse "l\ae sti\cn  & adj. & 永久的; 永恒的; 经久不变
 \linetab{
     \relative
     \tword{perpetual}{p\rse "pet\cs u@l}{持续的; 长久的}
-    \eng My life has been a perpetual nightmare.\newline
+    \texx{My life has been a perpetual nightmare.}
+    \tword{perpetuate}{p\rse"petSuet}{使永存; 使不朽}
+    \tword{perpetuity}{""p3rp@"tu@ti}{永恒; 永远(noun.)}
     \tword{eternal}{\ci "t\rse nl}{不朽的; 永久的}
     \tword{eternity}{\ci "t\rse n@ti}{永恒; 永生; 不朽}
     \tword{permanent}{"p\rse m@n@nt}{永久的; 持久的}
@@ -1063,6 +1075,7 @@ archaeological & ""\ca k\ci r"l\ca d\cz \ci kl & adj. &考古学的\crr
 }
 inexpressible & ""\ci n\ci ks"pr\ce s@b@l & adj. & 难以表达的; 无法形容的\crr
 thoroughly & "\ct \textrhookrevepsilon r@li & adv. & 彻底地; 完全地\crr
+thorough & "\ct\rse r@U & adv. & 彻底的; 完全的\crr
 contest & "k\ca ntest & noun.\newline verb. & 比赛; 竞赛\newline 竞争; 争夺; 争辩; 辩驳\crr
 \linetab{
     \relative
@@ -1471,9 +1484,26 @@ spiritual & "sp\ci r\ci t\cs u@l & adj. & 精神上的; 心灵上的\crr
     2. of or relating to religion or religious belief.
 }
 silver & "s\ci lv\rse & noun.\newline adj.\newline verb. & 银; 银色; 银器\newline 银的\newline 镀银\crr
+\linetab{
+    \relative
+    \twocol{
+    \tword{gold}{goUld}{金}
+    \tword{copper}{"kAp@}{铜}
+    \tword{iron}{"aI@rn}{铁}
+    \tword{steel}{stil}{钢}
+    }{%
+    \tword{brass}{br\ae s}{黄铜}
+    \tword{alloy}{"\ae l""OI}{合金}
+    \tword{bronze}{brAnz}{青铜}
+    \tword{metal}{"mEtl}{金属}
+    }
+}
 expense & \ci k"sp\ce ns & noun. & 费用; 开支\crr
 announcement & @"na\cu nsm@nt & noun. & 宣告; 通告\crr
 assertion & @"s\textrhookrevepsilon \cs n & noun. & 断言; 主张; 声明\crr
+\linetab{
+    \tword{assert}{@"s\textrhookrevepsilon t}{断言; 宣称; 坚持}
+}
 settle & "s\ce tl & noun. & 定居; 安顿; 解决\crr
 \linetab{
     \relative
@@ -1596,6 +1626,10 @@ envision & \ci n"v\ci \cz @n & verb. & 想象; 设想\crr
 }
 nasty & "n\ae sti & adj. & 丑陋的; 令人不愉快的; 下流的; 肮脏的\crr
 foe & fo\cu  & noun. & 敌人; 仇敌\crr
+\linetab{
+    \relative
+    \tword{toe}{toU}{脚趾; 脚尖(noun.) 用脚尖触; 动脚尖}
+}
 grease & gris & noun.\newline verb. & 油脂; 润滑油; 贿赂\newline 给...加润滑油; 贿赂\crr
 \linetab{
     \relative
@@ -1603,6 +1637,13 @@ grease & gris & noun.\newline verb. & 油脂; 润滑油; 贿赂\newline 给...�
     \tword{bribe}{bra\ci b}{贿赂(verb.) 贿赂物(noun.)}
 }
 sustainability & s@"sten@"b\ci l@ti & noun. & 可持续性; 耐久性\crr
+\linetab{
+    \relative
+    \tword{sustain}{s@"sten}{承受; 支撑; 维持}
+    \tword{sustainable}{s@"sten@bl}{可支撑的; 可以忍受的; 可持续的}
+    \tword{substance}{"s2bst@ns}{物质; 实质; 主旨; 要点}
+    \tword{substantial}{s@b"s\ae nS@l}{大量的; 实质的; 坚固的}
+}
 exclusionary & \ci k"sklu:\cz @nri & adj. & 排斥的; 排除在外的\crr
 \linetab{
     \exx
@@ -1632,7 +1673,12 @@ confer & k@n"f\rse & verb. & 授予; 赋予; 商讨\crr
 }
 impart & \ci m"p\ca rt & verb. & 传授; 给予; 告知\crr
 \linetab{
-    \exx\eng \ct o impart some advice.
+    \exx\eng \ct o impart some advice.\newline
+    \tword{impact}{"Im""p\ae kt}{影响; 冲击}
+    \tword{impair}{Im"per}{损害}
+    \tword{compart}{k@m"pAt}[分隔]
+    \tword{repair}{rI"per}{修理}
+    \tword{impartial}{Im"pArSl}{公平的; 无偏见的}
 }
 dolidarity & ""s\ca l@"d\ae r@ti & noun. & 团结; 一致; 休戚相关\crr
 avail & @"vel & verb.\newline noun. & 有用; 有益\crr
@@ -2061,6 +2107,10 @@ paralyze & "p\ae r@""laIz & verb. & 使麻痹; 使瘫痪; 使无效; 使停止�
 }
 paradise & "p\ae r@""daIs & noun. & 天堂; 伊甸园; 乐园\crr
 participate & p\ca r"tIsIpet & verb. & 参与; 参加\crr
+\linetab{
+    \relative
+    \tword{participant}{pAr"tIsIp@nt}{参与者; 参加者}
+}
 questionnaire & ""kwestS@"ner & noun. & 调查问卷; 调查表\crr
 \linetab{
     \exx\eng three years after joining the study, the women filled out a questionnaire about their happiness.
@@ -2353,6 +2403,9 @@ plateau & pl\ae"tO & noun. & 高原; 高地; 稳定的状态\crr
 }
 trolly & "trOli & noun. & 手推车; 有轨电车\crr
 chamber & "t\cs emb\rse & noun. & 房间; 大会议室; 议院\crr
+\linetab{
+    \exx\eng We are goning to make sure we are in the council chamber every time he speak.
+}
 deed & did & noun. & 行为; 事迹\crr
 \linetab{
     \exx\eng your deed must anserw to your words.
@@ -2448,6 +2501,10 @@ streamline & "strim"laIn & verb.\newline adj. & 使成流线型; 使合理化; �
 }
 premium & "primi@m & noun.\newline adj. & 保险费; 奖金; 额外费用; 溢价\newline 高价的; 优质的\crr
 conspiracy & k@n"spIr@si & noun. & 阴谋; 共谋\crr
+\linetab{
+    \relative
+    \tword{conspire}{k@n"spaI\rse}{阴谋策划; 协力促成}
+}
 overpass & "oUv\rse p\ae s & noun. & 立交桥; 天桥\crr
 sigh & saI & verb.\newline noun. & 叹气\newline 叹气\crr
 palace & "p\ae lIs & noun. & 宫殿; 王宫\crr
@@ -2532,6 +2589,8 @@ resent & r\ci "z\ce nt & verb. & 怨恨; 憎恨\crr
 \linetab{
     \relative
     \tword{resentment}{r\ci "z\ce ntm@nt}{怨恨; 愤恨}
+    \texx{The mere presence of a grape in the other chamber was enought to %
+    induce resentment in a female capuchin.}
     \tword{resentful}{r\ci "z\ce ntf@l}{愤慨的}
 }
 rubble & "r2b@l & noun. & 碎石; 瓦砾\crr
@@ -2621,6 +2680,16 @@ signtseeing & "sa\ci t""si\cn  & noun. & 观光; 游览\crr
     \eng go signtseeing.\newline
 }
 robe & ro\cu b &noun.\newline verb. & 长袍; 使穿上长袍\crr
+\linetab{
+    \relative
+    \twocol{
+    \tword{cape}{kep}{披风; 海角}
+    \tword{veil}{vel}{面纱; 覆盖; 遮挡; 隐匿}
+    }{%
+    \tword{toga}{"toUg@}{宽长袍; 参议院的职位}
+    \tword{cloak}{klOuk}{斗篷; 披风; 遮挡}
+    }
+}
 appreciative & @"pri\cs @t\ci v & adj. & 感激的; 欣赏的\crr
 \linetab{
     \relative
@@ -2635,6 +2704,7 @@ arrestee & \relax\rse r\ce s"ti & noun. & 被捕者\crr
 }
 reckless & "r\ce kl\ci s & adj. & 鲁莽的; 不计后果的\crr
 \linetab{
+    \relative
     \tword{reck}{rek}{顾忌}
 }
 revival & r\ci "va\ci v@l & noun. & 复兴; 复苏; 再生\crr
@@ -2801,6 +2871,9 @@ ego & "\ci go\cu  & noun. & 自我; 自负; 自尊心\crr
 fatigue & f@"tig & noun. & 疲乏; 劳累\crr
 vanish & "v\ae n\ci \cs  & verb. & 销声匿迹; 突然消失\crr
 harvest & "h\ca rv\ci st & noun.\newline verb. & 收获; 收成\newline 收割; 收获\crr
+\linetab{
+    \exx\eng In his new career as a restaurateur he has blossomed and harvested many awards.
+}
 hay & he & noun. & 干草\crr
 instill & \ci n"st\ci l & verb. & 逐步渗透; 逐渐灌输\crr
 \linetab{
@@ -2809,7 +2882,9 @@ instill & \ci n"st\ci l & verb. & 逐步渗透; 逐渐灌输\crr
 penetrate & "p\ce n@tret & verb. & 渗透; 看穿; 洞察\crr
 \linetab{
     \exx\eng We should penetrate the appearance to see the essence.\newline
-    \eng \ct he sun's radiation penetrate the skin.
+    \eng \ct he sun's radiation penetrate the skin.\newline
+    \eng Computers nowadays deeply penetrate into our daily life
+    and we can not do without them even for a minute.
 }
 mold & mold & noun.\newline verb. & 摸具; 霉菌\newline 制模; 塑造; 发霉\crr
 \linetab{
@@ -3108,7 +3183,9 @@ neurology & n\cu "r\ca l@d\cz  & noun. & 神经病学; 神经学\crr
 conservation & ""k\ca ns\rse"ve\cs n & noun. & 保护; 保存; 节约\crr
 \linetab{
     \exx\eng decreasing oil ocnsumption through conservation.\newline
-    \eng fashion conservation measures.\chn 制定保护措施
+    \eng fashion conservation measures.\chn 制定保护措施\newline
+    \eng Cheaper energy conservation techniques has been put into operation
+    in the developed world.
     \relative
     \tword{conservative}{k@n"s\rse vet\ci v}{保守的; 守旧的}
 }
@@ -3138,6 +3215,9 @@ elapse & \ci "l\ae ps & verb.\newline noun. & 逝去; 过去\newline 光阴逝�
 \linetab{
     \exx\eng \ct hey met again after an elapse of many years.\newline
     \eng With the elapse of time, it has faded from our memory.
+    \relative
+    \tword{collapse}{k@"l\ae ps}{\vtop{verb.\quad 崩溃; 倒塌; 坐下; 瓦解\newline noun.\quad 垮台; 身体的衰弱}}
+    \tword{eclipse}{I"klIps}{\vtop{noun.\quad 日或月食; 丧失; 没落\newline verb.\quad 遮避; 使黯然失色}}
 }
 blunder & "bl2nd\rse & noun.\newline verb. & 愚蠢的错误; 失误\newline 犯愚蠢的错误; 失误\crr
 crushingly & "kr2\cs \ci \cn li & adv. & 及其\crr
@@ -3169,6 +3249,9 @@ herd & h\textrhookrevepsilon d & noun.\newline verb. & 兽群; 牧群; 群众; �
     \eng We all herded on to the bus.
 }
 antenna & \ae n"t\ce n@ & noun. & 触角; 天线\crr
+\linetab{
+    \exx\eng The antenna for may car is broken.
+}
 sake & sek & noun. & 缘故; 理由\crr
 \linetab{
     \exx\eng He is away all year for the ssake of his work.\newline
@@ -3275,6 +3358,10 @@ exact & \ci g"z\ae kt & adj.\newline verb. & 精确的; 准确的\newline 强求
 moist & m\co \ci st & adj. & 潮湿的; 湿润的\crr
 \linetab{
     \exx\eng Winds from the sea are usually moist.
+    \tword{moist}{mOIst}{微湿, 侧重不干; 但不会湿的令人不快}
+    \tword{humid}{"hjumId}{空气特别的潮湿, 相对湿度大}
+    \tword{damp}{d\ae mp}{吸金或覆盖着一点水分, 表示潮湿的让人不舒服}
+    \tword{wet}{wet}{一般的潮湿}
 }
 priest & prist & noun. & 牧师; 神父; 教士\crr
 orientation & ""\co ri\ce n"te\cs @n & noun. & 方向; 定位; 取向\crr
@@ -3301,6 +3388,12 @@ stalk & st\co k & noun.\newline verb. & 茎; 柄; 梗\newline 跟踪; 偷偷接�
     \eng \ct he lion will often stalk its prey for hours.
 }
 stain & sten & noun.\newline verb. & 污点\newline 玷污\crr
+\linetab{
+    \relative
+    \tword{blot}{blAt}{污点(表示不好的)}
+    \tword{spot}{spAt}{点}
+    \tword{stain}{sten}{污渍}
+}
 astronaut & "\ae str@""n\co t & noun. & 宇航员\crr
 fracture & "fr\ae kt\cs \rse & noun.\newline verb. & 破裂; 骨折\newline 使断裂; 使骨折; 使分裂\crr
 \linetab{
@@ -3484,6 +3577,8 @@ hominid & "h\ca m\ci n\ci d & noun.\newline adj. & 原始人类\newline 人科�
 hindrance & "h\ci ndr@ns & noun. & 妨碍; 造成妨碍的人; 阻挠\crr
 \linetab{
     \exx\eng \ct o be honest, she was more of a hindrance than a help.
+    \relative
+    \word{hinder}{"hInd\rse}{\vtop{verb.\quad 妨碍; 阻碍\newline \ adj.\quad 后面的; 后方的}}
 }
 cruise & kruz & verb.\newline noun. & 乘船游览; 航游; 缓慢行进\newline 乘船游览; 航游\crr
 \end{engvc}
@@ -3804,6 +3899,10 @@ skeptical & "skeptIk@l & adj. & 怀疑的; 无神论地; 好怀疑的\crr
 quick-witted & "kwIk""wItId & adj. & 才思敏捷的; 聪敏的; 机智的\crr
 entrance & "Entr@ns & noun.\newline verb. & 入口; 进入; 到场\newline 使出神; 使入迷\crr
 slap & sl\ae p & verb.\newline noun. & 拍; 掴; 拍击\crr
+\linetab{
+    \relative
+    \tword{clap}{kl\ae p}{鼓掌(verb. noun.)}
+}
 therm & T3rm & noun. & 克卡; 小卡(热量单位)\crr
 \linetab{
     \relative
@@ -3926,6 +4025,7 @@ special & "spES@l & adj.\newline noun. & 特殊的; 专门的; 专用的; 重要
     \tword{specious}{"spiS@s}{似是而非的(adj.) 似是而非地(adv.)}
     \tword{specify}{"spEs@""faI}{指定; 详述; 提出...地条件; 明确提出}
     \tword{conspecific}{""kAnspI"sIfIc}{同种的(植物,动物)}
+    \tword{especially}{I"spES@li}{尤其; 特别; 专门}
 }
 stakeholder & "stekhoUld\rse & noun. & 利益相关者; 股东; 赌金保管者\crr
 standardize & "st\ae nd\rse daIz & verb. & 使合乎标准; 使合规格\crr
@@ -4111,4 +4211,337 @@ crow & kroU & noun.\newline verb. & 乌鸦; 雄鸡的啼声\newline 打鸣; 啼�
     \exx\eng The cock crows and the dawn chorus begins.\chn \word{chorus}{"kOr@s, "kor-}{合唱; 合唱歌}
     \eng We've seen them all crowing that the movement is dead.
 }
+outrage & "aUt"rEdZ & noun.\newline verb. & 暴行; 愤怒; 愤慨\newline 激怒; 使震怒\crr
+\linetab{
+    \exx\eng Indeed, if he has a reputation for slacking, you might even be outraged.
+}
+comply & k@m"plaI & verb. & 顺从; 遵守\crr
+speculate & "spEkj@""let & verb. & 推测; 思索; 投机\crr
+\linetab{
+    \exx\eng It would be pointless to specualte without any proof.
+}
+concise & k@n"saIs & adj. & 简明的; 简要的\crr
+indifferent & In"dIf@r@nt & adj. & 漠不关心的\newline 不注意的\crr
+\linetab{
+    \exx\eng His English is indifferent.
+}
+priority & praI"Or@ti & noun. & 先; 前; 优先权; 需优先考虑的事\crr
+statute & "st\ae tSut & noun. & 法令; 法规; 条例\crr
+\linetab{
+    \relative
+    \tword{state}{stet}{州; 国家; 情况; 资格(noun.)\newline 陈述; 说明(verb.)\newline 国家的; 正式的(adj.)}
+    \tword{statue}{"st\ae tSu}{雕像; 雕塑(noun.)\newline 用雕像装饰(verb.)}
+    \tword{status}{"st\ae ts, "stets}{地位; 身份; 情形; 状态}
+}
+tactics & "t\ae ktIks & noun. & 策略; 战术\crr
+\linetab{
+    \relative
+    \tword{tactic}{"t\ae ktIk}{按顺序的; 依次排列的(adj.)\newline 策略; 战术(noun.)}
+    \tword{tactical}{"t\ae ktIk@l}{战术的; 策略的; 善于策略的}
+    \tword{tactician}{t\ae k"tIS@n}{战术家; 谋士}
+}
+architect & "ArkItekt & noun. & 建筑师; 创制者; 设计者\crr
+grain & gren & noun. & 谷物; 颗粒\crr
+preach & pritS & verb. & 宣扬; 鼓吹; 布道\crr
+\linetab{
+    \exx\eng We preach freedom around the world.\par
+    \eng Self-help books preach the life-changing benefits of happiness.\tphrase{self-help book}{励志书籍}
+}
+reverse & rI"v\rse s & verb.\newline noun.\newline adj. & 使倒转; 使颠倒; 倒车; 撤销\newline 反面\newline 背面\crr
+\linetab{
+    \exx\eng Anyone can see this trend is unsustainable. Yet few seem willing to try to reverse it.
+}
+recurse & rI"k\rse s & verb. & 递归\crr
+\linetab{
+    \relative
+    \tword{recursion}{"rIk\rse S@n}{递归; 递归表达式}
+    \tword{iteration}{""It@"reS@n}{重复; 反复; 迭代}
+}
+precedent & "prEsId@nt & noun. & 先例; 前例\crr
+susceptible & s@"sEpt@b@l & adj. & 易受影响的\newline 易动感情的; 易受感染的\crr
+\linetab{
+    \relative
+    \tword{sensitive}{"sEnsItIv}{敏感的}
+    \tword{accessible}{\ae k"sEs@b@l}{易接近的; 可进入的; 可理解的}
+    \tword{impressionable}{Im"prES@n@b@l}{敏感的; 易受影响的}
+    \tword{vulnerable}{"v2ln@r@b@l}{易受伤害的}
+}
+proposal & pr@"poUzl & noun. & 建议; 提案; 求婚\crr
+somewhat & "s2mw2t & adv. & 有点; 稍微\crr
+hike & haIk & noun.\newline verb. & 徒步旅行; 远足; 升起; 增加\newline 徒步旅行; 远足; 升起; 增加\crr
+orient & "OrI@nt & noun.\newline adj.\newline verb. & 东方\newline 东方的\newline 使适应\crr
+council & "kaUns@l & noun. & 居委会; 政府服务机构\crr
+dictate & "dIktet & verb.\newline noun. & 听写; 口述; 要求\newline 命令; 指令; 指示\crr
+\linetab{
+    \exx\eng I had not realised how profoundly marketing trends 
+    dictated our perception of what is natural to kids.
+}
+profoundly & pr@"faUndli & adv. & 深深地; 深刻地\crr
+disastrous & dI"z\ae str@s & adj. & 灾难性的\crr
+\end{engvc}
+
+\begin{engvc}[18-9-16]
+waken & "we.k@n & verb. & 醒来； 唤醒\crr
+\linetab{
+    \relative
+    \tword{rouse}{raUz}{主动时态时, 强调弄醒别人的努力\newline 被动语态时, 指轻而易举的醒过来}
+    \tword{arouse}{@"raUz}{一般的唤醒}
+    \tword{awake}{@"kek}{真正的醒来; 可以用做及物动词和不及物动词}
+    \tword{waken}{"wek@n}{唤醒; 使觉醒}
+}
+tedious & "ti\sepe di\sepe @s & adj. & 冗长的; 沉闷的\crr
+ash & \ae S & noun. & 灰烬\crr
+deceit & dI\sepe sit & noun. & 欺骗; 欺诈\crr
+exempt & Ig"zEmpt & adj.\newline verb. & 被免除的; 被豁免的\newline 免除; 豁免\crr
+\linetab{
+    \exx\eng exempt from conviction on the charge of favoritism.
+}
+visionary & "vIZ@neri & adj.\newline noun. & 幻想的; 有远见的\newline 空想家; 有远见的人\crr
+\linetab{
+    \exx\eng The second half of the 20th century saw a collection of geniuses,
+    warriors and visionaries labor to create a fabulous machine.
+}
+lion & "laI@n & noun. & 狮子\crr
+\linetab{
+    \relative\index{动物}
+    \hbox{\hsize=.65\hsize
+    \vbox{
+    \tword{horse}{"hOrs}{马}
+    \tword{bear}{ber}{熊}
+    \tword{bee}{bi}{蜜蜂}
+    \tword{bird}{b3rd}{鸟}
+    \tword{dog}{dOg}{狗}
+    \tword{tiger}{"taIg\rse}{老虎}
+    \tword{elephant}{"El@f@nt}{大象}
+    \tword{rabbit}{"raIbIt}{兔子}
+    \tword{chick}{tSIk}{小鸡}
+    \tword{starfish}{"stArfIS}{海星}
+    \tword{swan}{swAn}{天鹅}
+    \tword{cock}{kAk}{雄鸡}
+    }
+    \relax
+    \vbox{
+    \tword{hen}{hEn}{母鸡}
+    \tword{fish}{fIS}{鱼}
+    \tword{cat}{k\ae t}{猫}
+    \tword{kitten}{"kItn}{小猫}
+    \tword{panda}{"p\ae nd@}{熊猫}
+    \tword{rat}{raIt}{耗子}
+    \tword{snake}{snek}{蛇}
+    \tword{ox}{Aks}{公牛}
+    \tword{sheep}{Sip}{羊}
+    \tword{lamb}{l\ae m}{羊羔}
+    \tword{monkey}{"m2Nki}{猴子}
+    \tword{pig}{pIg}{猪}
+    }
+    }
+}
+essay & "Ese & noun.\newline verb. & 散文; 文章\newline 尝试; 企图\crr
+horn & hOrn & noun. & 号角; 喇叭\crr
+locality & lO"k\ae l@ti & noun. & 地点; 地区\crr
+tame & tem & adj.\newline verb. & 养训的; 顺从的; 枯燥无味的\newline 驯养; 驯服; 使变得平淡\crr
+anxiety & \ae N"zaI@ti & noun. & 忧虑; 焦虑; 渴望\crr
+\linetab{
+    \exx\eng What's the origin of your anxiety?\newline
+    \eng Anxiety aged her overnight.
+}
+adjoin & @"dZOin & verb. & 临近; 毗邻\crr
+blossom & "blAs@m & verb.\newline noun. & 开花; 繁荣; 兴旺; 长成\newline 花; 群花; 开花时期; 兴旺时期\crr
+vaccine & v\ae k"sin & noun. & 疫苗\crr
+vaccum & "v\ae kjUm & noun.\newline verb.\newline adj. & 真空; 空虚\newline 用真空吸尘器打扫\newline 真空的\crr
+intrude & In"trud & verb. & 闯入; 打扰; 强使\crr
+estate & I"stet & noun. & 庄园; 财产; 房地产\crr
+\linetab{
+    \exx\eng property estate bubble.\newline
+    \eng His estate was divided among the children.
+}
+excerpt & "Eks\textrhookrevepsilon pt & noun.\newline verb. & 摘录; 摘要\newline 摘录; 引用\crr
+aural & "Or@l & adj. & 听觉的; 听的\crr
+imprison & Im"prIz@n & verb. & 监禁; 束缚\crr
+\linetab{
+    \exx\eng You can imprison my body but not my mind.\lower2.5ex\hbox{\quad-- I only need your body, LOL.}
+}
+scare & sker & verb.\newline noun.\newline adj. & 使惊恐; 使惊吓\newline 恐慌; 恐惧\newline 骇人的; 令人恐惧的\crr
+\linetab{
+    \relative
+    \tword{scar}{skAr}{\vtop{noun.\quad 伤疤; 精神上的创伤; 有损伤外观的地方; 断崖\newline verb.\quad 结疤; 留下伤疤}}
+    \tword{scary}{"skeri}{使人惊慌的; 胆小的; 可怕的}
+    \tword{scarecrow}{"skercroU}{(在田里吓鸟)稻草人; 邋遢的人; 骨瘦如柴的人}
+    \tword{sacred}{"sekrId}{宗教的; 神圣的; 庄严的}
+}
+embody & Im"bAdi & verb. & 体现; 使具体化; 包含\crr
+\linetab{
+    \exx\eng The proposal has been embodied in a draft resolution.
+    \relative
+    \tword{embodiment}{Im"bAdim@nt}{体现; 具体化; 化身}
+}
+reptile & "rEptaIl & noun.\newline adj. & 爬行动物\newline 爬虫类的\crr
+shortlist & "SOrtlIst & noun.\newline verb. & 最后候选人名单\newline 把...列入最后候选人名单\crr
+birthright & "b@T""raIt & noun. & 与生俱来的权利\crr
+couragous & k@"redZ@s & adj. & 勇敢的\crr
+poach & poUtS & verb. & 水煮; 偷猎; 盗用\crr
+\linetab{
+    \exx\eng Exectives and headhunters have adhered to the rule that 
+    the most attractive CEO candidates are the ones who must be poached.
+}
+scanty & "sk\ae nti & adj. & 欠缺的; 过小的; 少量的\crr
+\linetab{
+    \relative
+    \tword{scant}{sk\ae nt}{不足的; 少量的(adj.) 限制; 节省; 吝惜(verb.)}
+    \texx{This hole was a scant .23 inches in diameter.}
+}
+closet & "klAzIt & noun.\newline adj. & 壁橱; 储藏室\newline 隐藏的\crr
+psychoactive & ""saIkoU"\ae ktIv & adj. & 作用于心灵的; 影响精神的\crr
+\linetab{
+    \relative
+    \tword{psyche}{"saIki}{精神; 灵魂}
+    \tword{psychic}{"saIkIk}{精神的(adj.) 通灵的人(noun.)}
+    \tword{psychiatric}{""saIki"\ae trIk}{精神病学}
+    \tword{psychiatrist}{""saIkI"\ae trIst}{精神病科医生}
+    \tword{psycho}{"saIkoU}{精神病患者(noun.) 发疯的(adj.)}
+    \tword{psychology}{saI"kAl@dZ}{心理学}
+    \tword{psychological}{saI"kAl@dZIkl}{心理学的}
+    \tword{psychologist}{saI"kAl@dZIst}{心理学家}
+    \tword{psychoanalysis}{""saIkoU@"n\ae l@sIs}{精神分析}
+}
+yearning & "j\rse niN & noun.\newline adj.\newline verb. & 渴望; 向往\newline 渴望的; 向往的\crr
+\linetab{
+    \relative
+    \tword{yearn}{j3rn}{渴望; 渴求; 向往; 怀念}
+    \texx{Is it not in the nature of all human beings to yearn for freedom?}
+}
+abolish & @"bAliS & verb. & 取消; 废除; 废止\crr
+\linetab{
+    \exx\eng It takes a very long time to abolish classes.
+}
+neglect & nI"glEkt & verb. & 疏忽; 忽略\crr
+\linetab{
+    \relative
+    \tword{negligible}{"nEglIdZ@b@l}{微不足道的; 无足轻重的}
+    \tword{negligence}{"nEglIdZ@ns}{疏忽; 过失; 失职}
+}
+identification & aI""dEnt@fI"keS@n & noun. & 识别; 鉴定; 身份证明\crr
+\linetab{
+    \relative
+    \tword{identify}{aI"dEntI""faI}{识别; 鉴定; 确定}
+    \tword{identity}{aI"dEntIti}{身份; 恒等式}
+    \tword{identical}{aI"dEntIcl}{相同的}
+}
+obscure & @b"skjUr & adj.\newline verb. & 昏暗的; 不清楚的; 无名的\crr
+\linetab{
+    \exx\eng The legal issues in the case are obscure.
+}
+upscale & "2p""skel & adj. & 高消费的; 高档的\crr
+\linetab{
+    \exx\eng Journalists are more likely to live in upscale
+    neighborhoods, have maids, own Mercedeses, and trade stocks.
+}
+dazzle & "d\ae z@l & verb.\newline noun. & 使目眩; 使眼花; 使惊叹\newline 耀眼; 眩惑; 灿烂\crr
+serious & "sIri@s & adj. & 严肃的; 严重的; 庄重的; 认真的\crr
+\linetab{
+    \tword{earnest}{"3rnIst}{热心的; 真诚的; 重要的(adj.) 认真; 诚挚; 热心(noun.)}
+    \tword{grave}{grev}{\vtop{\ adj.\quad 严重的; 沉重的; 重大的\newline
+                              \ adv.\quad 严重地; 沉重地; 极慢地\newline
+                               noun.\quad 墓穴; 墓地; 下场; 死亡\newline
+                               verb.\quad 雕刻; 铭记}}
+    \texx{The magazine isn't trying to ruin his career, the man is digging his own grave by refusing an interview.}
+    \tword{severe}{sI"vIr}{严峻的; 严厉的; 剧烈的; 苛刻的}
+    \tword{solemn}{"sAl@m}{庄严的; 神圣的; 犹豫的; 阴沉的}
+    \tword{sober}{"soUb@}{\vtop{\ adj.\quad 头脑清醒的; 没醉的; 有节制的\newline verb.\quad 冷静; 清醒; 使严肃}}
+}
+accommodate & @"kAm@det & verb. & 容纳; 为...提供住宿; 适应\crr
+beast & bist & noun. & 兽; 凶残的人\crr
+setback & "sEt""b\ae & noun. & 退步; 挫折\crr
+immemorial & ""Im@"mOri@l & adj. & 古老的; 远古的\crr
+memorandum & ""mEm@"r\ae nd@m & noun. & 备忘录; 便签\crr
+significant & sIg"nIfIk@nt & adj. & 有意义的; 重大的\crr
+simple & "sImp@l & adj. & 简单的; 朴素的; 单纯的\crr
+\linetab{
+    \tword{sample}{"s\ae mpl}{样本}
+    \tword{simply}{"sImpli}{仅仅}
+    \tword{simplify}{"sImpl@""faI}{简化}
+    \tword{simplification}{""sImpl@f@"keS@n}{简单化}
+}
+bacterium & b\ae k"tIri@m & noun. & 细菌\crr
+\linetab{
+    \tword{germ}{dZ\rse m}{病菌; 萌芽}
+    \tword{virus}{"vaIr@s}{病毒}
+    \tword{fungus}{"f2Ng@s}{霉菌; 菌类; 真菌}
+}
+affiliate & @"fIli""et & verb.\newline noun. & 隶属于; 并入; 联合\newline 分公司; 附属机构\crr
+\linetab{
+    \exx\eng International affiliate account for a fast-growing segment of production in economies
+    that open up.
+}
+subsidiary & s@b"sIdI\rse li & adj.\newline noun. & 辅助的; 附属的; 次要的\newline 附属事物; 附属公司\crr
+chef & SEf & noun. & 主厨; 厨师长\crr
+encounter & In"kaUnt\rse & verb.\newline noun. & 遭遇; 遇到; 邂逅\newline 遭遇; 遭遇站\crr
+\linetab{
+    \exx\eng Women are outliving men in every country in the world, 
+    despite facing greater odds of encountering sexual violence.
+}
+militant & "mIlIt@nt & adj.\newline noun. & 激进的; 好战的\newline 激进; 好战\crr
+\linetab{
+    \exx\eng Our contry's education system is in grips of people who 
+    "joyfully and militantly proclain their hostility to intellect ..."
+}
+awkward & "Okw\rse d & adj. & 笨拙的; 别扭的; 难堪的\crr
+respective & rI"spektIv & adj. & 各自的; 各个的\crr
+\linetab{
+    \exx\eng They are recognized as specialists in their respective fields.
+}
+proposition & ""prAp@"zISn & noun. & 命题; 建议; 主张\crr
+\linetab{
+    \relative
+    \tword{propose}{pr@"poUz}{提议; 求婚; 举荐}
+    \tword{proposal}{pr@"poUzl}{建议; 提案; 求婚}
+    \tword{preposition}{""prEp@"zISN}{介词}
+}
+nervous & "n\rse v@s & adj. & 担忧的; 焦虑的; 紧张不安的; 神经系统的\crr
+bewilder & bI"wIld\rse & verb. & 使迷惑; 使...不知所措\crr
+\linetab{
+    \exx\eng My colleagues were bewildered by people who refused to act 
+    in accord with scientific recommendation.
+}
+bibliography & ""bIbli"Agr@fi & noun. & 参考书目; 书籍学; 文献学\crr
+biography & baI"Agr@ri & noun. & 传记\crr
+\linetab{
+    \exx\eng A biography is a form of narration.
+}
+comet & "kAm@t & noun. & 彗星\crr
+applause & @"plOz & noun. & 鼓掌; 喝彩\crr
+installaton & ""Inst@"leS@n & noun. & 安置; 装置物\crr
+liner & "laIn\rse & noun. & 邮轮; 客轮\crr
+cheif & tsIf & adj.\newline noun. & 主要的; 级别高的; 最重要的\newline 首长; 酋长\crr
+embark & Im"bArk & verb. & 上船; 上飞机; 从事\crr
+glory & "glOri & noun. & 荣誉; 光辉\crr
+pest & pEst & noun. & 害虫; 令人讨厌的物\crr
+\linetab{
+    \relative
+    \tword{pesticide}{"pEstI""saId}{杀虫剂}
+    \tword{paste}{pest}{浆糊; 酱(noun.) 张贴; 黏贴(verb.)}
+}
+infant & "Inf@nt & noun.\newline adj. & 婴儿; 幼儿\newline 婴儿的; 幼儿的; 初期的\crr
+relish & "rElIS & verb.\newline noun. & 喜欢; 享受; 从...获得乐趣\newline 享受; 乐趣; 调味品\crr
+bolt & boUlt & noun.\newline verb. & 插销; 螺栓; 闪电\newline 用插销栓上\crr
+abdomen & "\ae bd@m@n & noun. & 腹部\crr
+facilitate & f@"sIl@""tet & verb. & 使容易; 使便利; 促进; 帮助\crr
+\linetab{
+    \relative
+    \tword{facile}{"f\ae sl}{容易做的; 轻率做出的; 轻易可得的}
+    \tword{facility}{f@"sI@@ti}{便利}
+    \tword{factor}{"f\ae kt\rse}{\vtop{noun.\quad 要素; 动力; 因子\newline verb.\quad 把...考虑进去; 作代理商}}
+    \tword{benefactor}{"bEn@""f\ae kt\rse}{捐助者; 恩人}
+    \tword{benefaction}{"bEn@""f\ae kS@n}{善事; 恩惠}
+}
+waist & west & noun. & 腰\crr
+\linetab{
+    \relative
+    \tword{wrist}{rIst}{腕部}
+    \tword{breast}{brEst}{\vtop{noun.\quad 胸; 胸怀; 乳房\newline verb.\quad 升高; 攀登; 与...搏斗}}
+}
+\end{engvc}
+
+\begin{engvc}[18-9-17]
+magnify & "m\ae gn@fai & verb. & 放大; 扩大; 夸大\crr
 \end{engvc}
