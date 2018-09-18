@@ -32,7 +32,10 @@
 \backmatter
 \include{english-phonetic-table}
 
-\pdfbookmark[0]{索引}{index}
-\printindex
+\pdfbookmark[0]{index}{index}
+\pdfbookmark[1]{单词}{index}
+\printindex[\vocindex]
+\pdfbookmark[1]{短语}{index}
+\printindex[\phrindex]
 
 \end{document}

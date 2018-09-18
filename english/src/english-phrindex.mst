@@ -1,0 +1,8 @@
+encap_prefix "\\"
+encap_infix "{"
+encap_suffix "}"
+item_0 "\\ifhmode\\par\\fi\\bgroup\\color{black}\t"
+delim_0 "\\IndexDotfill"
+headings_flag 1
+heading_prefix "  \\IndexHeading{"
+heading_suffix "}\n"

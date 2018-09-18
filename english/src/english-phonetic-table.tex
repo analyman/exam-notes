@@ -50,7 +50,7 @@ j & j & h & h & r & r\crr
 \long\def\crr{\cr\noalign{\hrule}}
 \begin{table}[H]
 \halign{\vrule width.85pt
-\hbox to.1\hsize{\color{google@blue}\tt\strut\quad\hfill\textipa{#}\hfill} \vrule&
+\hbox to.1\hsize{\color{google@blue}\tt\strut\quad\hfill\hbox{\textipa{\=a #}}\hfill} \vrule&
 %\hbox{\vrule width0pt depth\strutboxdepth height\strutboxheight}\hskip.3em\relax\colorbox{littlegray}{\hbox to.2\hsize{\color{google@blue}\tt\strut\quad\hfill#\hfill}} \vrule&
 \hbox to.2\hsize{\color{google@blue}\tt\strut\quad\hfill#\hfill} \vrule&
 \hbox to.1\hsize{\color{google@red}\tt\strut\quad\hfill\textipa{#}\hfill} \vrule&
@@ -63,7 +63,7 @@ j & j & h & h & r & r\crr
 {\bf\large ABC} & {\bf\large \TeX} &
 {\bf\large ABC} & {\bf\large \TeX}\cr
 \noalign{\hrule height.6pt depth.25pt}
-{\tt \=e} & \string\=e & i & i & e & e\crr
+\=e & \string\=e & i & i & e & e\crr
 a & a & {\tt \"a} & \string\"a & {\tt \^O} & \string\^O\crr
 u & u & U & U & 2 & 2\crr
 @ & @ & eI & eI & aI & aI \crr
@@ -85,3 +85,29 @@ j & j & h & h & r & r\crr
 \caption{New Oxford American Dictionary phonetic table}
 \end{table}
 \egroup
+
+\makeatletter
+\def\column@one#1{\hbox to\hsize\bgroup\hfill\color{google@blue}\textipa{#1}\hfill\egroup}
+\def\column@two#1{\hbox to.5\hsize\bgroup\hfill\color{google@blue}#1\egroup}
+\def\column@thr#1{\hbox to\hsize\bgroup\hfill\color{google@red}\textipa{#1}\hfill\egroup}
+\def\column@for#1{\hbox to.5\hsize\bgroup\hfill\color{google@red}#1\egroup}
+
+\begin{table}
+\begin{longtable}{|%
+>{\bgroup}p{.15\hsize}<{\egroup} |%
+>{\bgroup}p{.30\hsize}<{\egroup} |%
+>{\bgroup}p{.15\hsize}<{\egroup} |%
+>{\bgroup}p{.30\hsize}<{\egroup} |%
+}%
+\hline
+\column@one{\=e} & \column@two{A} & 
+\column@one{\=e} & \column@two{A}\cr
+\hline
+\end{longtable}
+\end{table}
+
+\tracingmacros=1
+\u{bb} ab
+\tracingmacros=0
+
+\makeatother

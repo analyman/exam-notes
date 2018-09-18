@@ -2,6 +2,40 @@
 
 \input{\string~/texrc.tex}
 
+\begin{filecontents*}{\jobname.mst}
+delim_0 "\\IndexDotfill "
+delim_1 "\\IndexDotfill "
+headings_flag 1
+heading_prefix "  \\IndexHeading{"
+heading_suffix "}\n"
+\end{filecontents*}
+
+\definecolor{ocre}{HTML}{F16723}
+
+\newcommand*{\IndexDotfill}{%
+  \nobreak\dotfill\ \nobreak
+}
+\renewcommand*{\indexspace}{%
+  \par
+  \vspace{25pt plus 6pt minus 4pt}%
+}
+\newcommand*{\IndexHeading}[1]{%
+  \tikz\node[
+    rounded corners=5pt,
+    draw=ocre,
+    fill=ocre!10,
+    line width=1pt,
+    inner sep=5pt,
+    align=center,
+    font=\sffamily\bfseries\large,
+    minimum width=\linewidth-\pgflinewidth,
+  ] {#1};%
+  \nopagebreak
+  \par
+  \vspace{2mm}%
+}
+
+\makeindex[title=Index, columns=3]
 \geometry{tmargin=2cm, rmargin=2cm, bmargin=2cm, lmargin=2cm}
 
 \usetikzlibrary{positioning}

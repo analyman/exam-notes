@@ -2,7 +2,7 @@
 
 % seperator for pronunciation
 \def\sepe{\ifmmode\cdot\else$\cdot$\fi}
-\def\twocol#1#2{\hbox{\hsize=.6\hsize\vbox{#1}\relax\vbox{#2}}}
+\def\twocol#1#2{\hbox{\vbox{#1}\hskip-.65\hsize\relax\vbox{#2}}}
 %%%% amazing vscode vim plugin... I don't know when I press "vjkjj...u".
 %%% tipa
 \let\ca\textscripta%
@@ -91,8 +91,8 @@ save & sev& verb.\newline prep. \newline conj. & 保存; 拯救; 节省\newline 
 comrade& "k\ca mr\ae d& noun. & 同志; 伙伴\crr
 materialistic &m@""t\ci ri@"l\ci st\ci k& adj. & 唯物论的; 物质至上主义的\crr
 mysterious & m\ci 'st\ci ri@s& adj. & 神秘的\crr
-ginger\index{菜类} & "d\cz \ci nd\cz \textrhookschwa& noun. & 生姜\crr
-pepper\index{菜类} & "p\ce p\textrhookschwa & noun.\newline verb. & 胡椒粉\newline 使布满; 向...不断射击\crr
+ginger & "d\cz \ci nd\cz \textrhookschwa& noun. & 生姜\crr
+pepper & "p\ce p\textrhookschwa & noun.\newline verb. & 胡椒粉\newline 使布满; 向...不断射击\crr
 onion & "2nj@n& noun. & 洋葱\crr
 shallot & s@"l\ca t&noun.& 青葱； 大葱； 红葱头\crr
 leek & lik & noun. & 葱\crr
@@ -538,7 +538,7 @@ confuse & k@n"fjuz & verb. & 迷惑; 混淆\crr
 hostile & "h\ca stl & adj. & 敌对的; 敌意的\crr
 intrigue & "\ci n""trig & noun.\newline verb. & 阴谋诡计; 密谋策划\newline 密谋; 激起...的兴趣\crr
 stomach & "st2m@k & noun.\newline verb. & 胃部; 腹部\newline 忍受; 吃得下\crr
-\linetab{\index{器官}
+\linetab{
 \relative
     \tword{brain}{bren}{大脑}
     \tword{heart}{h\ca rt}{心脏}
@@ -619,7 +619,7 @@ average & "\ae vr\ci d\cz  & adj.\newline noun.\newline verb. & 平均的; 平�
 defendant & d\ci "f\ce nd@nt & noun.\newline adj. & 被告人; 被诉方\newline 被告的; 辩护的\crr
 \linetab{
     \relative
-    \hbox{\word{defend}{d\ci "f\ce nd}{防御; 防卫; 保卫}\quad defend \ca  on the grounds of B.}\newline
+    \tword{defend}{d\ci "f\ce nd}{防御; 防卫; 保卫}
     \tword{accuser}{@"kjuz\textrhookschwa}{原告}
     \tword{plaintiff}{"plent\ci f}{原告; 起诉人}
 }
@@ -690,9 +690,12 @@ delicate & "d\ce l\ci k\ci t & adj. & 易损的; 娇嫩的; 纤细的; 微妙的
 dismiss & d\ci s"m\ci s & verb. & 解雇; 解散; 不理会; 驳回\crr
 \linetab{
     \relative
-    \hbox to\hsize{\word{eliminate}{\ci "l\ci m\ci net}{消除; 淘汰}\chn 例行的去掉某人或某物}\newline
-    \hbox to\hsize{\word{expel}{\ci ks"p\ce l}{驱逐; 开除; 排出}\chn 强行解除公职或驱出住地}\newline
-    \hbox to\hsize{\word{discharge}{d\ci s"t\cs \ca rd\cz }{放出; 排出; 开除(verb. noun.)}\chn 有理由的解雇, 不再雇用}
+    \tword{eliminate}{\ci "l\ci m\ci net}{消除; 淘汰}
+    \texx{\chn 例行的去掉某人或某物}
+    \tword{expel}{\ci ks"p\ce l}{驱逐; 开除; 排出}
+    \texx{\chn 强行解除公职或驱出住地}
+    \tword{discharge}{d\ci s"t\cs \ca rd\cz }{放出; 排出; 开除(verb. noun.)}
+    \texx{\chn 有理由的解雇, 不再雇用}
 }
 inform & \ci n"f\co rm & verb. & 通知; 告知\crr
 \linetab{
@@ -704,9 +707,12 @@ inform & \ci n"f\co rm & verb. & 通知; 告知\crr
 situation & ""s\ci t\cs u"e\cs @n & noun. & 情况; 形式; 情境\crr
 \linetab{
     \relative
-    \hbox to\hsize{\word{circumstance}{"s\textrhookrevepsilon k@mst\ae ns}{环境; 情况}\chn 指周围的情况或者某事发生时的情况}\newline
-    \hbox to\hsize{\word{condition}{k@n"d\ci \cs @n}{状态; 条件; 环境; 保养; 护理}\chn 强调产生影响的原因或环境}\newline
-    \hbox to\hsize{\word{status}{"st\ae t@s}{地位; 身份; 状况; 状态}\chn 指一个人在社会,政治,经济,法律上的地位, 暗含地位显要}\newline
+    \tword{circumstance}{"s\textrhookrevepsilon k@mst\ae ns}{环境; 情况}
+    \texx{\chn 指周围的情况或者某事发生时的情况}
+    \tword{condition}{k@n"d\ci \cs @n}{状态; 条件; 环境; 保养; 护理}
+    \texx{\chn 强调产生影响的原因或环境}
+    \tword{status}{"st\ae t@s}{地位; 身份; 状况; 状态}
+    \texx{\chn 指一个人在社会,政治,经济,法律上的地位, 暗含地位显要}
 }
 employ & \ci m"pl\co i & verb. & 雇佣; 使用\crr
 \linetab{
@@ -860,6 +866,8 @@ simulation & ""s\ci mj@"le\cs & noun. & 模拟; 仿真\crr
     \tword{stimulate}{"st\ci mjulet}{刺激; 激励}
     \tword{imitate}{"\ci m\ci tet}{模仿; 效仿}
     \tword{intimate}{"\ci nt@m\ci t}{\vbox{暗示; 提示; 宣布(verb.) 亲密地; 熟悉地; 私人地; 性关系地(adj.) 密友(noun.)}}
+    \tword{intimidate}{In"tImI""det}{胁迫; 威胁; 恐吓}
+    \tword{timid}{"tImId}{胆小的}
 }
 scandal & "sk\ae ndl & noun. & 丑闻; 丑行\crr
 skim & sk\ci m & verb. & 略读; 掠过\crr
@@ -1458,7 +1466,6 @@ journalist & "d\cz \rse n@l\ci st & noun. & 新闻记者\crr
 \ct hanksgiving & \ct \ae \cn ks"g\ci vi\cn  & noun. & 感恩节\crr
 \linetab{
     \relative
-    \index{节日}
     \tphrase{\cn ew Year's \cd ay}{元旦}
     \tphrase{Valentine"s \cd ay}{情人节}
     \tphrase{\ca pril Fool's \cd ay}{愚人节}
@@ -1634,6 +1641,7 @@ grease & gris & noun.\newline verb. & 油脂; 润滑油; 贿赂\newline 给...�
 \linetab{
     \relative
     \tword{lubricate}{"lubr\ci ""ket}{润滑(verb.)}
+    \tword{lubricant}{"lubrIk@nt}{润滑的}
     \tword{bribe}{bra\ci b}{贿赂(verb.) 贿赂物(noun.)}
 }
 sustainability & s@"sten@"b\ci l@ti & noun. & 可持续性; 耐久性\crr
@@ -1673,10 +1681,11 @@ confer & k@n"f\rse & verb. & 授予; 赋予; 商讨\crr
 }
 impart & \ci m"p\ca rt & verb. & 传授; 给予; 告知\crr
 \linetab{
-    \exx\eng \ct o impart some advice.\newline
+    \exx\eng \ct o impart some advice.
+    \relative
     \tword{impact}{"Im""p\ae kt}{影响; 冲击}
     \tword{impair}{Im"per}{损害}
-    \tword{compart}{k@m"pAt}[分隔]
+    \tword{compart}{k@m"pAt}{分隔}
     \tword{repair}{rI"per}{修理}
     \tword{impartial}{Im"pArSl}{公平的; 无偏见的}
 }
@@ -3220,6 +3229,9 @@ elapse & \ci "l\ae ps & verb.\newline noun. & 逝去; 过去\newline 光阴逝�
     \tword{eclipse}{I"klIps}{\vtop{noun.\quad 日或月食; 丧失; 没落\newline verb.\quad 遮避; 使黯然失色}}
 }
 blunder & "bl2nd\rse & noun.\newline verb. & 愚蠢的错误; 失误\newline 犯愚蠢的错误; 失误\crr
+\linetab{
+    \exx\eng It was seen as a blunder, he said. The move turned out to be forsignted.
+}
 crushingly & "kr2\cs \ci \cn li & adv. & 及其\crr
 \linetab{
     \relative
@@ -4183,7 +4195,7 @@ compatible & k@m"p\ae t@b@l & adj. & 兼容的; 可和谐共存的\crr
                                                 verb.\quad 压紧; 使变紧; 简洁; 简化\newline
                                                 noun.\quad 协议; 条约; 小汽车; 带镜小粉盒}}
 }
-virtual & "v\rse tSu@l & adj. & 几乎的; 实际上的; 事实上的; 虚拟的(计算机用语)\crr
+virtual & "v\rse tSu@l & adj. & 几乎的; 虚拟的(计算机用语)\crr
 \linetab{
     \exx\eng Compare the explosion and accessibility of digital information with
     the establishment of automobile use as a virtual necessity.
@@ -4208,7 +4220,7 @@ crow & kroU & noun.\newline verb. & 乌鸦; 雄鸡的啼声\newline 打鸣; 啼�
     \tword{crew}{kru}{全体人员}
     \tword{clown}{klaUn}{小丑}
     \tword{chew}{tSu}{嚼}
-    \exx\eng The cock crows and the dawn chorus begins.\chn \word{chorus}{"kOr@s, "kor-}{合唱; 合唱歌}
+    \exx\eng The cock crows and the dawn chorus begins.\tword{chorus}{"kOr@s, "kor-}{合唱; 合唱歌}
     \eng We've seen them all crowing that the movement is dead.
 }
 outrage & "aUt"rEdZ & noun.\newline verb. & 暴行; 愤怒; 愤慨\newline 激怒; 使震怒\crr
@@ -4303,9 +4315,8 @@ visionary & "vIZ@neri & adj.\newline noun. & 幻想的; 有远见的\newline 空
 }
 lion & "laI@n & noun. & 狮子\crr
 \linetab{
-    \relative\index{动物}
-    \hbox{\hsize=.65\hsize
-    \vbox{
+    \relative
+    \twocol{
     \tword{horse}{"hOrs}{马}
     \tword{bear}{ber}{熊}
     \tword{bee}{bi}{蜜蜂}
@@ -4318,9 +4329,7 @@ lion & "laI@n & noun. & 狮子\crr
     \tword{starfish}{"stArfIS}{海星}
     \tword{swan}{swAn}{天鹅}
     \tword{cock}{kAk}{雄鸡}
-    }
-    \relax
-    \vbox{
+    }{
     \tword{hen}{hEn}{母鸡}
     \tword{fish}{fIS}{鱼}
     \tword{cat}{k\ae t}{猫}
@@ -4333,7 +4342,6 @@ lion & "laI@n & noun. & 狮子\crr
     \tword{lamb}{l\ae m}{羊羔}
     \tword{monkey}{"m2Nki}{猴子}
     \tword{pig}{pIg}{猪}
-    }
     }
 }
 essay & "Ese & noun.\newline verb. & 散文; 文章\newline 尝试; 企图\crr
@@ -4440,7 +4448,7 @@ dazzle & "d\ae z@l & verb.\newline noun. & 使目眩; 使眼花; 使惊叹\newli
 serious & "sIri@s & adj. & 严肃的; 严重的; 庄重的; 认真的\crr
 \linetab{
     \tword{earnest}{"3rnIst}{热心的; 真诚的; 重要的(adj.) 认真; 诚挚; 热心(noun.)}
-    \tword{grave}{grev}{\vtop{\ adj.\quad 严重的; 沉重的; 重大的\newline
+    \tword{grave}{grev}{\vtop{  adj.\quad 严重的; 沉重的; 重大的\newline
                               \ adv.\quad 严重地; 沉重地; 极慢地\newline
                                noun.\quad 墓穴; 墓地; 下场; 死亡\newline
                                verb.\quad 雕刻; 铭记}}
@@ -4529,7 +4537,7 @@ facilitate & f@"sIl@""tet & verb. & 使容易; 使便利; 促进; 帮助\crr
 \linetab{
     \relative
     \tword{facile}{"f\ae sl}{容易做的; 轻率做出的; 轻易可得的}
-    \tword{facility}{f@"sI@@ti}{便利}
+    \tword{facility}{f@"sI@@ti}{便利; 设备; 能力}
     \tword{factor}{"f\ae kt\rse}{\vtop{noun.\quad 要素; 动力; 因子\newline verb.\quad 把...考虑进去; 作代理商}}
     \tword{benefactor}{"bEn@""f\ae kt\rse}{捐助者; 恩人}
     \tword{benefaction}{"bEn@""f\ae kS@n}{善事; 恩惠}
@@ -4544,4 +4552,168 @@ waist & west & noun. & 腰\crr
 
 \begin{engvc}[18-9-17]
 magnify & "m\ae gn@fai & verb. & 放大; 扩大; 夸大\crr
+\linetab{
+    \exx\eng image we present is magnified by social-media services.
+}
+abide & @"baId & verb. & 遵守; 服从; 容忍; 忍受; 居住; 逗留\crr
+\linetab{
+    \exx\eng I cannot abide such a loud noise.
+}
+outbreak & "aUt""brek & noun. & 爆发; 发作\crr
+expend & Ik"spEnd & verb. & 花费; 消耗\crr
+\linetab{
+    \exx\eng You expand so much effort for so little return.
+}
+gigantic & dZaI"g\ae ntIk & adj. & 巨大的; 庞大的\crr
+occupy & A"kjupaI & verb. & 占领; 从事; 使用; 任职\crr
+\linetab{
+    \relative
+    \tword{occupation}{""Akju"peSn}{占领; 占有; 职业; 消遣}
+    \texx{You discover that we are in a period of unprecedented calm with comparatively
+    few jobs shifting between occupations.}
+    \tword{occupied}{"AkjupaId}{已占有的; 无空闲的; 使用中的}
+    \tword{occupancy}{""Akj@p@nsi}{居住; 占有; 占用}
+    \tword{occupant}{"Akj@p@nt}{居住人; 占有者}
+}
+massacre & "m\ae s@ k\rse & verb.\newline noun. & 屠杀\newline 大屠杀\crr
+trace & tres & noun.\newline verb. & 痕迹; 轨迹; 微量\newline 追踪; 追溯; 找出根源\crr
+\linetab{
+    \exx\eng One difficulty is that almost all of what is called behavioral science 
+    coutinues to trace behavior to state of mind.
+}
+unprecedented & 2n"prEsI""dEntId & adj. & 前所未有的; 空前的; 崭新的\crr
+avert & @"v\rse t & verb. & 转开; 避免; 防止\crr
+\linetab{
+    \exx\eng The government fail to avert a national strike.
+}
+utilize & "juti""aIz & verb. & 利用\crr
+\linetab{
+    \relative
+    \tword{utility}{ju"tIl@ti}{效用; 有用的物体或器械}
+    \texx{%
+        1. Belief in utility of higher education is shared by students nationwide.\newline
+        2. The utility was entering a new and uncharted territory.\newline
+        3. The ware is suitable for decorative purpose but unsuitable for utility.
+    }
+    \tword{utilization}{""jutIlaI"zeS@n}{利用; 效用}
+    \texx{
+        1. Computers are found an increasely wide utilization in all fields.\newline
+        2. Some of characters and questionn on the current utilization of 
+           resources were dicussed and analysed.
+    }
+    \tword{utilitarian}{""jutIlI"teri@n}{实用的; 功利的(adj.) 功利主义者; 实用主义者(noun.)}
+}
+meantime & "min""taIn & adv.\newline noun. & 与此同时\newline 其间; 其实\crr
+offend & @"fEnd & verb. & 冒犯; 得罪; 违反; 犯罪\crr
+dimension & dI"mEnS@n & noun. & 尺寸; 维度\crr
+venture & "vEntS\rse & verb.\newline noun. & 冒险; 投机\newline 冒险事业; 商业冒险; 投机\crr
+\linetab{
+    \exx\eng May I venture to suggest a change.
+}
+therapy & "TEr@pi & noun. & 治疗; 疗法\crr
+ventilate & vEntIlet & verb. & 使通风; 公开表达\crr
+\linetab{
+    \exx\eng He began to ventilate his opinion angrily.
+}
+justify & "dZ2st@"fai & verb. & 替...辩护; 证明...正当\crr
+\linetab{
+    \exx\eng Dno't try to justify your mistakes.
+}
+masterpiece & "m\ae st\rse pis & noun. & 杰作; 名著\crr
+decisive & dI"saIsIv & adj. & 决定性的\crr
+weld & wEld & verb.\newline noun. & 焊接\newline 焊接\crr
+\linetab{
+    \relative
+    \tword{wild}{waIld}{野生的; 野蛮的}
+    \tword{wield}{wIld}{使用; 行使; 施加}
+}
+journey & "dZ\rse ni & noun. & 旅行; 旅程\crr
+\linetab{
+    \relative
+    \tword{journal}{"dZ\rse n@l}{杂志}
+    \tword{journalist}{"dZ\rse n@lIst}{新闻记者}
+    \tword{journalism}{"dZ\rse n@lIz@m}{新闻业}
+}
+rally & "r\ae li & verb.\newline noun. & 集合起来; 振作; 复苏\newline 集会\crr
+\linetab{
+    \exx\eng At ralies and in town hall meetings, liberal Democrats have pressed 
+    lawmakers to support the creation of a single-payer system.
+}
+illusion & I"lud@n & noun. & 错觉; 幻觉\crr
+illusionary & I"lud@neri & adj. & 错觉的; 幻影的\crr
+majority & m@"dZOr@ti & noun. & 大多数; 大部分\crr
+\linetab{
+    \relative
+    \tword{minority}{maI"nOr@ti}{少数; 少数民族; 未成年}
+    \tword{major}{"medZ@}{主要的(adj.) 主修科目(noun.) 兼修(verb.)}
+    \tword{minor}{maIn\rse}{次要的; 未成年的; 辅修的}
+}
+lag & l\ae g & verb.\newline noun. & 缓慢移动; 滞后\newline 时间间隔\crr
+genre & "ZAnr@ & noun. & 类型; 体裁\crr
+\linetab{
+    \exx\eng My favorite music genre is blues.
+}
+savage & "s\ae wIdZ & adj.\newline noun.\newline verb. & 野性的; 凶猛的; 荒野的\newline 野蛮人; 粗人; 凶猛的人\newline 凶狠的攻击; 激烈抨击\crr
+\linetab{
+    \exx\eng He like savege mountain scenery.\newline
+    \eng They look at an aranic being as a savage looks at a ship,
+    as at something wholly beyong his comprehension.
+}
+quest & kwEst & verb.\newline noun. & 探求; 追求; 搜寻之物\newline 寻找; 进行探求\crr
+worship & "w\rse SIp & noun.\newline verb. & 崇拜; 崇敬; 礼拜\newline 崇拜; 崇敬; 做礼拜\crr
+\end{engvc}
+
+\begin{engvc}[18-9-18]
+bellicose & "belIkoUs & adj. & 好战的； 好斗的\crr
+flap & fl\ae p & noun.\newline verb. & 扁平物; 拍打; 拍打声; 不安; 恐慌\newline 轻拍; 摆动\crr
+trump & tr2mp & noun.\newline verb. & 王牌\newline 胜过\crr
+terrace & "tErIs & noun. & 阳台; 台阶\newline 把...修成梯田\crr
+gospel &  "gAspl & noun.\newline adj. & 福音; 真理; 信条\newline 传播福音的\crr
+affinity & @"fInIti & noun. & 亲密关系; 吸引力; 类似; 近似\crr
+chronic & "krAnIk & adj. & 慢性的; 长期的\crr
+parallax & "p\ae r@"l\ae ks & noun. & 视差角度\crr
+mop & mAp & noun.\newline verb. & 拖把\newline 擦拭\crr
+mite & maIt & noun. & 小虫; 极少量; 小孩子\crr
+denouement & ""denu"maN & noun. & 结局\crr
+abet & @"bEt & verb. & 怂恿; 支持; 教唆\crr
+fecund & "fEk@nd & adj. & 肥沃的; 富饶的; 多产的\crr
+radish & "r\ae dIS & noun. & 小萝卜\crr
+groggy & "grAgi & adj. & 不稳定的; 不会的; 摇摆的\crr
+abridge & @"brIdZ & verb. & 缩短; 节略; 减少\crr
+erect & I"rEkt & adj.\newline verb. & 使直立; 竖起来\newline 直立的; 垂直的\crr
+glut & gl2t & verb.\newline noun. & 使吃饱; 过量地吃\newline 供过于求; 吃得过多\crr
+coalesce & ""koU@"les & verb. & 联合; 合并\crr
+inhibit & In"hIbIt & verb. & 抑制; 禁止\crr
+fraud & faUd & noun. & 骗子; 欺诈; 冒牌货\crr
+mantle & "m\ae ntl & noun.\newline verb. & 斗篷; 披风; 覆盖物\newline 覆盖\crr
+deplete & dI"plit & verb. & 耗尽; 用尽; 减少; 损耗\crr
+iconoclast & aI"kAn@kl\ae st & noun. & 攻击传统观念地人\crr
+ingenious & In"dZinj@s & adj. & 精巧地; 灵巧的; 有天才的; 聪明的\crr
+tremble & "trEmb@l & verb.\newline noun. & 发抖; 战栗\newline 发抖; 战栗\crr
+deprecatory & ""depr@"ketli & adj. & 反对的; 不赞成的; 恳求的\crr
+snuff & sn2f & verb. & 熄灭; 扑灭; 死去; 吸入\newline 烛花; 鼻烟; 气息\crr
+oven & "2v@n & noun. & 烤炉; 烤箱\crr
+choke & tSoUk & verb.\newline noun. & 哽咽; 阻塞; 遏止\newline 窒息; 哽咽; 阻塞\crr
+refine & rI"faIn & verb. & 精炼; 使高雅; 改善\crr
+audit & "OdIt & verb.\newline noun. & 审查; 查账; 审计\newline 审计; 查账\crr
+nectar & "nEkt\rse & noun.\newline adj. & 花蜜; 琼浆玉液\newline 充满美酒的\crr 
+punch & p2ntS & verb. & 打孔; 穿孔\newline 冲床; 打孔器\crr
+cargo & "kArgoU & noun. & 货物; 荷载; 荷重\crr
+plough & plaU & noun.\newline verb. & 犁; 耕作; 耕地\newline 用梨耕田; 开路\crr 
+chastise & tS\ae s"taIz & verb. & 严惩某人\crr
+jack & dZ\ae k & verb.\newline noun. & 上升; 抬起\newline 千斤顶\crr
+inflict & In"flIkt & verb. & 把...强加给; 使遭受\crr
+luminous & "lum@n@s & adj. & 发光的; 明亮的; 清楚的\crr
+ember & "Emb\rse & noun. & 余烬; 余火\crr
+gloss & glOs & noun.\newline verb. & 光彩; 光泽\newline 给...加光泽\crr
+ulcer & "2ls\rse & noun. & 溃烂\crr
+spray & spre & verb.\newline noun. & 喷射; 喷\newline 喷雾; 浪花; 喷雾器\crr
+quiescence &  kwI"esns & noun. & 静止\crr
+quiver & kwI"v\rse & verb.\newline noun. & 微颤; 震动\newline 抖动; 颤音\crr
+insular & "Ins@l@r & adj. & 孤立的; 与世隔绝的\crr
+resin & "resn & noun.\newline verb. & 树脂; 合成树脂\newline 用树脂处理\crr
+motile & "mo""taIl & noun.\newline adj. & 能动的; 显示活力的\newline 运动型\crr
+stink & stInk & verb.\newline noun. & 发出恶臭; 找人厌恶\newline 恶臭; 难闻的气体\crr
+oblivion & @"blIvi@n & noun. & 遗忘; 淹没; 赦免\crr
+pendant & "pEnd@nt & noun. & 吊坠; 垂饰\crr
 \end{engvc}

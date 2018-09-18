@@ -7,6 +7,58 @@
 \geometry{tmargin=2cm, bmargin=2cm,
     rmargin=1.5cm, lmargin=1.5cm}
 
+\def\vocindex{\jobname-vocindex}
+\begin{filecontents*}{\vocindex.mst}
+encap_prefix "\\"
+encap_infix "{"
+encap_suffix "}"
+item_0 "\\ifhmode\\par\\fi\\bgroup\\color{black!80}\t"
+delim_0 "\\IndexDotfill"
+headings_flag 1
+heading_prefix "  \\IndexHeading{"
+heading_suffix "}\n"
+\end{filecontents*}
+\makeindex[name=\vocindex, title=Vocabulary Index, columns=3]
+
+\def\phrindex{\jobname-phrindex}
+\begin{filecontents*}{\phrindex.mst}
+encap_prefix "\\"
+encap_infix "{"
+encap_suffix "}"
+item_0 "\\ifhmode\\par\\fi\\bgroup\\color{black}\t"
+delim_0 "\\IndexDotfill"
+headings_flag 1
+heading_prefix "  \\IndexHeading{"
+heading_suffix "}\n"
+\end{filecontents*}
+\makeindex[name=\phrindex, title=Phrase Index, columns=2]
+
+\definecolor{ocre}{HTML}{F16723}
+
+\newcommand*{\IndexDotfill}{%
+  \egroup\nobreak\dotfill\ \nobreak
+}
+\renewcommand*{\indexspace}{%
+  \par
+  \vspace{25pt plus 6pt minus 4pt}%
+}
+\newcommand*{\IndexHeading}[1]{%
+  \tikz\node[
+    rounded corners=5pt,
+    draw=ocre,
+    fill=ocre!10,
+    line width=1pt,
+    inner sep=5pt,
+    align=center,
+    font=\sffamily\bfseries\large,
+    minimum width=\linewidth-\pgflinewidth,
+  ] {#1};%
+  \nopagebreak
+  \par
+  \vspace{2mm}%
+}
+
+
 \def\index@voc#1\relax{\index{#1}#1}
 
 % colors
@@ -24,38 +76,33 @@
 \newcount\vocNum \vocNum=1
 \newcount\vocCount \vocCount=0
 \newcount\today@count
-\def\example{{
-\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em $\spadesuit$ Example.}\newline}
-\def\defn{{
-\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em$\heartsuit$ Definition.}\newline\color{google@red}\tt\normalsize}
-\def\remark{{
-\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em$\diamondsuit$ Remark.}\newline\color{google@yellow}\tt\normalsize}
-\def\relative{{
-\ifhmode\newline\fi\large\color{google@blue}\tt\hskip-1em$\clubsuit$ Relative word and phrase.}\newline}
+\def\list@item@begin{\ifhmode\par\fi\vskip.5ex\large\color{google@blue}\tt\hskip-1em\relax}
+\def\example{\list@item@begin$\spadesuit$ Example.\par}
+\def\defn{\list@item@begin$\heartsuit$ Definition.\par\color{google@red}\tt\normalsize}
+\def\remark{\list@item@begin$\diamondsuit$ Remark.\par\color{google@yellow}\tt\normalsize}
+\def\relative{\list@item@begin$\clubsuit$ Relative word and phrase.\par}
+
 \def\eng{\color{purple}\tt{\color{green}$\ddagger$}\quad}
 \def\chn{\hfill\color{dist@l}\tt}
 
+\def\tword@lineskip{\begingroup}%
 \newif\if@intword\@intwordfalse%
 \newdimen\baselineskip@holder%
 \newcommand\tword[3]{%
-\baselineskip@holder\baselineskip\baselineskip=0pt%
-\index{#1}%
-\if@intword\relax\else\global\@intwordtrue\relax\tword@begin\fi%
+\index[\vocindex]{#1|hyperpage}%
+\if@intword\relax\else\global\@intwordtrue\relax\tword@lineskip\tword@begin\fi%
 #1&#2&#3%
 \@ifnextchar\tword{\tword@cont}{\tword@stop}
 }
 \newcommand\tphrase[2]{%
-\baselineskip@holder\baselineskip\baselineskip=0pt%
-\index{#1}%
-\if@intword\relax\else\global\@intwordtrue\relax\tword@begin\fi%
+\index[\phrindex]{#1|hyperpage}%
+\if@intword\relax\else\global\@intwordtrue\relax\tword@lineskip\tword@begin\fi%
 #1\span\omit &#2%
 \@ifnextchar\tword{\tword@cont}{\tword@stop}
 }
 \newcommand{\texx}[1]{%
-\baselineskip@holder\baselineskip\baselineskip=0pt%
-\index{#1}%
-\if@intword\relax\else\global\@intwordtrue\relax\tword@begin\fi%
-\omit\vbox{\vskip.5ex\hbox{\quad\vrule width4.3pt\qquad\vbox{\parindent=0pt\hsize=.8\hsize\baselineskip=15pt%
+\if@intword\relax\else\global\@intwordtrue\relax\tword@lineskip\tword@begin\fi%
+\omit\vbox{\vskip.5ex\hbox{\quad\color{google@blue}\vrule width4.3pt\qquad\vbox{\parindent=0pt\hsize=.8\hsize\baselineskip=15pt%
     \ttfamily\color{google@green}#1\relax}}\vskip1ex\relax}%
 \span\omit\span\omit%
 \@ifnextchar\tword{\tword@cont}{\tword@stop}
@@ -63,10 +110,10 @@
 \def\tword@cont{\cr\relax}
 \def\tword@stop{\@ifnextchar\tphrase{\tword@cont}{\tword@stop@}}
 \def\tword@stop@{\@ifnextchar\texxx{\tword@cont}{\tword@stop@@}}
-\def\tword@stop@@{\cr\egroup\@ifnextchar\vskip{}{\smallskip}\global\@intwordfalse\baselineskip\baselineskip@holder}
+\def\tword@stop@@{\cr\egroup\endgroup\@ifnextchar\vskip{}{\smallskip}\global\@intwordfalse\baselineskip\baselineskip@holder}
 \long\def\tword@begin{%
-    \halign to\hsize\bgroup%
-    \strut{\tt\color{red}##} \quad&%
+    \halign\bgroup%
+    {\tt\color{red}##} \quad&%
     {\color{blue}\textipa{[\relax##]}} \quad&%
     {\parindent=0pt\vbox\bgroup\lishu\color{gray@h}##\egroup\hfill}\cr%
 }
@@ -88,7 +135,7 @@
     \egroup\egroup%
     \hfill\vrule width1pt\relax}\cr@rr%
 }
-\newcommand{\word}[3]{\index{##1}\hbox{{\tt\color{red}##1}\hskip1em{\color{blue}\tt\textipa{[##2]}}\hskip1em{\lishu\color{black}##3}}\@ifnextchar\vskip{}{\par}}
+\newcommand{\word}[3]{\index[\vocindex]{##1}\hbox{{\tt\color{red}##1}\hskip1em{\color{blue}\tt\textipa{[##2]}}\hskip1em{\lishu\color{black}##3}}\@ifnextchar\vskip{}{\par}}
 \newcommand{\dword}[1]{{\color{red}##1\hskip.5em\relax}}
 \newcommand{\phrase}[2]{\index{##1}\hbox{{\tt\color{red}##1}\hskip1em\hskip1em{\lishu\color{black}##2}}\@ifnextchar\vskip{}{\par}}
 \def\crr{\@ifnextchar\linetab{\cr}{\cr@rr}}
@@ -192,4 +239,4 @@
 
 \catcode`@=12
 
-\def\EXPERIMENT{}
+%\def\EXPERIMENT{}
