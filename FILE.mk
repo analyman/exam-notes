@@ -32,6 +32,6 @@ $(TEX_FILE) :
 
 clean : FORCE
 	@echo Clean Project -- $(PROJECT) && \
-		$(rm) *.pdf *.idx *.log *.aux *.toc *.ilg *.ind *.mk *.mst *.ist
+		$(rm) *.pdf *.idx *.log *.aux *.toc *.ilg *.ind *.mk *.mst *.ist *.pre *.txt *.png *.gz *.asy
 
 FORCE :

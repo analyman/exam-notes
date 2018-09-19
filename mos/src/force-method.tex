@@ -1,0 +1,43 @@
+\chapter{力法}
+
+\section{基本理论}
+
+\begin{filecontents*}{\jobname-sphere_image.asy}
+settings.outformat = "pdf";
+unitsize(1pt);
+include "asyLib/asyLib.asy";
+
+pair pone = (20, 50), ptwo = (120, 50);
+combinePic(
+    fixedSupport(pone, 3*pi/2),
+    fixedSupport(ptwo, pi/2),
+    lever(pone, ptwo),
+    pointLoad(.2pone + .8ptwo, 0, "$F_1$"),
+    pointLoad(.4pone + .6ptwo, 0, "$F_2$"),
+    pointLoad(.6pone + .4ptwo, 0, "$F_3$"),
+    pointLoad(.8pone + .2ptwo, 0, "$F_4$")
+);
+\end{filecontents*}
+\IfFileExists{\jobname-sphere_image.pdf}{\relax}{
+    \immediate\write18{asy -noV \jobname-sphere_image.asy}
+}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.3\hsize}
+    \centering
+    \includegraphics{\jobname-sphere_image.pdf}
+    \caption{demo-1}
+\end{subfigure}
+\begin{subfigure}{.3\hsize}
+    \centering
+    \includegraphics{\jobname-sphere_image.pdf}
+    \caption{demo-2}
+\end{subfigure}
+\begin{subfigure}{.3\hsize}
+    \centering
+    \includegraphics{\jobname-sphere_image.pdf}
+    \caption{demo-3}
+\end{subfigure}
+\caption{A demo asymptote picture}
+\end{figure}

@@ -102,19 +102,19 @@ heading_suffix "}\n"
 }
 \newcommand{\texx}[1]{%
 \if@intword\relax\else\global\@intwordtrue\relax\tword@lineskip\tword@begin\fi%
-\omit\vbox{\vskip.5ex\hbox{\quad\color{google@blue}\vrule width4.3pt\qquad\vbox{\parindent=0pt\hsize=.8\hsize\baselineskip=15pt%
+\vbox{\vskip.5ex\hbox{\quad\color{google@blue}\vrule width4.3pt\qquad\vbox{\parindent=0pt\hsize=.9\hsize\baselineskip=15pt%
     \ttfamily\color{google@green}#1\relax}}\vskip1ex\relax}%
 \span\omit\span\omit%
 \@ifnextchar\tword{\tword@cont}{\tword@stop}
 }
 \def\tword@cont{\cr\relax}
 \def\tword@stop{\@ifnextchar\tphrase{\tword@cont}{\tword@stop@}}
-\def\tword@stop@{\@ifnextchar\texxx{\tword@cont}{\tword@stop@@}}
+\def\tword@stop@{\@ifnextchar\texx{\tword@cont}{\tword@stop@@}}
 \def\tword@stop@@{\cr\egroup\endgroup\@ifnextchar\vskip{}{\smallskip}\global\@intwordfalse\baselineskip\baselineskip@holder}
 \long\def\tword@begin{%
     \halign\bgroup%
     {\tt\color{red}##} \quad&%
-    {\color{blue}\textipa{[\relax##]}} \quad&%
+    {\tt\color{blue}\textipa{[\relax##]}} \quad&%
     {\parindent=0pt\vbox\bgroup\lishu\color{gray@h}##\egroup\hfill}\cr%
 }
 
