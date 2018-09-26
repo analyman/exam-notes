@@ -82,6 +82,30 @@ heading_suffix "}\n"
 \def\remark{\list@item@begin$\diamondsuit$ Remark.\par\color{google@yellow}\tt\normalsize}
 \def\relative{\list@item@begin$\clubsuit$ Relative word and phrase.\par}
 
+\newdimen\temp@hskip%
+\def\defn@prefix@color{rgb:cyan, 1; blue, 2; yellow, 1}
+\newenvironment{engdefn}[1][]{%
+\bgroup\index{#1}%
+\parindent=0pt%
+\ifhmode\par\fi%
+\def\item@@##1[##2]{%
+    \ifhmode\par\fi%
+    \settowidth{\temp@hskip}{\tt\color{\defn@prefix@color}\relax##1-##2.}%
+    \hskip-.5em\hskip-\temp@hskip\relax{\tt\color{\defn@prefix@color}\relax##1-##2.}\hskip.5em\relax}%
+\def\item@##1{%
+    \ifhmode\par\fi%
+    \settowidth{\temp@hskip}{\tt\color{\defn@prefix@color}\relax##1.}%
+    \hskip-.5em\hskip-\temp@hskip\relax{\tt\color{\defn@prefix@color}\relax##1.}\hskip.5em\relax}%
+\def\item##1{\@ifnextchar[{\item@@{##1}}{\item@{##1}}}%
+\vskip.5ex
+\leavevmode\hskip3.5em\vbox\bgroup%
+\leavevmode\hskip-3.5em%
+\color{google@blue}\large\tt\hskip-1em\relax%
+$\heartsuit$ Definition.\par\color{google@red}\tt\normalsize%
+}{%
+\egroup\vskip.5ex\egroup%
+}
+
 \def\eng{\color{purple}\tt{\color{green}$\ddagger$}\quad}
 \def\chn{\hfill\color{dist@l}\tt}
 

@@ -1,0 +1,43 @@
+\documentclass[oneside]{book}
+
+\input{\string~/texrc.tex}
+
+\makeatletter
+\setlength{\mathsurround}{1pt}
+\makeatother
+
+\geometry{tmargin=2cm, bmargin=2cm, lmargin=2cm, rmargin=3cm}
+
+\def\equalwith{\quad$\Longleftrightarrow$\quad}
+
+\def\remark{Remark}
+\def\defn{Definition}
+\def\exx{Example}
+\def\theorem{Theorem}
+\def\lemma{Lemma}
+\def\disfunc{}
+
+\newtheorem{theorem_root}{\defn}[chapter]
+\newtheorem{remark_root}{\remark{}}[chapter]
+\newtheorem{example_root}{\exx}[chapter]
+\newtheorem{dis_root}{\disfunc}[chapter]
+
+\def\msA{\ifmmode\mathscr{A}\else$\>\mathscr{A}\>$\fi}
+\def\msB{\ifmmode\mathscr{B}\else$\>\mathscr{B}\>$\fi}
+\def\msD{\ifmmode\mathscr{D}\else$\>\mathscr{D}\>$\fi}
+\def\msF{\ifmmode\mathscr{F}\else$\>\mathscr{F}\>$\fi}
+\def\msH{\ifmmode\mathscr{H}\else$\>\mathscr{H}\>$\fi}
+\def\msM{\ifmmode\mathscr{M}\else$\>\mathscr{M}\>$\fi}
+\def\mO{\ifmmode\Omega\else$\>\Omega\>$\fi}
+
+\def\Rs{\ifmmode\mathbb{R}\else$\>\mathbb{R}\>$\fi}
+\def\Ns{\ifmmode\mathbb{N}\else$\>\mathbb{N}\>$\fi}
+
+\def\refto#1#2{{(\tt#2\nobreak\ \ref{#1})}}
+
+
+\def\prbsp{\ifmmode\{\Omega, \msF, P\}\else$\{\Omega, \msF, P\}$\fi}
+
+\def\cbnt#1#2{C_{#1}^{#2}}
+
+\let\setminus\backslash

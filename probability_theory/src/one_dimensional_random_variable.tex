@@ -1,0 +1,443 @@
+\chapter{一维随机变量}
+
+\section{一维随机变量的定义及其分布函数}
+
+\newtheorem{one_dimensional_random_variable}[theorem_root]{\defn}
+\begin{one_dimensional_random_variable}[一维随机变量]
+\index{{随机变量}}
+假设\prbsp 是以概率空间, \(\xi = \xi(\omega), \omega\in\Omega\), 是定义在
+\(\Omega\)上的单值实函数. 如果对于任一实数, \(\omega-\)集合\(\{\omega: \xi(\omega)\le x\}\) 是一随机
+事件, 亦即
+\begin{align}
+    \{\omega, \xi(\omega) \le x\}\in\msF
+\end{align}
+就称\(\xi = \xi(\omega)\)为随机变量.
+\end{one_dimensional_random_variable}
+
+\medskip
+\noindent\(P, \xi, \chi\)的函数定义:
+\halign{
+\strut\qquad#\hfil\quad & #\cr
+    概率测度\(P\) & \(P:\msF\mapsto [0,1]\)\cr
+    随机变量\(\xi\) & \(\xi:\Omega\mapsto \Rs\)\cr
+    示性函数\(\chi_A\) & \(\chi:\Omega\mapsto \{0, 1\}\)\cr
+}
+任何事件的示性函数都是一个随机变量.
+
+\newtheorem{indictive_function}[theorem_root]{\defn}
+\begin{indictive_function}[事件的示性函数]
+对于任一事件\(A\in\msF\), 有定义在\(\Omega\)上的一个函数与之相对应:
+\begin{align}
+    \chi_A(\omega) = \begin{cases}
+        1, & \omega\in A\cr
+        0, & \omega\notin A\cr
+    \end{cases}
+\end{align}
+\end{indictive_function}
+
+示性函数与集合存在一一对应的关系, 集合的运算及关系在示性函数中也能
+得到体现.
+\halign{
+\strut\hskip4em\relax$#$\qquad & $\Longleftrightarrow\qquad$$#$\hfill& \quad$#$\cr
+A\subset B & \chi_A \le \chi_B\cr
+A\cap B & \chi_{A\cap B} = \chi_A\times\chi_B\cr
+A\cup B & \chi_{A\cup B} = \chi_A + \chi_B - \chi_A\times\chi_B\cr
+A\setminus B & \chi_{A\setminus B} = \chi_{A} - \chi_{A\cap B}\cr
+\bar{A} & \chi_{\bar{A}} = 1 - \chi_A\cr
+}
+
+\newtheorem{about_probability_variable_and_the_event}[theorem_root]{\lemma}
+\begin{about_probability_variable_and_the_event}
+    假设\prbsp 是一个概率空间, \(\xi = \xi(\omega)\) 是定义在此概率空间上
+    的随机变量, 而\(\msB_1\)是直线的 borel\(\sigma-\) 代数, 那么, 对于任意
+    \(B\in \msB_1\), 有
+    \begin{align}
+    \{\omega: \xi(\omega)\in B\}\in\msF
+    \end{align}
+此引理说明\(\,\xi:\,\Omega\mapsto \Rs\,\)是可测函数, 即对任意定义在\Rs 上的开集\(B\in\Rs\)
+有\(\xi^{-1}(B)\)是\(\Omega\)上的开集.
+\end{about_probability_variable_and_the_event}
+
+\newtheorem{distribution_function}[theorem_root]{\defn}
+\begin{distribution_function}[分布函数]
+\index{{分布函数}}
+假设\(\xi = \xi(\omega)\) 是概率空间\prbsp 上的随机变量. 那么, 对于任意\(x\in(-\infty, +\infty), P\{\omega:\xi(\omega)\le x\}\)有意义, 
+因而此概率是\(x\)的函数, 记作
+\begin{align}
+F_{\xi}(x) = P\{\omega:\xi(\omega)\le x\}, x\in\Rs
+\end{align}
+称\(F_{\xi}(x)\)为随机变量\(\xi = \xi(\omega)\)的分布函数
+\end{distribution_function}
+
+\newtheorem{some_properties_of_disfunc}[theorem_root]{\remark}
+\begin{some_properties_of_disfunc}[分布函数的基本性质]
+任意随机变量\(\xi = \xi(x)\)的分布函数\(F_{\xi}(x),\,x\in\Rs\), 有以下性质
+\begin{enumerate}
+    \item 单调不减性:\quad \(a, b\in\Rs, a<b\quad\Longrightarrow\quad F_{\xi}(a)\le F_{\xi}(b)\)
+    \item 右连续性:\quad \(a,\in\Rs, \lim\limits_{x\to a^+}F_{\xi}(x) = F_{\xi}(a)\)
+    \begin{proof}
+        由于\(F_{\xi}(x)\)是单调不减有界函数, 所以\(\lim\limits_{x\to a^+}F_{\xi}(x)\)必收敛.
+        由于\(x\in (a, +\infty)\), 故有\(x>a\), 由单调不减可得\(F_{\xi}(x)\ge F_{\xi}(a)\),
+        既有\(\lim\limits_{x\to a^+}F_{\xi}(x)\ge F_{\xi}(a)\). 
+
+        取序列\(b_n = a + {1\over n}\), 可知\(\lim\limits_{n\to\infty}b_n = a\), 且有
+        \(\lim\limits_{n\to\infty}F_{\xi}(b_n) = \lim\limits_{x\to a^+}F_{\xi}(x)\).
+        定义集合序列\(S_n = \{\omega:\xi(x)\le b_n\}\), \(S_n\subset S_{n+1}\), 记\(S_a = \{\omega:\xi(x)\le a\}\).
+        \(S_n\)收敛, 设\(S = \lim\limits_{n\to\infty}S_n\), 由于\(S_n\supset S_a\), 所以有\(S\supseteq S_a\).
+        假设\(S\ne S_a\), 即\(\exists\,\omega_s\in\Omega\), 使得\(\omega_s\in S, \omega_s\notin S_a\), 可以知道\(\xi^{-1}(\omega_s)\in (a, \infty)\,(\text{由于}\,\xi(\omega)\le x)\).
+        但是由于\(\lim\limits_{n\to\infty} b_n = a\), 可知\(\exists N\in\Ns^+\), 使得\(n>N\)时, \(b_n < \xi^{-1}(\omega_s)\), 所以\(\omega_s\notin S\), 故矛盾.
+        既有\(S = S_a\).
+
+        由连续性定理, \(\lim\limits_{n\to\infty}P(S_n) = P(\lim\limits_{n\to\infty}S_n) = P(S) = P(S_a) = F_{\xi}(a)\),
+        且\(\lim\limits_{x\to a^+}F_{\xi}(x) = \lim\limits_{n\to\infty}F_{\xi}(S_n) = \lim\limits_{n\to\infty}P(S_n)\), 故有
+        \begin{align}
+            \lim\limits_{x\to a^+}F_{\xi}(x) = F_{\xi}(a)
+        \end{align}
+    \end{proof}
+    \item 记\(F_{\xi}(-\infty) = \lim\limits_{x\to-\infty}F_{\xi}(x),\,F_{\xi}(+\infty) = \lim\limits_{x\to+\infty}F_{\xi}(x)\), 则有
+    \begin{align}
+        F_{\xi}(-\infty) &= 0\cr
+        F_{\xi}(+\infty) &= 1
+    \end{align}
+\end{enumerate}
+\end{some_properties_of_disfunc}
+
+\section{离散型和连续性随机变量}
+
+\halign{
+\strut\hskip3em\bf# & \quad\vtop\bgroup\noindent#\egroup\cr
+离散型 & 最多取又穷个或可数个值的随机变量\(\xi:\,\mathcal{N}\mapsto\Omega,\,\left|\mathcal{N}\right|\le\left|\Ns\right|\).\cr
+连续性 & 随机变量\(\xi:\,\Rs\mapsto\Omega\), \(\xi(x)\)绝对连续, 即存在非负函数\(f(x),\,x\in\Rs\), 有 \(F(x) = \int_{-\infty}^x\,f(u)\,du\)\cr
+混合型 & 不是纯连续性, 也不是纯离散性.\cr
+}
+
+\section{离散型随机变量}
+
+\newtheorem{discrete_random_var}[theorem_root]{\theorem}
+\begin{discrete_random_var}[离散型随机变量]
+假设\prbsp 是一概率空间, 而\(\xi = \xi(\omega)\) 是定义在\(\Omega\)上的单值函数,
+\(X = \{x_0, x_1, \cdots\}\)是\(\xi\)的一切可能值得集合. 
+那么, \(\xi = \xi(\omega),\,\omega\in\Omega\), 是随机变量(\(\xi\)-可测)\footnote{changed}, 当且仅当对于
+任意\(x_i\in X\), 有
+\begin{align}
+\label{equ:equopa}
+\{\omega:\xi(\omega) = x_i\}\in\msF
+\end{align}
+
+\begin{proof}
+\ \par 充分性:\quad 若\(\xi\)-可测, 那么对于任意\(x_i\in X\),都有\(\{\omega:\xi(\omega) = x_i\}\in\msF\)
+即\refto{equ:equopa}{Equation}成立.
+
+必要性:\quad 若\refto{equ:equopa}{Eqaution} 成立, 那么\(\forall S\in e^X\), 有\(\bigcup\limits_{i\in S}\{\omega: \xi(\omega) = x\}\in\msF\),
+即\(\xi\)可测.
+\end{proof}
+\end{discrete_random_var}
+
+\subsection{离散型随机变量的概率分布}
+\newtheorem{degrade_distru}[dis_root]{\disfunc}
+\newtheorem{binomial_distru}[dis_root]{\disfunc}
+\newtheorem{negative_binomial_distru}[dis_root]{\disfunc}
+\newtheorem{geometry_distru}[dis_root]{\disfunc}
+\newtheorem{super_geometry_distru}[dis_root]{\disfunc}
+\newtheorem{negative_super_geometry_distru}[dis_root]{\disfunc}
+\newtheorem{poisson_distru}[dis_root]{\disfunc}
+
+\begin{degrade_distru}[退化分布]
+\index{{退化分布}}
+随机变量\(\xi\)称为退化分布:
+\begin{align}
+P\{\xi = a\} = 1
+\end{align}
+分布函数为
+\begin{align}
+F_{\xi}(x) = \begin{cases} 0, & x<a\cr 1, & x\ge a\cr\end{cases}
+\end{align}
+\end{degrade_distru}
+
+\begin{binomial_distru}[二项分布]
+\index{{二项分布}}
+随机变量\(\xi\)称为二项分布, 参数为\((n, p),\, n\ge 1,\, 0<p<1\), \(\xi\)的值域为 \(0, 1, \cdots, n\), 并且
+\begin{align}
+P\{\xi = m\} = \cbnt{n}{m}pP^{m}(1-p)^{n-m},\, m = 0,1,\cdots, n.
+\end{align}
+以\(B(n, p)\)表示\((n,p)\)为参数的二项分布, 记\(b(m;n, p) = \cbnt{n}{m}p^{m}(1-p)^{n-m}\).
+\end{binomial_distru}
+
+\begin{negative_binomial_distru}[负二项分布]
+\index{{负二项分布}}
+称随机变量\(\xi\)有负二项分布, 参数\((r, p),\,r\ge 1, 0<p<1\), 值域为\(\{r, r+1, r+2, \cdots\}\)
+\begin{align}
+P\{\xi = m\} = \cbnt{m-1}{r-1}p^{r}(1-p)^{m-r},\,\, m = r, r+1, \cdots
+\end{align}
+\end{negative_binomial_distru}
+
+\begin{geometry_distru}[几何分布]
+\index{{几何分布}}
+称随机变量\(\xi\)为几何分布, 参数为\(p(0<p<1)\), 值域为\(\Ns^+\)
+\begin{align}
+P\{\xi = m\} = p(1-p)^{m-1},\,\, m = 1, 2, \cdots
+\end{align}
+\end{geometry_distru}
+
+\begin{super_geometry_distru}{超几何分布}
+\index{{超几何分布}}
+称随机变量\(\xi\)为超几何分布, 参数为\((N, M, n),\,1\le M\le N,\,1\le n\le N\)
+\begin{align}
+P\{\xi = m\} = {\cbnt{M}{m}\cbnt{N-M}{n-m}\over \cbnt{N}{n}},\,\, m =0, 1, \cdots, \min(n, M)
+\end{align}
+\end{super_geometry_distru}
+
+\begin{negative_super_geometry_distru}{负超几何分布}
+\index{{负超几何分布}}
+称随机变量\(\xi\)为负超几何分布, 参数为\((N, M, r)\)
+\begin{align}
+P\{\xi = m\} = {\cbnt{m-1}{r-1}\cbnt{N-m}{M-r}\over \cbnt{N}{M}},\,\, m =r, r+1, \cdots, N-M+r
+\end{align}
+\end{negative_super_geometry_distru}
+
+\begin{poisson_distru}[泊松分布]
+\index{{泊松分布}}
+称随机变量\(\xi\)有泊松分布, 参数为\(\lambda > 0\)
+\begin{align}
+P\{\xi = m\} = {\lambda^m\over m!}e^{-\lambda},\,\, m = 0, 1, 2, \cdots
+\end{align}
+对于泊松分布, 有
+\begin{align*}
+\sum\limits_{m = 0}^\infty\,{\lambda^m\over m!}e^{-\lambda} = e^\lambda e^{-\lambda} = 1
+\end{align*}
+\end{poisson_distru}
+
+\newtheorem{poisson_theorem}[theorem_root]{\theorem}
+\begin{poisson_theorem}[泊松定理]
+记\(b(m; n,p_n) = \cbnt{n}{m}p^m_n(1-p_n)^{n-m}\), 其中参数满足条件
+\(\lim\limits_{n\to\infty}np_n = \lambda > 0\). 那么, 对于任意正整数\(m\ge 1\),
+有
+\begin{align}
+\lim\limits_{n\to\infty}b(m; n, p_n) = {\lambda^m\over m!}e^{-\lambda}
+\end{align}
+\begin{proof}
+由\(\lim\limits_{n\to\infty}np_n = \lambda > 0\). 因而
+\begin{align}
+    np_n &= \lambda + o(1)\cr
+    p_n = {\lambda\over n} + o\left({1\over n}\right)
+\end{align}
+于是对于任意\(m\ge 0\), 有
+\begin{align}
+    b(m; n, p) &= \cbnt{n}{m}pP^m_n(1-p_n)^P{n-m}\cr
+    &= {n(n-1)\cdots(n-m+1)\over m!}\left[{\lambda\over n} + o\left(1\over n\right)\right]^m\bigcdot\left[1-{\lambda\over n} + o\left({1\over n}\right)\right]^{n-m}\cr
+    &= {n(n-1)\cdots(n-m+1)\over m!}{\left[\lambda + o\left(1\right)\right]^m\over n^m}\bigcdot{\left[1-{\lambda\over n} + o\left({1\over n}\right)\right]^{n}\over\left[1-{\lambda\over n} + o\left({1\over n}\right)\right]^{m}}\cr
+    &= {\left[\lambda + o(1)\right]^m\over m!}\left[1-{\lambda\over n} + o\left({1\over n}\right)\right]^n\bigcdot{1\cdot\left(1-{1\over n}\right)\cdots\left(1-{m - 1\over n}\right)\over \left[1-{\lambda\over n} + o\left({1\over n}\right)\right]^m}
+\end{align}
+有以下极限
+\begin{align}
+&\lim\limits_{n\to\infty}{\left[\lambda + o(1)\right]^m\over m!} = {\lambda^m\over m!}\cr
+&\lim\limits_{n\to\infty}\left[1 - {\lambda\over n} + o(1)\right]^n = e^{-\lambda}\cr
+&\lim\limits_{n\to\infty}{1\cdot\left(1 - {1\over n}\right)\cdots\left(1 - {m - 1\over n}\right)\over \left[1 - {\lambda\over n} + o\left({1\over n}\right)\right]^m} = 1
+\end{align}
+由此, 可以得到
+\begin{align}
+\lim\limits_{n\to\infty}b(m;n,p) = {\lambda^m\over m!}e^{-\lambda}
+\end{align}
+\end{proof}
+\end{poisson_theorem}
+
+\newtheorem*{poisson_event_flow}{}
+\begin{poisson_event_flow}[泊松事件流]
+\index{{泊松事件流}}
+考虑事件在某个时间区间出现的次数, 以\(\nu(a, b]\)表示事件在时间区间\((a , b]\)出现的次数.
+并且记\(\nu(t) = v(0, t]\).
+称事件流为泊松时间流, 如果满足以下条件
+\begin{enumerate}
+\item 平稳性:\quad 事件\(A\)在任意事件区间\((a,a+t]\)上出现\(m, (m\ge 0)\)次的概率
+\begin{align}
+    p_m(t) &= P\{\nu(a, a+t) = m\}\cr
+    &= P\{\nu(0, t) = m\}
+\end{align}
+\item 稀有性:\quad 在\(\Delta t\)事件内, 事件\(A\)出现两次及以上的概率
+为\(\Delta t\)的高阶无穷小
+\begin{align}
+P\{\nu(\Delta t) > 1\} = o(\Delta t)
+\end{align}
+\item 无后效性:\quad 设有\(a_i, b_i\in\Rs^+,\, a_i < b_i\,\, i = 1, 2, \cdots n\), 那么事件\(\{\nu(a_i, b_i] = m_j\}\)相互独立.
+\item 非平凡性:\quad 排除两种极端情况
+\begin{align}
+    &P\{\nu(t) = 0\} \not\equiv 0\cr
+    &P\{\nu(t) = 0\} \not\equiv 1
+\end{align}
+\end{enumerate}
+\end{poisson_event_flow}
+
+\newtheorem{about_poisson_event}[theorem_root]{\theorem}
+\begin{about_poisson_event}
+对于泊松事件流, 在长为\(t\)的时间内某事件\(A\)出现的次数\(\nu(t)\)服从
+参数为\(\lambda t\)的泊松分布, 其中\(\lambda > 0\)是常数.
+即存在常数\(\lambda > 0\), 使
+\begin{align}
+    P\{\nu(t) = m\} = {(\lambda t)^m\over m!}e^{-\lambda t}\qquad m = 0, 1, 2, \cdots
+\end{align}
+
+\begin{proof}
+    长...
+\end{proof}
+\end{about_poisson_event}
+
+\section{连续性随机变量}
+
+\newtheorem{cont_distr_var}[theorem_root]{\defn}
+\begin{cont_distr_var}
+假设\(\xi = \xi(\omega)\)是定义在概率空间\prbsp 上的随机变量, 称
+\(\xi\)为连续性的, 如果它的分布函数\(F_\xi(x) = P\{\xi\le x\},\,\, x\in\Rs\), 
+绝对连续, 即存在一非负可积函数\(f_\xi(x),\,\,x\in\Rs\), 有
+\begin{align}
+F_\xi(x) = \int\limits_{-\infty}^{x}\,f_\xi(u)\,du
+\end{align}
+\(f_\xi(x)\)称为概率密度函数.
+\end{cont_distr_var}
+
+\newtheorem{uniform_distru}[dis_root]{\disfunc}
+\newtheorem{exponential_distru}[dis_root]{\disfunc}
+\newtheorem{gauss_distru}[dis_root]{\disfunc}
+\newtheorem{logarithm_distru}[dis_root]{\disfunc}
+\newtheorem{gamma_distru}[dis_root]{\disfunc}
+\newtheorem{beta_distru}[dis_root]{\disfunc}
+
+\begin{uniform_distru}[均匀分布]
+\index{{均匀分布}}
+称随机变量\(\xi\)在区间\([1, b]\)上有均匀分布, 如果它有密度函数
+\begin{align}
+f_\xi(x) = \begin{cases}{1\over b - 1}, & x\in [a,b]\cr 0, & x\notin[a, b]\end{cases}
+\end{align}
+\end{uniform_distru}
+
+\begin{exponential_distru}[指数分布]
+\index{{指数分布}}
+称随机变量\(\xi\)有指数分布, 参数为\(\lambda > 0\)如果它有密度函数
+\begin{align}
+f_\xi(x) = \begin{cases}0, & x<0\cr \lambda e^{-\lambda x}, & x\ge 0\end{cases}\end{align}
+显然有\(f_\xi(x)\ge 0,\,\int\limits_{-\infty}^{\infty}\,f_\xi(x)\,dx = 1\), 即
+\begin{align*}
+\int\limits_{-\infty}^{\infty}\,f_\xi(x)\,dx &= \int\limits_{0}^{\infty}\lambda e^{-\lambda x}\,dx\cr
+&= (-\lambda{1\over\lambda}e^{-\lambda x})\mid_{0}^{\infty} = 1
+\end{align*}
+分布函数为
+\begin{align}
+F_\xi(x) = \begin{cases}0, & x<0\cr 1 - e^{-\lambda x}, & x\ge 0\end{cases}
+\end{align}
+考虑\(\int\limits_{\Rs}\,xf_\xi(x)\,dx\), 有
+\begin{align}
+\int\limits_{-\infty}^{\infty}\,xf_\xi(x)\,dx &= \int\limits_{-\infty}^{\infty}\,x\cdot \lambda e^{-\lambda x}\,dx
+= \int\limits_{0}^{\infty}\,x\cdot \lambda e^{-\lambda x}\,dx\cr
+&= {1\over \lambda}\int\limits_{0}^{\infty}\,(- \lambda x)\cdot e^{-\lambda x}\,d(-\lambda x)
+= {1\over \lambda}\int\limits_{0}^{-\infty}\,x\cdot e^x\,dx\cr
+&= {1\over \lambda}\int\limits_{0}^{-\infty}\,x\,d(e^x)
+= {1\over \lambda}\left[\left(xe^x\right)\mid_{0}^{-\infty} - \int\limits_{0}^{-\infty}\,e^x\,dx\right]\cr
+&= {1\over \lambda}\left[0 - (e^x)\mid_{0}^{-\infty}\right]
+= {1\over \lambda}\left[0 - (0 - 1)\right]
+= {1\over\lambda}
+\end{align}
+\end{exponential_distru}
+
+\begin{gauss_distru}[正态分布]
+称随机变量\(\xi\)有正态分布, 参数为\((\mu, \sigma^2),\,\,\sigma>0\)如果它有密度函数
+\begin{align}
+\varphi(x; \mu, \sigma^2) = {1\over\sqrt{2\pi}\sigma}e^{-{(x-\mu)^2\over 2\sigma^2}},\qquad x\in\Rs
+\end{align}
+正态分布函数为
+\begin{align}
+\Phi(x; \mu, \sigma^2) = {1\over\sqrt{2\pi}\sigma}\int\limits_{-\infty}^{x}\,e^{-{(u-\mu)^2\over 2\sigma^2}}\,du
+\end{align}
+考虑\(\int\limits_{\Rs}\,xf_\xi(x)\,dx\), 有
+\begin{align}
+N = \int\limits_{-\infty}^{\infty}\,\varphi(x; \mu, \sigma^2)\,dx &= 
+   {1\over\sqrt{2\pi}\sigma}\int\limits_{-\infty}^{\infty}\,e^{-{(x-\mu)^2\over 2\sigma^2}}\,dx\cr
+&= {1\over\sqrt{2\pi}\sigma}\cdot{\sqrt{2}\sigma}\int\limits_{-\infty}^{\infty}\,e^{-{(x-\mu)^2\over 2\sigma^2}}\,d({x-\mu\over\sqrt{2}\sigma})\cr
+&= {1\over\sqrt{\pi}}\int\limits_{-\infty}^{\infty}\,e^{-x^2}\,dx
+\end{align}
+考虑\(N^2 = \left[{1\over\sqrt{\pi}}\int\limits_{-\infty}^{\infty}\,e^{-x^2}\,dx\right]^2\),
+\begin{align}
+\left[{1\over\sqrt{\pi}}\int\limits_{-\infty}^{\infty}\,e^{-x^2}\,dx\right]^2 &= 
+\left[{1\over\sqrt{\pi}}\int\limits_{-\infty}^{\infty}\,e^{-x^2}\,dx\right]\cdot
+\left[{1\over\sqrt{\pi}}\int\limits_{-\infty}^{\infty}\,e^{-y^2}\,dy\right]\cr
+&= {1\over\pi}\int\limits_{-\infty}^{\infty}\int\limits_{-\infty}^{\infty}\,e^{-(x^2 + y^2)}\,dx\;dy = 
+   {1\over\pi}\iint\limits_{\Rs^2}\,e^{-(x^2 + y^2)}\,ds\cr
+&= {1\over\pi}\iint\limits_{\Rs^2}\,e^{-r^2}\,ds = 
+   {1\over\pi}\int\limits_{0}^{2\pi}\int\limits_{0}^{\infty}\,r\cdot e^{-r^2}\,dr\;d\theta\cr
+&= {1\over\pi}\int\limits_{0}^{2\pi}\int\limits_{0}^{\infty}\, e^{-r^2}\,(-{1\over 2})d(-r^2)\;d\theta =
+    {1\over 2\pi}\int\limits_{0}^{2\pi}\,(-e^{-r^2})\mid_{0}^{\infty}d\theta =
+    {1\over 2\pi}\int\limits_{0}^{2\pi}\,(0 - (-1))d\theta\cr
+&= {1\over 2\pi}\cdot 2\pi = 1
+\end{align}
+且\(N > 1\), 故\(N = 1\)
+\end{gauss_distru}
+
+标准正态概率密度函数为\(\varphi(x) = {1\over 2\sqrt{\pi}}e^{-{x^2\over 2}}\), 即\(\mu = 0, \sigma = 1\).
+标准正态概率密度函数是对称函数. 任意参数\(\mu, \sigma^2\)的正态概率密度\(\varphi(x; \mu, \sigma^2)\)和
+分布函数\(\Phi(x; \mu, \sigma^2)\)都可以用标准正态分布的概率密度和分布函数表示.
+
+\newtheorem{about_normal_distru}[theorem_root]{\lemma}
+\begin{about_normal_distru}
+如果\(\xi \sim N(\mu, \sigma^2)\), 则\(\xi^\ast = {\xi -\mu\over\sigma}\sim N(0,1)\), 并有
+\begin{align}
+&\Phi(x; \mu, \sigma^2) = \Phi\left({x - \mu\over\sigma}\right)\cr
+&\varphi(x; \mu, \sigma^2) = {1\over\sigma}\varphi\left({x-\mu\over\sigma}\right)
+\end{align}
+\end{about_normal_distru}
+
+\begin{logarithm_distru}[对数正态分布]
+\index{{对数正态分布}}
+称随机变量\(\xi\)有对数正态分布, 参数为\((\mu, \sigma^2),\,\,\sigma>0\)如果它有密度函数
+\begin{align}
+f_{\xi}(x) = \begin{cases}{1\over x\sqrt{2\pi}\sigma}e^{-{(\ln x - \mu)^2\over 2\sigma^2}}, & x>0\cr
+0, & x\le 0\end{cases}
+\end{align}
+有\(f_{\xi}(x)\ge 0,\,\,\int\limits_{-\infty}^{\infty}\,f_{\xi}(x)\,dx = 1\). 如果随机变量\(\eta = \ln\xi \sim N(\mu, \sigma^2)\), 那么\(\xi\)有对数正态分布.
+\begin{align*}
+    P\{{\eta}\le x\} &= \Phi(x; \mu, \sigma^2) = P\{\ln\xi\le x\}\cr
+     &= P\{\xi\le e^x\}\cr
+    \Downarrow\cr
+    P\{\xi\le y\} &= \Phi(\ln y; \mu, \sigma^2)
+\end{align*}
+\end{logarithm_distru}
+
+\begin{gamma_distru}[Gamma Distribution]
+\index{{Gamma分布}}
+称随机变量\(\xi\)有\(\Gamma-\)分布, 参数为\((\alpha, \lambda),\,\,\alpha>0,\lambda>0\)如果它有密度函数
+\begin{align}
+f_{\xi}(x) = \begin{cases}{\lambda^\alpha\over\Gamma(\alpha)}x^{\alpha - 1}e^{-\lambda x}, & x>0\cr
+0, & x\le 0\end{cases}
+\end{align}
+显然有\(f_\xi(x)\ge 0\), 并且\(\int\limits_{-\infty}^{\infty}\,f_\xi(x)\,dx = 1\). 用\(\Gamma(\alpha, \lambda)\)表示
+参数为\(\alpha, \lambda)\)的\(\Gamma-\)分布, \(\xi\sim\Gamma(\alpha, \lambda)\)表示随机变量服从\(\Gamma-\)分布.
+\end{gamma_distru}
+
+\index{{指数分布}}\index{{Erlang分布}}\index{{\(\chi^2\)分布}}
+指数分布, Erlang分布, 和\(\chi^2\)分布, 可以通过\((\alpha,\lambda)\)的特殊取值得到.
+
+\begin{beta_distru}[Beta Distribution]
+\index{{Beta分布}}
+称随机变量\(\xi\)有\(B-\)分布, 参数为\((\alpha, \beta),\,\,\alpha>0,\beta>0\)如果它有密度函数
+\begin{align}
+f_{\xi}(x) = \begin{cases}{1\over B(\alpha, \beta)}x^{\alpha - 1}(1-x)^{\beta - 1}, & x\in(0,1)\cr
+0, & x\notin(0, 1)\end{cases}
+\end{align}
+其中
+\begin{align}
+    B(\alpha, \beta) = \int\limits_{0}^{1}\,x^{\alpha - 1}(1-x)^{\beta - 1}\,dx
+\end{align}
+\end{beta_distru}
+
+\newtheorem{snedecor_distribution}[dis_root]{\disfunc}
+\begin{snedecor_distribution}[\(F-\)分布]
+\index{{\(F-\)分布}}
+称随机变量\(\eta\)有\(F-\)分布, 参数为\((m, n)\)如果它有密度函数
+\begin{align}
+f_{\xi}(x) = \begin{cases}{m^{m\over 2}n^{n\over 2}\over B({m\over 2}, {n\over 2})}x^{{m\over 2} - 1}(n+mx)^{-{m+n\over 2}}, & x>0\cr
+0, & x\le 0\end{cases}
+\end{align}
+可以验证, 对于任意\(x>0\), \(\eta\)的分布函数\(F_{\eta}(x)\)和密度\(f_{\eta}(x)\)可以通过
+\(B-\)分布函数\(F_{\xi}(x; \alpha, \beta)\)和密度\(f_{\xi}(x; \alpha, \beta)\)表示
+\begin{align}
+    F_{\eta}(x) &= F_{\xi}\left({mx\over n + mx}; {m\over 2}, {n\over 2}\right)\cr
+    f_{\eta}(x) &= {\displaystyle mn\over(n+mx)^2}f_{\xi}\left({mx\over n + mx}; {m\over 2}, {n\over 2}\right)
+\end{align}
+\end{snedecor_distribution}

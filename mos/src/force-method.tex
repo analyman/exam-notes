@@ -5,7 +5,7 @@
 \begin{filecontents*}{\jobname-sphere_image.asy}
 settings.outformat = "pdf";
 unitsize(1pt);
-include "asyLib/asyLib.asy";
+import naan;
 
 pair pone = (20, 50), ptwo = (120, 50);
 combinePic(
@@ -18,9 +18,7 @@ combinePic(
     pointLoad(.8pone + .2ptwo, 0, "$F_4$")
 );
 \end{filecontents*}
-\IfFileExists{\jobname-sphere_image.pdf}{\relax}{
-    \immediate\write18{asy -noV \jobname-sphere_image.asy}
-}
+\checkcc{sphere_image}
 
 \begin{figure}[H]
 \centering

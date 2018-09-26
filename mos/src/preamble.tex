@@ -16,3 +16,16 @@
 
 \newtheorem{theorem_root}{\defn}[chapter]
 \newtheorem{example_root}{\example}[chapter]
+
+
+\makeatletter
+
+\def\checkcc#1{%
+    \IfFileExists{\jobname-#1.asy}{
+        \IfFileExists{\jobname-#1.pdf}{\relax}%
+        {\immediate\write18{asy -noV \jobname-#1.asy}}
+    }{\relax}
+}
+
+\def\refto#1#2{{(\tt#2\nobreak\ \ref{#1})}}
+\makeatother

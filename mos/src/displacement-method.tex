@@ -1,0 +1,197 @@
+\chapter{位移法}
+
+\section{转角位移方程}
+
+\begin{filecontents*}{\jobname-disp_form.asy}
+import naan;
+unitsize(1pt);
+settings.outformat = "pdf";
+
+pair pone = (0, 0), ptwo = (100, 0);
+label("$A$", pone, (0, -7));
+label("$B$", ptwo, (0, -7));
+combinePic(
+        hingeSupport(pone),
+        hingeSupport(ptwo),
+        lever(pone, ptwo),
+        momentLoad(pone, "$M_a$", offset=(0,5), scale=1.2),
+        momentLoad(ptwo, "$M_b$", offset=(0,5), scale=1.2)
+);
+\end{filecontents*}
+\checkcc{disp_form}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{\jobname-disp_form.pdf}
+\caption{转角位移方程推导示意}
+\label{fig:disp_form}
+\end{center}
+\end{figure}
+
+对于\refto{fig:disp_form}{Figure}, 可以知道$M_a$ 和 $M_b$产生的的弯矩方程
+为\ $M = {(l-x)\over l}\times M_a$ 和 $M = {-x\over l}\times M_b$,
+并且可以知道\ $\delta_{aa} = \delta_{bb}$ 为
+\begin{align*}
+{1\over EI}\times\int\limits_{0}^{l}\,\left(l-x\over l\right)^2\,dx &= 
+{1\over EI}\times\int\limits_{0}^{l}\,-\left(l-x\over l\right)^2\,d(l-x)\cr &= 
+{1\over EI}\times{\left(l-x\right)^3\over 3l^2}|^0_l = {l\over 3EI}
+\end{align*}
+
+同理可以知道$\delta_{ab} = \delta_{ba} = -{l\over 6EI}$, 所以可以得到以下方程
+\begin{align}
+\theta_a^\prime &= \delta_{aa}\times M_a + \delta_{ab}\times M_b = {l\over 3EI}\times M_a - {l\over 6EI}\times M_b\cr
+\theta_b^\prime &= \delta_{ba}\times M_a + \delta_{bb}\times M_b = -{l\over 6EI}\times M_a + {l\over 3EI}\times M_b
+\end{align}
+
+再通过增加支座的位移, 得到$\theta_a$和$\theta_b$
+
+\begin{filecontents*}{\jobname-disp_form_2.asy}
+import naan;
+import CAD;
+
+sCAD cad = sCAD.Create();
+
+unitsize(1pt);
+settings.outformat = "pdf";
+
+pair pone = (0, 0), ptwo = (100, -35), pthr = (100, 0);
+label("$A$", pone, (0, -7));
+label("$B^\prime$", ptwo, (5, -2));
+label("$B$", pthr, (0, 2));
+combinePic(
+        hingeSupport(pone),
+        hingeSupport(ptwo),
+        lever(pone, ptwo),
+        momentLoad(pone, "$M_a$", offset=(0,5), scale=1.2),
+        momentLoad(ptwo, "$M_b$", offset=(0,5), scale=1.2)
+);
+currentpen = dashed + red;
+combinePic(
+    hingeSupport(pthr, scale = (0.8, 0.8)),
+    lever(pone, pthr)
+);
+
+currentpen = linetype(new real[]);
+cad.MeasureParallel("$\Delta$", pthr, ptwo, 25);
+\end{filecontents*}
+\checkcc{disp_form_2}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics{\jobname-disp_form_2.pdf}
+\caption{增加支座位移$\Delta$}
+\label{fig:disp_form_2}
+\end{center}
+\end{figure}
+
+可以得到$\theta_a$和$\theta_b$
+\begin{subequations}
+\begin{align}
+\theta_a &= {l\over 3EI}\times M_a - {l\over 6EI}\times M_b + {\Delta\over l}\\
+\theta_b &= -{l\over 6EI}\times M_a + {l\over 3EI}\times M_b + {\Delta\over l}
+\end{align}
+\end{subequations}
+
+进而可以得到$M_a$和$M_b$由$\theta_a, \theta_b, \Delta$表示的表达式
+\begin{subequations}
+\label{equ:equa}
+\begin{align}
+M_a &= i\times\left(4\theta_a + 2\theta_b - {6\Delta\over l}\right)\\
+M_b &= i\times\left(2\theta_a + 4\theta_b - {6\Delta\over l}\right)
+\end{align}
+\end{subequations}
+
+式中的$i$为$i = {EI\over l}$, 再由杆件$AB$的内力平衡可以得到$F_{Qab} = F_{Qba}$
+\begin{align}
+\label{equ:equb}
+F_{Qab} = F_{Qba} = -{(M_a + M_b)\over l} = -{6i\theta_a\over l}-{6i\theta_b\over l} + {12\Delta\over l^2}
+\end{align}
+
+整理\refto{equ:equa}{Equation}和\refto{equ:equb}{Equation}可以得到转角位移方程\index{{转角位移方程}}
+\begin{align}
+\label{equ:equc}
+\begin{pmatrix}
+M_a\cr M_b\cr F_{Qab}
+\end{pmatrix} = \mathbb{K}\bigcdot\begin{pmatrix}
+\theta_a\cr\theta_b\cr\Delta\end{pmatrix} = \begin{pmatrix}
+{4i} & {2i} & -{6\over l}\cr
+{2i} & {4i} & -{6\over l}\cr
+-{6i\over l}  & -{6\over l}  & {12i\over l^2}
+\end{pmatrix}\bigcdot\begin{pmatrix}
+\theta_a\cr\theta_b\cr\Delta\end{pmatrix}
+\end{align}
+
+矩阵$\mathbb{K}$成为弯曲杆件的刚度矩阵\index{{弯曲杆件的刚度矩阵}}. 可以知道, 矩阵$\mathbb{K}$是不可逆且对称的.
+其中不可逆的意义为{\bf 杆件在平衡时可以发生旋转.}
+
+对于特定约束的杆件, 根据约束条件可以得到$(\theta_a, \theta_b, \Delta, M_a, M_b, F_{ab})$的值, 
+进而可以简化\refto{equ:equc}{Equation}. 以支座$B$的情形进行举例
+\quad\halign{%
+\strut\quad\bf#\hfil\hskip.5em\relax:\qquad & \tt#\quad\hfil & $\Longrightarrow$\quad $\vcenter{#}$\cr
+$B$支座为铰支座 & $M_b$为$0$ & $M_a = 3i\theta_a - 3i{\Delta\over l}$\cr
+$B$支座为滑动支座 & $F_{ab}$为$0$ & $M_{a} = -M_{b} = \theta_a$\cr
+$B$支座为固定支座 & $\theta_a$为$0$ & $M_a = 4i\theta_a - 6i{\Delta\over l}\quad M_b = 2i\theta_a - 6i{\Delta\over l}$\cr
+}
+
+\section{位移法的基本体系}
+
+位移法的解决问题的逻辑是, 先施加约束, 得到这个问题的基本体系. 在这个体系中
+通过载常数, 能够将作用在{\bf 非节点位置的荷载转化为节点荷载(所施加约束的反力)}.
+将问题转化为{\bf 解决力作用在原体系的节点上, 求解内力}.
+
+\begin{figure}[H]
+\begin{subfigure}{.5\hsize}
+\centering
+\includegraphics[width=.8\hsize]{../ASY/pdfout/origin_system.pdf}
+\caption{受外力作用的原体系}
+\label{fig:figa}
+\end{subfigure}
+$\hbox{施加约束}\atop\Longrightarrow$
+\begin{subfigure}{.5\hsize}
+\centering
+\includegraphics[width=.8\hsize]{../ASY/pdfout/basic_system.pdf}
+\caption{施加约束的位移法基本体系}
+\label{fig:figb}
+\end{subfigure}
+\caption{使用位移法解决问题}
+\end{figure}
+
+设这组作用在节点上的力为$(F_{r1},F_{r2},\cdots,F_{rn})$. 
+而要解决这个问题, 还是需要用到施加约束后的体系.
+\begin{figure}[H]
+\centering
+\includegraphics{../ASY/pdfout/other_prom.pdf}
+\caption{力作用在节点上}
+\label{fig:figc}
+\end{figure}
+
+要解决\refto{fig:figc}{Figure}的这个问题, 先在有节点力存在的地方施加约束(也是和\refto{fig:figb}{Figure}相同的约束).
+
+\begin{figure}[H]
+\centering
+\includegraphics{../ASY/pdfout/basic_structure.pdf}
+\caption{受到约束的基本结构}
+\label{fig:figd}
+\end{figure}
+
+对\refto{fig:figd}{FIgure}的{\bf 外加约束}施加对应的单位位移, 如在$B$节点的额外
+约束施加$\Delta_b = 1$的位移, 那么{\bf 节点对 对应的外加约束(根据不同情况, 可能有多个外加约束会产生约束力)会产生反力, 亦即
+约束对对应的节点施加了外力}. 根据\refto{equ:equc}{Equation}及其在不同约束条件下的
+推论, 可以求出外加约束对于节点施加的外力$(k_{11}, k_{12}, \cdots, k_{1n})$.
+对于所有有外加约束的节点施加对应于外加约束的单位位移, 可以得到一个矩阵
+\begin{align*}
+\relmat{k}
+\end{align*}
+
+对基本结构\refto{fig:figd}{Figure}施加一组位移$\linevec\theta$, 那么可以得到对应的
+外加约束对节点的约束力$\linevec{F^\prime}$, 且有
+\begin{align}
+\label{equ:equd}
+\colvec{F^\prime} = \relmat{k}\bigcdot\colvec\theta
+\end{align}
+
+使得$\linevec{F^\prime} = (F_{r1},F_{r2},\cdots,F_{rn})$, 那么解\refto{equ:equd}{Equation}就可得到\refto{fig:figc}{Figure}各个有
+外力作用节点的位移. 并且在知道一些关键节点的位移后, 可以依靠转角位移方程解出\refto{fig:figc}{Figure}的内力.
+
+最后, 可以知道\refto{fig:figa}{Figure}的状态 $=$ \refto{fig:figb}{Figre}的状态 $+$ \refto{fig:figc}{Figure}的状态.
+而\refto{fig:figb}{Figure}的内力可以通过载常数的方程知道, 所以\refto{fig:figa}{Figure}的问题得到了解决.

@@ -1,0 +1,304 @@
+\chapter{概率空间}
+
+%{{{ section:随机事件和随机变量
+\section{随机事件和随机变量}
+\newtheorem{randomized_event}[theorem_root]{Definition}
+
+\begin{randomized_event}[随机事件]
+{\bf 随机实验}的结果称为{\bf 随机事件}，简称{\bf 事件}
+\index{随机事件}
+\end{randomized_event}
+%}}} end section:随机事件和随机变量
+
+%{{{ section:事件的运算
+\section{事件的运算}
+\theoremstyle{definition}
+\newtheorem{monotoneeventcolumn}[theorem_root]{Definition}
+
+\indent 以$A$, $B$表示事件。
+
+\begin{enumerate}
+\item{\bf 事件的包含:}\quad 事件$A$发生，则事件$B$发生。\equalwith$A\subset B$
+\item{\bf 事件的和:}\quad 事件$A$或$B$发生。\equalwith$A\cup B$
+\item{\bf 事件的交:}\quad 事件$A$和$B$一起发生。\equalwith$A\cap B$
+\item{\bf 事件的差:}\quad 事件$A$发生$B$不发生。\equalwith$A - B$
+\item{\bf 事件的逆:}\quad 事件$A$不发生。\equalwith${\bar A} = \Omega/A$
+\end{enumerate}
+
+\begin{monotoneeventcolumn}
+    有事件列$(A_{n=1}^{\infty})$，$A_i\subset A_j$\equalwith$i<j$，则称$A_{n=1}^{\infty}$为单调递增; 若%
+    $A_i\supset A_j$\equalwith$i<j$，则$A_{n=1}^{\infty}$为单调递减。%
+    称$\lim\limits_{i\to\infty}A_i$为事件列$A_{n=1}^{\infty}$的极限。%
+    两者统称单调事件列
+    \index{单调事件列}
+\end{monotoneeventcolumn}
+
+\newtheorem{limit_of_set}[theorem_root]{\defn}
+\begin{limit_of_set}
+有集合列\((A_n)_{n=1}^\infty\), 其收敛当且仅当上极限等于下级限, \(\limsup\limits_{n\to\infty}\,A_n = \liminf\limits_{n\to\infty}\, A_n\), 既有
+\begin{align*}
+A &= \lim\limits_{n\to\infty}\,A_n\cr
+  &= \limsup\limits_{n\to\infty}\,A_n = \bigcap\limits_{n=1}^\infty\bigcup\limits_{k=n}^\infty\,A_k\cr
+  &= \liminf\limits_{n\to\infty}\,A_n = \bigcup\limits_{n=1}^\infty\bigcap\limits_{k=n}^\infty\,A_k
+\end{align*}
+\end{limit_of_set}
+%}}} end section:事件的运算
+
+%{{{ section:基本事件空间
+\section{基本事件空间}
+\newtheorem{basicevent}[theorem_root]{Definition}
+\newtheorem{basiceventspace}[theorem_root]{Definition}
+
+\begin{basicevent}[基本事件]
+每次实验必出现一个而且只能出现一个基本事件, 任何两个基本事件不能同时发生。
+\index{基本事件}
+\end{basicevent}
+
+\begin{basiceventspace}[基本事件空间]
+以$\omega$表示基本事件，基本事件空间$\Omega = \{\omega\}$。事件是基本事件空间的子集。只含有穷或者可数个基本事件的基本事件空间称为{\bf 离散的}。
+\index{基本事件空间}
+\end{basiceventspace}
+%}}} end section:基本事件空间
+
+%{{{ section:可测空间
+\section{事件$\sigma-$代数$\cdot$可测空间}
+\newtheorem{sigmaalgebra}[theorem_root]{Definition}
+\newtheorem{smallestsigmaalgebraset}[theorem_root]{Definition}
+
+\subsection{事件$\sigma-$代数}
+
+$\Omega$是一个集合，$\mathscr{F}$是$\Omega$的一些子集的集合。
+
+\begin{sigmaalgebra}[$\sigma$代数]
+    称$\mathscr{F}$为$\Omega$中的一个$\sigma-$代数:
+    \begin{enumerate}
+        \item $\Omega\in\mathscr{F}$
+        \item $A\in\mathscr{F}$\equalwith${\bar A}\in\mathscr{F}$
+        \item 对$(A_{i=1}^{\infty})$($A_i\in\mathscr{F}$), $\bigcup\limits_{i=i}^{\infty}A_i\,\in\mathscr{F}$
+    \end{enumerate}
+    \index{$\sigma-$代数}
+\end{sigmaalgebra}
+
+\noindent$\sigma-$代数的一些性质
+\begin{itemize}
+    \item$\emptyset\in\mathscr{F}$
+    \item 对于$(A_{i=1}^{n})$，有$\bigcup_{i=1}^nA_{i}\in\mathscr{F}$和$\bigcap_{i=1}^{n}A_i\in\mathscr{F}$
+    \item 对于$(A_{i=1}^{\infty})$，有$\bigcap_{i=1}^{\infty}A_i\in\mathscr{F}$
+\end{itemize}
+
+% 单调集合类
+\newtheorem{monotonic_set_class}[theorem_root]{\defn}
+\begin{monotonic_set_class}
+假设\msM 和 \msH 都是\mO 的一些子集的集合.
+\begin{enumerate}
+    \item 称\msM 为\mO 中一单调集合类, 如果对属于\msM 的任一单调序列
+    $A_1, A_2,\cdots,$ 有\(\lim\limits_{n\to\infty}\,A_n\in\msM\)
+    \item 称单调集合类$M(\msH)$为含\msH 的最小单调类\index{{最小单调类}}, 如果
+    \(\msH\subset M(\msH)\), 而且对于任意含\msH 的单调集合类\msM, 有$M(\msH)\subset \msM$.
+\end{enumerate}
+\end{monotonic_set_class}
+
+% 代数
+\newtheorem{__algebra}[theorem_root]{\defn}
+\begin{__algebra}
+假设\msA 是\mO 的一些子集的集合, 称\msA 为\mO 中的一代数, 如果满足条件
+\begin{enumerate}
+\item $\mO\in\msA$
+\item $A\in\msA\,\Longrightarrow\,\bar{A}\in\msA$
+\item \(A_1, A_2, \cdots, A_n\in\msA\,\Longrightarrow\,\bigcup\limits_{i=1}^n\,A_i\in\msA\)
+\end{enumerate}
+\end{__algebra}
+
+% relation between monotonic class of set and sigma algebra
+\newtheorem{relation_monotonic_sigma_algebra}[theorem_root]{\theorem}
+\begin{relation_monotonic_sigma_algebra}
+在代数\msH 中, 以下两个条件等价
+\begin{enumerate}
+    \item \msH 是\(\sigma-\)代数
+    \item \msH 是单调集类
+\end{enumerate}
+\end{relation_monotonic_sigma_algebra}
+
+度量空间的完备性, 等价于单调有界序列收敛.
+
+\subsection{Borel $\sigma-$代数}
+
+\begin{smallestsigmaalgebraset}[给定集系最小$\sigma-$代数]
+\index{给定集系最小$\sigma-$代数}
+给定$\Omega$的集系$\mathscr{H}$的最小$\sigma-$代数$\sigma(\mathscr{H})$:
+\begin{enumerate}
+    \item$\mathscr{H}\in\sigma(\mathscr{H})$
+    \item$\mathscr{B}$是$\Omega$上的$\sigma-$代数，且$\mathscr{H}\subset\mathscr{B}$。%
+        则$\forall\,\mathscr{B}$, 有$\sigma(\mathscr{H})\subset\mathscr{B}$
+\end{enumerate}
+\end{smallestsigmaalgebraset}
+
+\newtheorem{borel_sigma_algebra}[theorem_root]{\defn}
+\begin{borel_sigma_algebra}
+假设\(\mO = \Rs^n\), 有\(\msH = \{(x_1, x_2,\cdots,x_n):-\infty<x_i\le a_i, i = 1, 2, \cdots, m, a_i\in\Rs\}\),
+则称\(\msB = \sigma(\msH)\)为$m$维 borel$\sigma-$代数.
+$A\in \msB$称为 borel可测集
+\end{borel_sigma_algebra}
+%}}} end section:可测空间
+
+%{{{ 概率空间
+\section{概率空间}
+
+\newtheorem{probability_measure}[theorem_root]{\defn}
+\begin{probability_measure}[概率测度]
+    设\(P(A), A\in\msF\), 是定义在\mO 中$sigma-$代数\msF 上的实值函数.
+    称$P(A)$为\msF 上的概率测度(简称概率), 如果它满足下列条件:\index{{概率测度}}
+    \begin{enumerate}
+        \item 非负性:\quad \(\forall A\in\msF, 0\le p(A)\le 1\)
+        \item 规范性:\quad \(p(\mO) = 1\)
+        \item 完全可加性:\quad 对于任意可数个\(A_m\in\msF (m=1,2,\cdots,)\), 
+        如果\(A_i\cap A_j = \emptyset, i\ne j\), 则
+        \begin{align}
+            P\left(\bigcup\limits_{m=1}^\infty A_m\right) = \sum\limits_{m=1}^\infty\,P(A_m)
+        \end{align}
+    \end{enumerate}
+\end{probability_measure}
+
+\newtheorem*{lebesgue_measurable}{\remark}
+\begin{lebesgue_measurable}[lebesgue可测]
+设\(E\)是\(\Rs^n\)的集合. 如果对于\(\Rs^n\)的每个子集合\(A\)都成立
+\begin{align*}
+m^\ast(A) = m^\ast(A\cap E) +  m^\ast(A/ E)
+\end{align*}
+就称\(E\)是 lebesgue可测的, 并且定义lebesgue 测度为 \(m(E)= m^\ast(E)\).\footnote{Terence Tao Analysis}
+\end{lebesgue_measurable}
+
+\subsection{概率测度的性质}
+\begin{enumerate}
+    \item \(P(\emptyset) = 0\)
+    \begin{proof} \(\emptyset = \emptyset \cup \emptyset\), 知\(P(\emptyset) = P(\emptyset) + P(\emptyset)\), 
+    故\(P(\emptyset) = 0\)\end{proof}
+    \item 可加性.\quad 对于 \(A_m\in\msF(m = 1, 2, \cdots, n)\), 如果
+    \(A_i\cap A_j = \emptyset, i\ne j\), 则
+    \begin{align}P\left(\bigcup\limits_{m=1}^n\right) = \sum\limits_{m=1}^n\,P(A_m)\end{align}
+    \item 对立事件的概率.\quad \(P(\bar{A}) = 1 - P(A)\)
+    \item \(\forall A, B\in\msF, A\subset B\), then \(P(A)\le P(B)\)
+    \item 半可加性.\quad 对于任意有穷个\(A_1, A_2,\cdots, A_n\in\msF\), 有
+    \begin{align}P\left(\bigcup\limits_{m=1}^n\,A_m\right) \le \sum\limits_{m=1}^n\,P(A_m)\end{align}
+    \item 加法公式.\index{{加法公式}}\quad \(\forall A, B\in\msF\), 有\begin{align} P(A\cup B) = P(A) + P(B) - P(A\cap B)\end{align}
+    \item 一般加法公式.\quad \(\forall A_m\in\msF, m = 1, 2, \cdots, n\), 有\begin{align}P\left(\bigcup\limits_{m=1}^n\,A_m\right) = \sum\limits_{m=1}^n\,(-1)^m s_m\end{align}
+    其中有
+    \begin{align*}
+    s_1 &= \sum\limits_{m=1}^n\, P(A_m)\cr
+    s_2 &= \sum\limits_{i<j}\, P(A_iA_j)\cr
+    s_3 &= \sum\limits_{i<j<k}\, P(A_iA_jA_k)\cr
+    s_n &= P(A_1A_2\cdots A_n)
+    \end{align*}
+    \item 连续性定理.\quad 设有\(A_n\in\msF, n\in\Ns^+\), 并且\(\,\lim\limits_{n\to\infty}\,A_n = A\), 则有\(\,\lim\limits_{n\to\infty}P(A_n) = P(\lim\limits_{n\to\infty}A_n)\)
+    \begin{proof}首先可以利用可数次加性证明\((A_n)_{n=1}^\infty\)是单调集合的情况(递增\(S_{i+1} = A_{i+1} / A_i\), 递减\(S_{i+1} = A_{i} / A_{i+1}\)).
+        \index{{概率连续性定理}}
+        而后设\(B_n = \bigcup\limits_{k=1}^n\bigcap\limits_{m=k}^\infty A_m\), \(B_n\)是递增集合序列, 所以有
+        \begin{align}\label{equ:seqcon1}\lim\limits_{n\to\infty}P(B_n) = P(\lim\limits_{n\to\infty}B_n)\end{align}
+        可以知道, \(\lim\limits_{n\to\infty}B_n = \liminf\limits_{n\to\infty}A_n = \lim\limits_{n\to\infty}A_n\),
+        所以有\begin{align}\label{equ:seqcon2}P(\lim\limits_{n\to\infty}A_n) = P(\lim\limits_{n\to\infty}B_n)\end{align}
+        且有\(A_n \supset B_n(A_n\supset\bigcap\limits_{m=k}^\infty A_k, k\le n)\), 根据\refto{equ:seqcon1}{Equation}和\refto{equ:seqcon2}{Equation}可以推得
+        \begin{align}\label{equ:seqcon3}
+            \lim\limits_{n\to\infty}P(A_n)&\ge \lim\limits_{n\to\infty}P(B_n)\cr
+            &= P(\lim\limits_{n\to\infty}B_n)\cr &= P(\lim\limits_{n\to\infty}A_n)
+        \end{align}
+        同理可以利用\(B_n = \bigcap\limits_{k=1}^n\bigcup\limits_{m=k}^\infty A_m\)证得\(\lim\limits_{n\to\infty}P(A_n)\le P(\lim\limits_{n\to\infty}A_n)\),
+        既可以得到\(\lim\limits_{n\to\infty}P(A_n) = P(\lim\limits_{n\to\infty}A_n)\).
+    \end{proof}
+\end{enumerate}
+
+\newtheorem{continuous_eqaulity__}[theorem_root]{\theorem}
+\begin{continuous_eqaulity__}[完全可加性的等价条件]
+设有\(P:\msF\mapsto\Rs\)是\(\sigma\)代数\msF 上的任一非负实值函数, 下面两个命题等价
+\begin{enumerate}
+\item \(P\)具有完全可加性
+\item \(p\)具有可加性和连续性
+\end{enumerate}
+\end{continuous_eqaulity__}
+
+\newtheorem{probability_exploring_theorem}[theorem_root]{\theorem}
+\begin{probability_exploring_theorem}[概率开拓定理]
+    假设\(P_0\)是代数\msA 上的完全可加概率测度, 而\(\msF = \sigma(\msA)\)是含\msA 的最小\(\sigma-\)代数, 
+    那么, 在\msF 上存在位移的概率\(P\), \(\forall\,A\in\msA\), 有\(P(A) = P_0(A)\)
+\end{probability_exploring_theorem}
+%}}}
+
+%{{{ 事件的条件概率
+\section{事件的条件概率}
+
+\newtheorem{conditional_probability}[theorem_root]{\defn}
+\begin{conditional_probability}[条件概率]
+\index{{条件概率}}
+假设\prbsp 是一概率空间, \(A, B\in\msF\)是任意二事件, 假设\(P(B) > 0\), 则,
+\begin{align}
+    P(A\mid B) = {P(AB)\over P(B)}
+\end{align}
+为在事件\(B\)出现的条件下事件\(A\)的条件概率, 或简称为事件\(A\)关于事件\(B\)的条件概率.
+\end{conditional_probability}
+
+\newtheorem{basic_properties_of__}[theorem_root]{\remark}
+\begin{basic_properties_of__}[条件概率的基本性质]
+对于固定的\(B\in\msF\), \(P(B)>0\), \(P(A\mid B)\)作为\(A\)的集函数, 是\msF 上的概率测度, 既有
+\begin{enumerate}
+    \item \(\forall\,A\in\msF\), 有\(0\le P(A\mid B) \le 1\)
+    \item \(P(\Omega\mid B) = 1\)
+    \item 对任意可数个\(A_m\in\msF\,(m= 1, 2, \cdots\), 若\(\,A_i\ne A_j = \emptyset\, (i\ne j)\), 则
+    \begin{align}
+        P\left(\bigcup\limits_{m=1}^\infty A_m \mid  B\right) = \sum\limits_{m=1}^\infty\,P(A_m\mid B)
+    \end{align}
+\end{enumerate}
+\end{basic_properties_of__}
+
+\newtheorem{addition_formula}[theorem_root]{\theorem}
+\begin{addition_formula}[乘法公式]
+    \index{{乘法公式}}
+假设\(A_m\in\msF\,m = 1, 2, \cdots, n(n\ge 2)\), 是任意\(n\)个事件, 并且\(P(A_1A_2\cdots A_{n-1}>0\), 则
+\begin{align}
+    P(A_1A_2\cdots A_n) = &P(A_1)P(A_2\mid A_1)P(A_3\mid A_1A_2)\cdots\cr
+                          &\bigcdot P(A_n\mid A_1\cdots A_{n-1})
+\end{align}
+\end{addition_formula}
+
+\newtheorem{full_probability_formula}[theorem_root]{\theorem}
+\begin{full_probability_formula}[全概率公式]
+    \index{{全概率公式}}
+    假设\(H_i\in\msF\,(i\in I)\) 为任意用穷可数个事件, 满足条件:
+    \(H_i\cap H_j = \emptyset, i\ne j\); \(\bigcup\limits_{i\in I}\,H_i = \Omega\); 
+    \(P(H_i) > 0\), 那么, 对于任意事件\(A\in\msF\), 有
+    \begin{align}
+        P(A) = \sum\limits_{i\in I}P(A\mid H_i) P(H_i)
+    \end{align}
+\end{full_probability_formula}
+
+\newtheorem{bayes_formula}[theorem_root]{Lemma}
+\begin{bayes_formula}[贝叶斯公式]
+    假设\(H_i\in\msF, i\in I\), \(I\)可数, 满足条件:
+    \(H_i \cap H_j = \emptyset, i\ne j\); \(\bigcup\limits_{i\in I} H_i = \Omega\);
+    \(P(H_i) > 0\), 那么对任意事件\(A\in\msF, P(A) > 0\), 有
+    \begin{align}
+        P(H_k\mid A) = {P(H_k)P(A\mid H_k)\over \sum\limits_{i\in I}P(H_i)P(A\mid H_i)}
+    \end{align}
+\end{bayes_formula}
+
+
+\section{事件的独立性}
+
+\newtheorem{independence_of_event}[theorem_root]{\defn}
+\begin{independence_of_event}[二事件的独立性]
+    假设\prbsp 是一概率空间, \(A, B\in\msF\), 那么, 称二随机事件\(A\) 和\(B\) 为互相独立的, 如果
+    \begin{align}
+        P(AB) = P(A)P(B)
+    \end{align}
+\end{independence_of_event}
+
+\newtheorem{independence_of_multiple_event}[theorem_root]{\defn}
+\begin{independence_of_multiple_event}[多事件的独立性]
+    假设\prbsp 是一概率空间, \(A_i\in\msF\, i\in_{I}\), 那么, 称多个随机事件\(A\) 和\(B\) 为互相独立的, 如果
+    \begin{align}
+        P(\bigcap\limits_{i\in I} A_i) = \prod\limits_{i\in I}P(A_i)
+    \end{align}
+\end{independence_of_multiple_event}
+
+事件两两独立不可以退出全部事件独立, 对于独立的事件列, 将其中一个事件换为其对立事件, 
+其仍然独立.
+
+%}}}
