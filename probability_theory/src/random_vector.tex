@@ -1,3 +1,409 @@
 \chapter{随机向量}
 
-\section{NONE}
+\makeatletter
+\def\random@vector#1{\bm{#1}(\omega) = (#1_1(\omega), #1_2(\omega),\cdots, #1_n(\omega))}
+\def\rvxi{\random@vector{\xi}}
+\makeatother
+
+\section{随机向量及其分布函数}
+
+\newtheorem{random_vector_def}[theorem_root]{\defn}
+\begin{random_vector_def}[随机向量]
+\label{def:random-vector-def}
+\idxterm{sjxl@{随机向量}}
+假设\prbsp 是一个概率空间, 而\(\rvxi,\,\omega\in\Omega\), 是定义在\(\Omega\)取值于\(n\)维
+空间\(\Rs^n\)的向量函数. 称\(\bm\xi = \bm\xi(\omega)\)为\(n\)为随机向量, 如果
+它的每个分量都是随机变量, 即对任意实数\(x_i\in\Rs^1,\,\,i=1, 2,\cdots, n\), 有
+\begin{align}
+    \{\omega:\,\xi_{i}(\omega)\le x_i\}\in\msF
+\end{align}
+称\(\xi_i = \xi_i(\omega)\)为随机向量\(\bm\xi = \bm\xi(\omega)\)的第\(i\)个
+分量.
+\end{random_vector_def}
+
+\newtheorem{distribution_function_of_random_vector}[theorem_root]{\defn}
+\begin{distribution_function_of_random_vector}[随机向量的分布函数]
+\idxterm{sjxldfbhs@{随机向量的分布函数}}
+称\(n\)元函数
+\begin{align}
+    F_\xi(\bm x) &= F_{\xi_1, \xi_2,\cdots, \xi_n}(x_1, x_2,\cdots,x_n)\cr
+    &= P\{\omega:\,\xi_1(\omega)\le x_1,\xi_2(\omega)\le x_2,\cdots,\xi_n(\omega)\le x_n\}\qquad \bm x = \linevec{x}\in\Rs^n
+\end{align}
+为随机向量\(\bm\xi(\omega)\)的分布函数, 或随机变量\(\xi_1(\omega), \xi_2(\omega),\cdots, \xi_n(\omega)\)的联合分布函数
+\end{distribution_function_of_random_vector}
+
+\newtheorem{about_random_vector_and_its_function}[theorem_root]{\lemma}
+\begin{about_random_vector_and_its_function}
+假设\(\bm\xi = \xi(\linevec{\xi})\)是\(n\)维随机变量, \(F_\xi(\bm x) = F(\linevec{x})\)是
+它的分布函数. 那么, 对于任意\(-\infty\le a_i<b_i\le\infty,\,\,i=1, 2, \cdots\)有
+\begin{align}
+&P\{a_1<\xi_1\le b_1, a_2<\xi_1\le b_2,\cdots, a_n<\xi_1\le b_n\}\cr
+&=F_0 - \sum\limits_{i=1}^n\,F_i + \sum\limits_{i<j}\,F_{ij} - 
+\sum\limits_{i<j<k}\,F_{ijk} + \cdots + (-1)^nF_{1\cdots n}
+\end{align}
+其中\(F_0 = F(\linevec{b})\), 对于任意\(1\le i<j<\cdots<m\le n\),
+\begin{align}
+F_{ij\cdots m} = F(\linevec{x})\left|\vcenter{\noindent$x_r = a_r, r = i,j,\cdots m\newline x_s = b_s, s\ne i, j,\cdots, m$}\right.
+\end{align}
+\begin{proof}Too long\end{proof}
+\end{about_random_vector_and_its_function}
+
+%HERE
+\newtheorem{properties_of_above_function}[theorem_root]{\theorem}
+
+
+\newtheorem{disc_random_vector}[theorem_root]{\defn}
+\newtheorem{cont_random_vector}[theorem_root]{\defn}
+\begin{cont_random_vector}[连续型随机向量]
+\idxterm{lxxsjxl@{连续型随机向量}}
+称\(n\)维随机向量\(\bm \xi(\omega) = (\xi_1{\omega}, \xi_2(\omega),\cdots, \xi_n(\omega))\)为
+连续型的. 如果它的分布函数\(F_{\bm\xi}(\omega) = F_{\xi_1\cdots\xi_n}(\linevec{x})\)绝对连续, 
+即存在非负(Lebesgue)可积函数\(f_{\bm\xi}(\bm x) = f_{\xi_1\cdots\xi_n}(\linevec{x})\), 使得
+\begin{align}
+    F_{\bm\xi}(x) &= F_{\xi_1\cdots\xi_n}(\linevec{x})\cr
+    &= \int\limits_{-\infty}^{x_1}\cdots\int\limits_{-\infty}^{x_n}\,f_{\xi_1\cdots\xi_n}(\linevec{u}\,du_1\cdots du_n
+\end{align}
+这是\(n\)元函数\(f_{\bm\xi}(\bm x) = f_{\xi_1\cdots\xi_n}(\linevec{x})\)称作随机向量
+\(\bm\xi\)的概率密度或者随机变量\(\xi_1\cdots\xi_n\)的联合密度.
+\end{cont_random_vector}
+
+\newtheorem{properties_of_cont_random_vector}[theorem_root]{\lemma}
+\begin{properties_of_cont_random_vector}[概率密度的性质]
+\ \par
+\begin{enumerate}
+\item \(f_{\bm\xi} \ge 0,\,\,\bm x = \linevec{x}\in\Rs^n\)
+\item \(\int\limits_{\Rs^n}f_{\bm\xi}(\bm x)\,dx = \int\limits_{-\infty}^{\infty}\cdots\int\limits_{-\infty}^{\infty}\,f_{\xi_1\cdots\xi_n}(\linevec{x}\,dx_1\cdots dx_n = 1\)
+\item For almost \(\bm x\in\Rs^n\), 有
+\begin{align}
+    f_{\bm\xi}(\bm x) = {\partial^nF_{\bm\xi}(\bm x)\over \partial x_1\cdots\partial x_n}
+\end{align}
+\end{enumerate}
+\end{properties_of_cont_random_vector}
+
+% n维正态分布
+
+
+\newtheorem{probability_distribution_of_random_vector}[theorem_root]{\lemma}
+\begin{probability_distribution_of_random_vector}
+考虑一概率空间\prbsp 和定义在它上面的函数\(\bm\xi(\omega) = (\xi_1(\omega), \xi_2(\omega), \cdots, \xi_n(\omega))\).
+有\(\bm\xi(\omega)\)是随机向量当且仅当对于任意\(n\)维 borel集\(A\in\msB^n\), 有
+\begin{align}
+    \{\omega:\,\bm\xi(\omega)\in A\}\in\msF
+\end{align}
+\begin{proof}
+\ \par
+\begin{enumerate}
+\item 充分性:\quad 根据\refto{def:random-vector-def}{Definition}, 显然成立.
+\item 必要性:\quad 记有
+\begin{align}
+    {\sgmp} &= \{A:\, A\subset\Rs^n, \{\bm\xi(\omega)\in A\}\in\sgmo\}\cr
+    {\algr} &= \{\prod\limits_{i=1}^{n}(-\infty, a_i]:\,a_i\in\Rs^1\}
+\end{align}
+可以证明\sgmp 是\mO 的一个\(\sigma-\)代数(根据概率的可数次加性, 及\sgmp 的定义).
+同时\(\algr\subset\sgmp\), 记\(\sgmb = \sigma(\algr)\)为含\algr 的最小\(\sigma-\)代数, 
+所以\(\sgmb\subseteq\sgmp\), 得证.
+\end{enumerate}
+\end{proof}
+\end{probability_distribution_of_random_vector}
+
+\newtheorem{set_function_of_random_vector}[theorem_root]{\theorem}
+\begin{set_function_of_random_vector}[随机向量的集函数]
+    称集函数\(F_{\bm\xi}(A)\)是定义在\(\sgmb^n\)的概率测度.
+    \begin{align}
+        F_{\bm\xi}(A) = P\{\omega:\,\bm\xi{\omega}\in A\}
+    \end{align}
+\begin{proof} omitted.\end{proof}
+\end{set_function_of_random_vector}
+
+
+\section{随机变量的独立性}
+
+\newtheorem{independentity_of_random_var}[theorem_root]{\defn}
+\begin{independentity_of_random_var}
+假设\prbsp 是一概率空间, \(\xi_1(\omega),\cdots,\xi_n(\omega),\cdots\), 是定义在
+它上面的随机变量; \(\sgmb^1\)是 一维 borel \(\sigma-\)代数.
+\begin{enumerate}
+    \item 称\(n\)个随机变量\(\xi_1, \xi_2\,\cdots,\xi_n\)相互独立, 如果对于任意
+    的\(A_1, \cdots, A_n\in\sgmb^1\), 有
+    \begin{align}
+        P\left(\bigcap\limits_{i=1}^{n}\,\{\xi_i\in A_i\}\right) = \prod\limits_{i = 1}^{n}\,P\{\xi_i\in A_1\}
+    \end{align}
+    \item 称随机变量列\(\xi_1, \xi_2, \cdots\)为互相独立的, 如果对于任意\(n\ge 2\), 
+    随机变量\(\xi_1, \xi_2, \cdots, \xi_n\)互相独立.
+\end{enumerate}
+\end{independentity_of_random_var}
+
+\newtheorem{independentity_of_any__}[theorem_root]{\theorem}
+\begin{independentity_of_any__}
+若随机变量\(\linevec{\xi}\)互相独立. 对于任意\(m\ge 2\), 有\(\xi_{j_1},\cdots,\xi_{j_m},\,\,j_1<j_2<\cdots<j_m\)互相独立.
+\begin{proof}
+    设\(A_{j_1}, A_{j_2},\cdot,A_{j_m}\in \sgmb^1\)是任意的, 令\(A_{k_1}, \cdots, A_{k_{n-m}} = \Rs^1\), 
+    其中\(\{k_1,\cdots,k_{n-m}\} = \{1, 2, \cdots, n\} \backslash \{j_{1}, \cdots, \j_{m}\}\). 知
+    \begin{align}
+        P\left(\bigcap\limits_{i=1}^{m}\{\xi_{j_i}\in A_{j_i}\}\right) &= 
+        P\left(\bigcap\limits_{i=1}^{n}\{\xi_{i}\in A_{i}\}\right)\cr 
+        &= \prod\limits_{i=1}^{n}\,P\{\xi_i\in A_i\} = 
+        \prod\limits_{i=1}^{m}\,P\{\xi_{j_i}\in A_{j_i}\} 
+    \end{align}
+    即成立.
+\end{proof}
+\end{independentity_of_any__}
+
+\newtheorem{independent_random_vector}[theorem_root]{\defn}
+\begin{independent_random_vector}[独立随机向量]
+\idxterm{dlsjxl@{独立随机向量}}
+假设\(\bm\xi = \linevec{\xi}, \bm\eta = \linevec[m]{\eta},\cdots, \bm\zeta = \linevec[r]{\zeta}\)
+是同一概率空间\prbsp 的随机向量. 称随机向量\(\bm\xi, \bm\eta,\cdots,\bm\zeta\)为相互独立的, 
+如果对于任意\(A\in\sgmb^m, B\in\sgmb^n, \cdots, C\in\sgmb^r\), 有
+\begin{align}
+    P\{\bm\xi\in A, \bm\eta\in B, \cdots, \bm\zeta\in C\} = 
+    P\{\bm\xi\in A\}
+    P\{\bm\eta\in B\}
+    \cdots
+    P\{\bm\zeta\in C\}
+\end{align}
+\end{independent_random_vector}
+
+\section{随机变量的条件分布}
+
+\newtheorem{conditional_distribution_function_var_event}[theorem_root]{\defn}
+\begin{conditional_distribution_function_var_event}[随机变量关于事件的条件分布函数]
+\idxterm{tjfbhs@{条件分布函数}}
+有概率空间\prbsp, \(\eta = \eta(\omega)\)是其一随机变量, \(B\)是任一事件,\(P(B) > 0\), 称
+\begin{align}
+    F_{\eta}(y\mid B) = {P(\{\eta\le y\}\cap B)\over P(B)},\quad y\in\Rs
+\end{align}
+为事件\(B\)已出现的条件下, 随机变量\(\eta\)的条件分布函数.如果存在非负函数\(f_{\eta}(y\mid B)\), 使得
+\begin{align}
+    F_{\eta}(y\mid B) = \int\limits_{-\infty}^{y}\,f_{\eta}(v\mid B)dv,\quad y\in\Rs
+\end{align}
+则称\(f_{\eta}(y\mid B)\)为随机变量\(\eta\)关于事件\(B\)的条件密度.
+\end{conditional_distribution_function_var_event}
+
+\newtheorem{conditional_distribution_function_var_var}[theorem_root]{\defn}
+\begin{conditional_distribution_function_var_var}[随机变量关于事件条件分布函数-2]
+\idxterm{tjfbhs@{条件分布函数}}
+有概率空间\prbsp, \(\eta = \eta(\omega), \xi = \xi(\omega)\)是其二随机变量, \(C\)是 borel集,\(P(\xi\in C) > 0\), 称
+\begin{align}
+    F_{\eta}(y\mid \xi\in C) = {P(\xi\in C, \{\eta\le y\})\over P(\xi\in C)},\quad y\in\Rs
+\end{align}
+是在\(\{\xi\in C\}\)的条件下, 随机变量\(\eta\)的条件分布函数. 如果\(F_{\xi}(x)\)是\(\xi\)的分布函数, 
+\(F_{\xi,\eta}(x, y)\)是\(x\)和\(\eta\)的联合分布函数, 则对于任意实数\(a<b, F_{\xi}(b) - F_{\xi}(a) > 0\), 有
+\begin{align}
+    \label{equ:rva}
+    F_{\eta}(y\mid <a\xi\le b) = {F_{\xi, \eta}(b, y) - F_{\xi, \eta}(a, y)\over F_{\xi}(b) - F_{\xi}(a)}
+\end{align}
+\end{conditional_distribution_function_var_var}
+
+\newtheorem{conditional_distribution_function_var_var__}[theorem_root]{\defn}
+\begin{conditional_distribution_function_var_var__}[随机变量关于另一随机变量的条件分布函数]
+\idxterm{tjfbhs@{条件分布函数}}
+有概率空间\prbsp, \(\eta = \eta(\omega), \xi = \xi(\omega)\)是其二随机变量, 
+\(F_{\xi,\eta}(x, y)\)是它们的联合分布函数, \(F_{\xi}(x)\)是边缘分布函数.
+在引进\(\{\xi = x\}\)的条件下, 随机变量\(\eta\)的条件分布函数. 由于\(P\{\xi = x\}>0\)一般不成立,
+故设法由\refto{equ:rva}{Equation}并通过极限来定义条件分布函数\(F_{\eta}(y\mid \xi = x)\). 
+如果极限
+\begin{align}
+    F_{\eta}(y\mid\xi = x) = \lim\limits_{\Delta x\to 0^+}P\{\eta\le y\mid x-\Delta x<\xi\le x+\Delta x\},\quad y\in\Rs
+\end{align}
+存在, 则称\(F_{\eta}(y\mid \xi = x)\)为\(\{\xi = x\}\)的条件下, 随机变量\(\eta\)的条件分布函数.
+\end{conditional_distribution_function_var_var__}
+
+A lot of ...
+
+\section{随机向量的函数}
+
+\newtheorem{borel_function_def}[theorem_root]{\defn}
+\begin{borel_function_def}[Borel Function]
+\idxterm{borelfunction@{borel function}}
+以下为等价定义\par
+\begin{enumerate}
+\item 假设\(y = g(\bm x),\,\,\bm x\in\Rs^m\)是定义在\(\Rs^m\)上的单值实函数.
+称\(g(\bm x)\)为\(m\)元 borel 函数, 如果对于任意实数\(a\), \(\{\bm x:g(\bm x)\le a\}\in\sgmb^m\), 其中
+\(\sgmb^m\)是\(m\)维borel \(\sigma-\)代数.
+\item 假设\(y = g(\bm x),\,\,\bm x\in\Rs^m\)是定义在\(\Rs^m\)上的单值实函数.
+称\(g(\bm x)\)为\(m\)元 borel 函数, 如果对于任意\(A\in\sgmb^1\), \(\{\bm x:g(\bm x)\in A\}\in\sgmb^m\), 其中
+\(\sgmb^m\)是\(m\)维borel \(\sigma-\)代数.
+\end{enumerate}
+\begin{proof}由\(\sgmb^1 = \sigma(\algr^1),\,\,\algr^1 = \{A: A = (-\infty,x], x\in\Rs\}\), 可以证明两个定义等价.\end{proof}
+\end{borel_function_def}
+
+\newtheorem{borel_function_apply_random_var}[theorem_root]{\lemma}
+\begin{borel_function_apply_random_var}
+    假设\(y = g(\bm x),\,\,\bm x\in\Rs^m\), 是 borel 函数, 而\(\bm\xi = \bm\xi(\omega)\)是一个概率空间
+    \prbsp 的\(m\)维{\bf 随机向量}. 那么, \(\eta = g(\bm\xi)\)是一个{\bf 随机变量}.
+    \begin{proof}
+    \(\forall\,x\in\Rs^1\), 有
+    \begin{align}
+    \{\omega:\, \eta(\omega)\le x\} &=
+    \{\omega:\, g(\bm\xi(\omega))\le x\}\cr
+    &= \{\omega:\, \bm\xi(\omega)\in A, A=\{\bm z:\,g(\bm z)\le x\}\in\sgmb^m\}\cr
+    &\Downarrow\cr
+    &\{\omega:\, \eta(\omega)\le x\}\in\sgmb^1
+    \end{align}
+    即\(g(\bm\xi)\)是一随机变量
+    \end{proof}
+\end{borel_function_apply_random_var}
+
+\newtheorem{independentity_of_function_of_random_vector}[theorem_root]{\theorem}
+\begin{independentity_of_function_of_random_vector}[独立随机向量函数的独立性]
+    假设随机向量
+    \(\bm\xi = \linevec[m]{\xi}\),
+    \(\bm\eta = \linevec[n]{\eta}\),
+    \(\cdots\),
+    \(\bm\zeta = \linevec[r]{\zeta}\)相互独立, 而
+    \(g(\bm x) = g\linevec[m]{x}\),
+    \(h(\bm y) = h\linevec[n]{y}\),
+    \(\cdots\),
+    \(k(\bm z) = k\linevec[r]{z}\)都是borel 函数. 那么, 随机变量
+    \(\xi = g(\bm \xi)\), 
+    \(\eta = h(\bm \eta)\), 
+    \(\cdots\),
+    \(\zeta = k(\bm \zeta)\)相互独立.
+    \begin{proof}
+        ooooooo, 从定义, 很好证明
+    \end{proof}
+\end{independentity_of_function_of_random_vector}
+
+\def\etaAy#1{\eta_{#1}\le y_{#1}}
+\newtheorem{distribution_function_of_function_of_random_vector}[theorem_root]{\theorem}
+\begin{distribution_function_of_function_of_random_vector}
+    假设\(\bm\xi = \linevec{\xi}\)是概率空间\prbsp 上的\(n\)维随机向量, 
+    \(\bm y = \bm g(\bm x),\,\,\bm x\in\Rs^n, \bm y\in\Rs^m\)是 borel 向量函数.
+    可知\(\bm\eta = \bm g(\bm\xi)\)是\(m\)维随机向量.
+    根据\(\bm\xi\)的分布函数\(F_{\bm\xi}(\bm x)\)来求\(\bm\eta\)的分布函数\(F_{\bm\eta}(\bm y)\).
+
+    \(\forall\,a\in\Rs^1\), 记\(A_j(a) = \{\bm x\in\Rs^n:\, g_j(\bm x)\le a\}(j = 1, 2, \cdots, m)\), 
+    可知\(A_j(a)\in\sgmb^n\), 那么对于任意\(\bm y = \linevec{y}\in\Rs^m\), 有
+    \begin{align}
+        F_{\bm\eta}(\bm y) &= P\{\mlrep[m]{\etaAy}\} \cr
+        &= P\left(\bigcap\limits_{j = 1}^{m}\{g_j(\bm\xi)\le y_j\}\right) = 
+        P\left(\bigcap\limits_{j = 1}^{m}\{\bm\xi\in A_j(y_j)\}\right)\cr
+        &= P\left\{\bm\xi\in\bigcap\limits_{j=1}^{m}A_j(y_j)\right\}
+        = P_{\bm\xi}\left(\bigcap\limits_{j=1}^{m}A_j(y_j)\right)
+    \end{align}
+    既有\(F_{\bm\eta}(\bm y) = 
+        P_{\bm\xi}\left(\bigcap\limits_{j=1}^{m}A_j(y_j)\right)\)
+    , 记\(A(y) = \bigcap\limits_{j=1}^{m}A_j(y_j)\)
+    \begin{enumerate}
+    \item 离散型随机向量\(\bm\xi\), 有
+    \begin{align}
+        F_{\bm\eta}(\bm y) = \sum\limits_{x\in A(y)}P\{\bm\xi = \bm x\}
+    \end{align}
+    \item 连续性随机向量\(\bm\xi\), 有
+    \begin{align}
+        F_{\bm\eta}(\bm y) = \int_{A(y)}\,f_{\bm\xi}(\bm x)d\bm x
+    \end{align}
+    \end{enumerate}
+\end{distribution_function_of_function_of_random_vector}
+
+\newtheorem{addtion_of_two_random_var}[theorem_root]{\lemma}
+\newtheorem{subtraction_of_two_random_var}[theorem_root]{\lemma}
+\newtheorem{multiplication_of_two_random_var}[theorem_root]{\lemma}
+\newtheorem{division_of_two_random_var}[theorem_root]{\lemma}
+
+\begin{addtion_of_two_random_var}[随机变量和的分布]
+    \label{lem:rva}
+    假设\(\xi\)和\(\eta\)使连续性随机变量, 他们的联合密度为\(f_{\xi,\eta}(x, y)\).
+    那么, \(\zeta = \xi + \eta\)也是连续性随机变量, 其概率密度为
+    \begin{align}
+        f_{\xi + \eta}(z) &= \int\limits_{-\infty}^{\infty}\,f_{\xi, \eta}(x, z-x)\,dx\cr
+        &= \int\limits_{-\infty}^{\infty}\,f_{\xi, \eta}(z-y, y)\,dy
+    \end{align}
+    特别, 若\(\xi\)和\(\eta\)互相独立, 则
+    \begin{align}
+        f_{\xi + \eta}(z) &= \int\limits_{-\infty}^{\infty}\,f_{\xi}(x)f_{\eta}(z-x)\,dx\cr
+        &= \int\limits_{-\infty}^{\infty}\,f_{\xi}(z-y)f_{\eta}(y)\,dy
+    \end{align}
+    \begin{proof}
+    记\(A_z = \{(x, y):\,x+y\le z\}\),有
+    \begin{align}
+        \label{equ:rvb}
+        F_{\xi+\eta}(z) &= P\{\omega:\,\xi+\eta\le z\}
+        = P\{\omega:(\xi, \eta)\in A_z\}\cr
+        &= \iint\limits_{A_z}\,f_{\xi, \eta}(x, y)\,dx\;dy
+        = \int\limits_{-\infty}^{\infty}\left[\int\limits_{-\infty}^{z-x}\,f_{\xi, \eta}(x, y)dy\right]dx\cr
+        &= \int\limits_{-\infty}^{\infty}\left[\int\limits_{-\infty}^{z}\,f_{\xi, \eta}(x, y-x)dy\right]dx
+        = \int\limits_{-\infty}^{z}\left[\int\limits_{-\infty}^{\infty}\,f_{\xi, \eta}(x, y-x)dx\right]dy
+    \end{align}
+    所以由\refto{equ:rvb}{Equation}可以推出
+    \begin{align}
+        f_{\xi+\eta}(z) &= {d\left(F_{\xi+\eta}(z)\right)\over dz}
+        ={\displaystyle d\left(\int\limits_{-\infty}^{z}\left[\int\limits_{-\infty}^{\infty}\,f_{\xi, \eta}(x, y-x)dx\right]dy\right)\over dz}\cr
+        &= \int\limits_{-\infty}^{\infty}\,f_{\xi, \eta}(x, z-x)\,dx
+        = \int\limits_{-\infty}^{\infty}\,f_{\xi, \eta}(z-y, y)\,dy
+    \end{align}
+    \end{proof}
+\end{addtion_of_two_random_var}
+
+\newtheorem*{convolution_def}{\defn}
+\begin{convolution_def}[卷积]
+    \idxterm{jj@{卷积}}
+    对于两个函数\(f_1(x)\), \(f_2(x)\), 称
+    \begin{align}
+        f(x) &= \int\limits_{-\infty}^{\infty}f_1(u)f_2(x-u)\,du\cr
+        &= \int\limits_{-\infty}^{\infty}f_1(x-u)f_2(u)\,du
+    \end{align}
+    为\(f_1(x)\)和\(f_2(x)\)的卷积(convolution), 记作\(f = f_1\ast f_2\).
+    可以证明卷积满足交换律和结合律.
+\end{convolution_def}
+
+\begin{subtraction_of_two_random_var}
+    由\refto{lem:rva}{\lemma}可以得到两个连续性随机变量\(\xi\), \(\eta\)之差的
+    密度函数.
+    \begin{align}
+        f_{\xi - \eta}(z) &= \int\limits_{-\infty}^{\infty}\,f_{\xi, \eta}(x, z+x)\,dx\cr
+        &= \int\limits_{-\infty}^{\infty}\,f_{\xi, \eta}(z+y, y)\,dy
+    \end{align}
+    特别, 若\(\xi\)和\(\eta\)互相独立, 则
+    \begin{align}
+        f_{\xi - \eta}(z) &= \int\limits_{-\infty}^{\infty}\,f_{\xi}(x)f_{\eta}(z+x)\,dx\cr
+        &= \int\limits_{-\infty}^{\infty}\,f_{\xi}(z+y)f_{\eta}(y)\,dy
+    \end{align}
+\end{subtraction_of_two_random_var}
+
+\begin{division_of_two_random_var}[随机变量商的分布]
+    \label{lem:rvb}
+    假设\(\xi\)和\(\eta\)使连续型随机变量, 他们的联合密度为\(f_{\xi,\eta}(x, y)\).
+    那么, \(\zeta = {\xi\over\eta}\)\footnote{由于\(\eta\)是连续型随机变量, 所以\(P(A = \{\eta = 0\}) = 0\), 所以在可以定义\(\zeta\)为\(\zeta = \begin{cases}{\xi\over\eta}, & \Omega\backslash A\cr 0, & A\end{cases}\)}
+    也是连续型随机变量, 其概率密度为
+    \begin{align}
+        f_{\zeta}(z) &= \int\limits_{-\infty}^{\infty}\,f_{\xi, \eta}(zu, u)|u|\,du
+    \end{align}
+    特别, 若\(\xi\)和\(\eta\)互相独立, 则
+    \begin{align}
+        f_{\xi + \eta}(z) &= \int\limits_{-\infty}^{\infty}\,f_{\xi}(zu)f_{\eta}(u)|u|\,dx
+    \end{align}
+    \begin{proof}
+    记\(A_z = \{(x, y):\,{x\over y}\le z\}\),有
+    \begin{align}
+        \label{equ:rvc}
+        F_{\zeta}(z) &= P\{\omega:\,{\xi\over\eta}\le z\}
+        = P\{\omega:(\xi, \eta)\in A_z\}\cr
+        &= \iint\limits_{A_z}\,f_{\xi, \eta}(x, y)\,dx\;dy\cr
+        &\qquad\Downarrow\quad\begin{cases}u = y\cr v = {x\over y}\end{cases}\quad\Longleftrightarrow\quad \begin{cases}x = uv\cr y = u\end{cases}\cr
+        &= \int\limits_{-\infty}^{z}\left[\int\limits_{-\infty}^{\infty}f_{\xi,\eta}(uv, u)\left|{\partial(x, y)\over\partial(u, v)}\right|du\right]\,dv\cr
+        &= \int\limits_{-\infty}^{z}\left[\int\limits_{-\infty}^{\infty}f_{\xi,\eta}(uv, u)|u|du\right]\,dv
+    \end{align}
+    所以由\refto{equ:rvc}{Equation}可以推出
+    \begin{align}
+        f_{\zeta}(z) &= {d\left(F_{\zeta}(z)\right)\over dz}
+        ={\displaystyle d\left(\int\limits_{-\infty}^{z}\left[\int\limits_{-\infty}^{\infty}f_{\xi,\eta}(uv, u)|u|du\right]\,dv\right)\over dz}\cr
+        &= \int\limits_{-\infty}^{\infty}\,f_{\xi, \eta}(zu, u)|u|\,du
+    \end{align}
+    \end{proof}
+\end{division_of_two_random_var}
+
+\begin{multiplication_of_two_random_var}
+    由\refto{lem:rvb}{\lemma}可以得到两个连续性随机变量\(\xi\), \(\eta\)相乘的
+    密度函数.
+    \begin{align}
+        f_{\xi\eta}(z) &= \int\limits_{-\infty}^{\infty}\,f_{\xi, \eta}(x, {z\over x})\,{dx\over |x|}\cr
+                    &= \int\limits_{-\infty}^{\infty}\,f_{\xi, \eta}({z\over x}, x)\,{dx\over |x|}
+    \end{align}
+    特别, 若\(\xi\)和\(\eta\)互相独立, 则
+    \begin{align}
+        f_{\xi\eta}(z) &= \int\limits_{-\infty}^{\infty}\,f_{\xi}(x)f_{\eta}({z\over x})\,{dx\over |u|}\cr
+        &= \int\limits_{-\infty}^{\infty}\,f_{\xi}({z\over x})f_{\eta}(y)\,{dx\over |u|}
+    \end{align}
+\end{multiplication_of_two_random_var}

@@ -1,10 +1,10 @@
 \chapter{一维随机变量}
 
-\section{一维随机变量的定义及其分布函数}
+\section{一维随机变量的定义及其分布函数} %{{{
 
 \newtheorem{one_dimensional_random_variable}[theorem_root]{\defn}
 \begin{one_dimensional_random_variable}[一维随机变量]
-\index{{随机变量}}
+\idxterm{sjbl@{随机变量}}
 假设\prbsp 是以概率空间, \(\xi = \xi(\omega), \omega\in\Omega\), 是定义在
 \(\Omega\)上的单值实函数. 如果对于任一实数, \(\omega-\)集合\(\{\omega: \xi(\omega)\le x\}\) 是一随机
 事件, 亦即
@@ -60,7 +60,7 @@ A\setminus B & \chi_{A\setminus B} = \chi_{A} - \chi_{A\cap B}\cr
 
 \newtheorem{distribution_function}[theorem_root]{\defn}
 \begin{distribution_function}[分布函数]
-\index{{分布函数}}
+\idxterm{fbhs@{分布函数}}
 假设\(\xi = \xi(\omega)\) 是概率空间\prbsp 上的随机变量. 那么, 对于任意\(x\in(-\infty, +\infty), P\{\omega:\xi(\omega)\le x\}\)有意义, 
 因而此概率是\(x\)的函数, 记作
 \begin{align}
@@ -102,7 +102,7 @@ F_{\xi}(x) = P\{\omega:\xi(\omega)\le x\}, x\in\Rs
 \end{enumerate}
 \end{some_properties_of_disfunc}
 
-\section{离散型和连续性随机变量}
+\subsection{离散型和连续性随机变量}
 
 \halign{
 \strut\hskip3em\bf# & \quad\vtop\bgroup\noindent#\egroup\cr
@@ -111,7 +111,9 @@ F_{\xi}(x) = P\{\omega:\xi(\omega)\le x\}, x\in\Rs
 混合型 & 不是纯连续性, 也不是纯离散性.\cr
 }
 
-\section{离散型随机变量}
+%}}}
+
+\section{离散型随机变量}%{{{
 
 \newtheorem{discrete_random_var}[theorem_root]{\theorem}
 \begin{discrete_random_var}[离散型随机变量]
@@ -143,7 +145,7 @@ F_{\xi}(x) = P\{\omega:\xi(\omega)\le x\}, x\in\Rs
 \newtheorem{poisson_distru}[dis_root]{\disfunc}
 
 \begin{degrade_distru}[退化分布]
-\index{{退化分布}}
+\idxterm{tbfb@{退化分布}}
 随机变量\(\xi\)称为退化分布:
 \begin{align}
 P\{\xi = a\} = 1
@@ -155,7 +157,7 @@ F_{\xi}(x) = \begin{cases} 0, & x<a\cr 1, & x\ge a\cr\end{cases}
 \end{degrade_distru}
 
 \begin{binomial_distru}[二项分布]
-\index{{二项分布}}
+\idxterm{exfb@{二项分布}}
 随机变量\(\xi\)称为二项分布, 参数为\((n, p),\, n\ge 1,\, 0<p<1\), \(\xi\)的值域为 \(0, 1, \cdots, n\), 并且
 \begin{align}
 P\{\xi = m\} = \cbnt{n}{m}pP^{m}(1-p)^{n-m},\, m = 0,1,\cdots, n.
@@ -164,7 +166,7 @@ P\{\xi = m\} = \cbnt{n}{m}pP^{m}(1-p)^{n-m},\, m = 0,1,\cdots, n.
 \end{binomial_distru}
 
 \begin{negative_binomial_distru}[负二项分布]
-\index{{负二项分布}}
+\idxterm{fexfb@{负二项分布}}
 称随机变量\(\xi\)有负二项分布, 参数\((r, p),\,r\ge 1, 0<p<1\), 值域为\(\{r, r+1, r+2, \cdots\}\)
 \begin{align}
 P\{\xi = m\} = \cbnt{m-1}{r-1}p^{r}(1-p)^{m-r},\,\, m = r, r+1, \cdots
@@ -172,7 +174,7 @@ P\{\xi = m\} = \cbnt{m-1}{r-1}p^{r}(1-p)^{m-r},\,\, m = r, r+1, \cdots
 \end{negative_binomial_distru}
 
 \begin{geometry_distru}[几何分布]
-\index{{几何分布}}
+\idxterm{jhfb@{几何分布}}
 称随机变量\(\xi\)为几何分布, 参数为\(p(0<p<1)\), 值域为\(\Ns^+\)
 \begin{align}
 P\{\xi = m\} = p(1-p)^{m-1},\,\, m = 1, 2, \cdots
@@ -180,7 +182,7 @@ P\{\xi = m\} = p(1-p)^{m-1},\,\, m = 1, 2, \cdots
 \end{geometry_distru}
 
 \begin{super_geometry_distru}{超几何分布}
-\index{{超几何分布}}
+\idxterm{cjhfb@{超几何分布}}
 称随机变量\(\xi\)为超几何分布, 参数为\((N, M, n),\,1\le M\le N,\,1\le n\le N\)
 \begin{align}
 P\{\xi = m\} = {\cbnt{M}{m}\cbnt{N-M}{n-m}\over \cbnt{N}{n}},\,\, m =0, 1, \cdots, \min(n, M)
@@ -188,7 +190,7 @@ P\{\xi = m\} = {\cbnt{M}{m}\cbnt{N-M}{n-m}\over \cbnt{N}{n}},\,\, m =0, 1, \cdot
 \end{super_geometry_distru}
 
 \begin{negative_super_geometry_distru}{负超几何分布}
-\index{{负超几何分布}}
+\idxterm{fcjhfb@{负超几何分布}}
 称随机变量\(\xi\)为负超几何分布, 参数为\((N, M, r)\)
 \begin{align}
 P\{\xi = m\} = {\cbnt{m-1}{r-1}\cbnt{N-m}{M-r}\over \cbnt{N}{M}},\,\, m =r, r+1, \cdots, N-M+r
@@ -196,7 +198,7 @@ P\{\xi = m\} = {\cbnt{m-1}{r-1}\cbnt{N-m}{M-r}\over \cbnt{N}{M}},\,\, m =r, r+1,
 \end{negative_super_geometry_distru}
 
 \begin{poisson_distru}[泊松分布]
-\index{{泊松分布}}
+\idxterm{bsfb@{泊松分布}}
 称随机变量\(\xi\)有泊松分布, 参数为\(\lambda > 0\)
 \begin{align}
 P\{\xi = m\} = {\lambda^m\over m!}e^{-\lambda},\,\, m = 0, 1, 2, \cdots
@@ -243,7 +245,7 @@ P\{\xi = m\} = {\lambda^m\over m!}e^{-\lambda},\,\, m = 0, 1, 2, \cdots
 
 \newtheorem*{poisson_event_flow}{}
 \begin{poisson_event_flow}[泊松事件流]
-\index{{泊松事件流}}
+\idxterm{bssjl@{泊松事件流}}
 考虑事件在某个时间区间出现的次数, 以\(\nu(a, b]\)表示事件在时间区间\((a , b]\)出现的次数.
 并且记\(\nu(t) = v(0, t]\).
 称事件流为泊松时间流, 如果满足以下条件
@@ -280,8 +282,9 @@ P\{\nu(\Delta t) > 1\} = o(\Delta t)
     长...
 \end{proof}
 \end{about_poisson_event}
+%}}}
 
-\section{连续性随机变量}
+\section{连续性随机变量}%{{{
 
 \newtheorem{cont_distr_var}[theorem_root]{\defn}
 \begin{cont_distr_var}
@@ -302,7 +305,7 @@ F_\xi(x) = \int\limits_{-\infty}^{x}\,f_\xi(u)\,du
 \newtheorem{beta_distru}[dis_root]{\disfunc}
 
 \begin{uniform_distru}[均匀分布]
-\index{{均匀分布}}
+\idxterm{jyfb@{均匀分布}}
 称随机变量\(\xi\)在区间\([1, b]\)上有均匀分布, 如果它有密度函数
 \begin{align}
 f_\xi(x) = \begin{cases}{1\over b - 1}, & x\in [a,b]\cr 0, & x\notin[a, b]\end{cases}
@@ -310,7 +313,7 @@ f_\xi(x) = \begin{cases}{1\over b - 1}, & x\in [a,b]\cr 0, & x\notin[a, b]\end{c
 \end{uniform_distru}
 
 \begin{exponential_distru}[指数分布]
-\index{{指数分布}}
+\idxterm{zsfb@{指数分布}}
 称随机变量\(\xi\)有指数分布, 参数为\(\lambda > 0\)如果它有密度函数
 \begin{align}
 f_\xi(x) = \begin{cases}0, & x<0\cr \lambda e^{-\lambda x}, & x\ge 0\end{cases}\end{align}
@@ -384,7 +387,7 @@ N = \int\limits_{-\infty}^{\infty}\,\varphi(x; \mu, \sigma^2)\,dx &=
 \end{about_normal_distru}
 
 \begin{logarithm_distru}[对数正态分布]
-\index{{对数正态分布}}
+\idxterm{duztfb@{对数正态分布}}
 称随机变量\(\xi\)有对数正态分布, 参数为\((\mu, \sigma^2),\,\,\sigma>0\)如果它有密度函数
 \begin{align}
 f_{\xi}(x) = \begin{cases}{1\over x\sqrt{2\pi}\sigma}e^{-{(\ln x - \mu)^2\over 2\sigma^2}}, & x>0\cr
@@ -400,7 +403,7 @@ f_{\xi}(x) = \begin{cases}{1\over x\sqrt{2\pi}\sigma}e^{-{(\ln x - \mu)^2\over 2
 \end{logarithm_distru}
 
 \begin{gamma_distru}[Gamma Distribution]
-\index{{Gamma分布}}
+\idxterm{gammafb@{Gamma分布}}
 称随机变量\(\xi\)有\(\Gamma-\)分布, 参数为\((\alpha, \lambda),\,\,\alpha>0,\lambda>0\)如果它有密度函数
 \begin{align}
 f_{\xi}(x) = \begin{cases}{\lambda^\alpha\over\Gamma(\alpha)}x^{\alpha - 1}e^{-\lambda x}, & x>0\cr
@@ -410,11 +413,11 @@ f_{\xi}(x) = \begin{cases}{\lambda^\alpha\over\Gamma(\alpha)}x^{\alpha - 1}e^{-\
 参数为\(\alpha, \lambda)\)的\(\Gamma-\)分布, \(\xi\sim\Gamma(\alpha, \lambda)\)表示随机变量服从\(\Gamma-\)分布.
 \end{gamma_distru}
 
-\index{{指数分布}}\index{{Erlang分布}}\index{{\(\chi^2\)分布}}
+\idxterm{zsfb@{指数分布}}\idxterm{elfb@{Erlang分布}}\idxterm{chifb@{\(\chi^2\)分布}}
 指数分布, Erlang分布, 和\(\chi^2\)分布, 可以通过\((\alpha,\lambda)\)的特殊取值得到.
 
 \begin{beta_distru}[Beta Distribution]
-\index{{Beta分布}}
+\idxterm{betafb@{Beta分布}}
 称随机变量\(\xi\)有\(B-\)分布, 参数为\((\alpha, \beta),\,\,\alpha>0,\beta>0\)如果它有密度函数
 \begin{align}
 f_{\xi}(x) = \begin{cases}{1\over B(\alpha, \beta)}x^{\alpha - 1}(1-x)^{\beta - 1}, & x\in(0,1)\cr
@@ -428,7 +431,7 @@ f_{\xi}(x) = \begin{cases}{1\over B(\alpha, \beta)}x^{\alpha - 1}(1-x)^{\beta - 
 
 \newtheorem{snedecor_distribution}[dis_root]{\disfunc}
 \begin{snedecor_distribution}[\(F-\)分布]
-\index{{\(F-\)分布}}
+\idxterm{ffb@{\(F-\)分布}}
 称随机变量\(\eta\)有\(F-\)分布, 参数为\((m, n)\)如果它有密度函数
 \begin{align}
 f_{\xi}(x) = \begin{cases}{m^{m\over 2}n^{n\over 2}\over B({m\over 2}, {n\over 2})}x^{{m\over 2} - 1}(n+mx)^{-{m+n\over 2}}, & x>0\cr
@@ -441,3 +444,94 @@ f_{\xi}(x) = \begin{cases}{m^{m\over 2}n^{n\over 2}\over B({m\over 2}, {n\over 2
     f_{\eta}(x) &= {\displaystyle mn\over(n+mx)^2}f_{\xi}\left({mx\over n + mx}; {m\over 2}, {n\over 2}\right)
 \end{align}
 \end{snedecor_distribution}
+
+%}}}
+
+\section{一维随机变量的概率分布}%{{{
+
+\newtheorem{one_dim_random_var_distru}[theorem_root]{\defn}
+\begin{one_dim_random_var_distru}[一维随机变量的概率分布]
+考虑一概率空间\prbsp 和定义在此空间上的随机变量\(\xi = \xi(\omega)\).
+以下两个条件等价
+\begin{enumerate}
+    \item 对于任意实数\(x\in\Rs\), 有
+    \begin{align}\{\omega:\,\xi(\omega)\le x\}\in\msF\end{align}
+    由此可知, \(\forall\,x\in\Rs\),
+    \begin{align}\label{equ:equopc}F_{\xi}(x) = P\{\omega:\,\xi(\omega\le x)\}\end{align}
+    有意义. 因此, \(F_{\xi}(x)\)是定义在\Rs 上的单值函数.
+    \item 对于实数轴上的 borel集\(A\in\msF\), 有
+    \begin{align}\{\omega:\,\xi(\omega)\in A\}\in\msF\end{align}
+    由此可知, \(\forall\,A\in\msF\),
+    \begin{align}\label{equ:equopb}P_{\xi}(A) = P\{\omega:\,\xi(\omega\in A)\}\end{align}
+    有意义. 因此, \(P_{\xi}(A)\)是定义在\(\msB^1\) 上的单值函数, 其中\(\msB^1\)为\(\Rs^1\)的 borel \(\sigma-\)代数.
+\end{enumerate}
+\end{one_dim_random_var_distru}
+
+\newtheorem{measure_of_probability__}[theorem_root]{\theorem}
+\begin{measure_of_probability__}
+\idxterm{glfb@{概率分布}}
+由\refto{equ:equopb}{Equation}定义的集函数\(P_{\xi}(A),\,\,A\in\msB^1\), 是\(\msB^1\)上的概率测度.
+\begin{proof}
+证明\(P_{\xi}(x)\)是\(\msB^1\) 上的概率测度, 需要证明其满足\refto{def:probability-measure}{Definition}.
+\begin{enumerate}
+\item 非负性:\par
+$$P\{\omega:\,\xi(\omega)\in A\}\ge 0\quad\Longrightarrow\quad P_{\xi}(A)\ge 0$$
+\item 规范性:\par
+$$P_{\xi}(\Rs) = P\{\omega:\,\xi(\omega)\in\Rs\} = P\{\omega:\,\omega\in\msF\} = 1$$
+
+\item 完全可加性:\quad 对于任意\(A_m\in\msB^1,\,\,m\in\Ns\),若\(A_i\cap A_j \ne\emptyset\quad \Longleftrightarrow\quad i = j\), 则\par
+\indent 设\(S_i = \{\omega:\,\xi(\omega)\in A_i\}\). 对于\(i\ne j\), 假若\(S_i\cap S_j\ne\emptyset\), 
+那么有\(\omega_x\in S_i\cap S_j\), 故存在\(x = \xi(\omega_x)\in\msB^1\), 故\(x\in A_i\cap A_j\),
+与前提矛盾, 故
+\(S_i\cap S_j \ne\emptyset\quad \Longleftrightarrow\quad i = j\).
+
+对于\(P_{\xi}(\bigcup\limits_{i\in\Ns}A_i)\), 有
+\begin{align}
+P_{\xi}(\bigcup\limits_{i\in\Ns}A_i) &= P\{\omega:\,\xi(\omega)\in\bigcup\limits_{i\in\Ns}A_i\} = P(\bigcup\limits_{i\in\Ns}S_i)\cr
+&= \sum\limits_{i\in\Ns}\,P(S_i) = \sum\limits_{i\in\Ns}\,P_{\xi}(A_i)
+\end{align}
+即满足.
+\end{enumerate}
+\end{proof}
+\end{measure_of_probability__}
+
+\newtheorem{distribution_function__}[theorem_root]{\defn}
+\newtheorem{probability_distribution}[theorem_root]{\defn}
+\begin{distribution_function__}[分布函数]
+\idxterm{fbhs@{分布函数}}
+称定义在直线\(\Rs^1\)上的单值实函数\(F(x)\)为分布函数, 
+如果
+\begin{enumerate}
+\item 单调不减, 即\(a>b\quad\Longrightarrow\quad F(a)\ge F(b)\)
+\item 右连续, 即\(\lim\limits_{x\to a^+}F(x) = F(a)\)
+\item \(F(-\infty) = 0,\, F(\infty) = 0\)
+\end{enumerate}
+\end{distribution_function__}
+
+\begin{probability_distribution}[概率分布]
+\idxterm{glfb@{概率分布}}
+称定义在直线\(\Rs^1\)的 borel \(\sigma-\)代数\(\msB^1\) 上单实值集函数\(P(A)\)为概率分布,
+如果它是\(\msB^1\)上的概率测度\refto{def:probability-measure}{Definition}.
+\end{probability_distribution}
+
+以上{\bf 分布函数}及{\bf 概率分布}的定义不依赖于随机变量\(\xi\).
+\refto{equ:equopc}{Eqaution}和\refto{equ:equopb}{Eqaution}分别是由
+随机变量\(\xi\)定义的分布函数和概率分布.
+
+\newtheorem{relation_between_two_concept_above}[theorem_root]{\theorem}
+\begin{relation_between_two_concept_above}[分布函数和概率分布一一对应]
+\ \par
+\begin{enumerate}
+\item 对于任意概率分布\(P(A),\,A\in\msB^1\),存在唯一一个分布函数\(F(x),\,x\in\Rs\), 满足
+\begin{align}
+    F(x) = P((-\infty, x])
+\end{align}
+\item 对于任意分布函数\(F(x),\,x\in\Rs\), 存在唯一一个概率分布\(P(A),\,A\in\msB^1\), 满足
+\begin{align}
+    P((-\infty, x]) = F(x)
+\end{align}
+\end{enumerate}
+\begin{proof}Too long\end{proof}
+\end{relation_between_two_concept_above}
+
+%}}}

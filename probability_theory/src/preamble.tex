@@ -8,6 +8,46 @@
 
 \geometry{tmargin=2cm, bmargin=2cm, lmargin=2cm, rmargin=3cm}
 
+\def\termindex{\jobname-terms}
+\begin{comment}
+\begin{filecontents*}{\termindex.mst}
+encap_prefix "\\"
+encap_infix "{"
+encap_suffix "}"
+item_0 "\\ifhmode\\par\\fi\\bgroup\\color{black!80}\t"
+delim_0 "\\IndexDotfill"
+headings_flag 1
+heading_prefix "  \\IndexHeading{"
+heading_suffix "}\n"
+\end{filecontents*}
+\end{comment}
+\makeindex[name=\termindex, title=Index of Terms, columns=2]
+\def\idxterm#1{\index[\termindex]{#1|hyperpage}}
+
+\definecolor{ocre}{HTML}{F16723}
+\newcommand*{\IndexDotfill}{%
+  \egroup\nobreak\dotfill\ \nobreak
+}
+\renewcommand*{\indexspace}{%
+  \par
+  \vspace{25pt plus 6pt minus 4pt}%
+}
+\newcommand*{\IndexHeading}[1]{%
+  \tikz\node[
+    rounded corners=5pt,
+    draw=ocre,
+    fill=ocre!10,
+    line width=1pt,
+    inner sep=5pt,
+    align=center,
+    font=\sffamily\bfseries\large,
+    minimum width=\linewidth-\pgflinewidth,
+  ] {#1};%
+  \nopagebreak
+  \par
+  \vspace{2mm}%
+}
+
 \def\equalwith{\quad$\Longleftrightarrow$\quad}
 
 \def\remark{Remark}
@@ -24,10 +64,17 @@
 
 \def\msA{\ifmmode\mathscr{A}\else$\>\mathscr{A}\>$\fi}
 \def\msB{\ifmmode\mathscr{B}\else$\>\mathscr{B}\>$\fi}
+\let\sgmr\msB% borel sigma algebra in R space
+\let\sgmb\msB% borel sigma algebra in R space
+\def\msC{\ifmmode\mathscr{C}\else$\>\mathscr{D}\>$\fi}
 \def\msD{\ifmmode\mathscr{D}\else$\>\mathscr{D}\>$\fi}
+\let\algr\msD% algebra in R space
 \def\msF{\ifmmode\mathscr{F}\else$\>\mathscr{F}\>$\fi}
+\let\sgmo\msF% sigma albebra in \Omega space
 \def\msH{\ifmmode\mathscr{H}\else$\>\mathscr{H}\>$\fi}
+\let\sgmp\msH% sigma algebra infered by P{...}
 \def\msM{\ifmmode\mathscr{M}\else$\>\mathscr{M}\>$\fi}
+\def\msO{\ifmmode\mathscr{O}\else$\>\mathscr{O}\>$\fi}
 \def\mO{\ifmmode\Omega\else$\>\Omega\>$\fi}
 
 \def\Rs{\ifmmode\mathbb{R}\else$\>\mathbb{R}\>$\fi}

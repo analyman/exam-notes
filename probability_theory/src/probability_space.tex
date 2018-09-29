@@ -6,7 +6,7 @@
 
 \begin{randomized_event}[随机事件]
 {\bf 随机实验}的结果称为{\bf 随机事件}，简称{\bf 事件}
-\index{随机事件}
+\idxterm{sjsj@{随机事件}}
 \end{randomized_event}
 %}}} end section:随机事件和随机变量
 
@@ -30,7 +30,7 @@
     $A_i\supset A_j$\equalwith$i<j$，则$A_{n=1}^{\infty}$为单调递减。%
     称$\lim\limits_{i\to\infty}A_i$为事件列$A_{n=1}^{\infty}$的极限。%
     两者统称单调事件列
-    \index{单调事件列}
+    \idxterm{ddsjl@{单调事件列}}
 \end{monotoneeventcolumn}
 
 \newtheorem{limit_of_set}[theorem_root]{\defn}
@@ -51,12 +51,12 @@ A &= \lim\limits_{n\to\infty}\,A_n\cr
 
 \begin{basicevent}[基本事件]
 每次实验必出现一个而且只能出现一个基本事件, 任何两个基本事件不能同时发生。
-\index{基本事件}
+\idxterm{jbsj@{基本事件}}
 \end{basicevent}
 
 \begin{basiceventspace}[基本事件空间]
 以$\omega$表示基本事件，基本事件空间$\Omega = \{\omega\}$。事件是基本事件空间的子集。只含有穷或者可数个基本事件的基本事件空间称为{\bf 离散的}。
-\index{基本事件空间}
+\idxterm{jbskj@{基本事件空间}}
 \end{basiceventspace}
 %}}} end section:基本事件空间
 
@@ -76,7 +76,7 @@ $\Omega$是一个集合，$\mathscr{F}$是$\Omega$的一些子集的集合。
         \item $A\in\mathscr{F}$\equalwith${\bar A}\in\mathscr{F}$
         \item 对$(A_{i=1}^{\infty})$($A_i\in\mathscr{F}$), $\bigcup\limits_{i=i}^{\infty}A_i\,\in\mathscr{F}$
     \end{enumerate}
-    \index{$\sigma-$代数}
+    \idxterm{sigmads@{$\sigma-$代数}}
 \end{sigmaalgebra}
 
 \noindent$\sigma-$代数的一些性质
@@ -93,7 +93,7 @@ $\Omega$是一个集合，$\mathscr{F}$是$\Omega$的一些子集的集合。
 \begin{enumerate}
     \item 称\msM 为\mO 中一单调集合类, 如果对属于\msM 的任一单调序列
     $A_1, A_2,\cdots,$ 有\(\lim\limits_{n\to\infty}\,A_n\in\msM\)
-    \item 称单调集合类$M(\msH)$为含\msH 的最小单调类\index{{最小单调类}}, 如果
+    \item 称单调集合类$M(\msH)$为含\msH 的最小单调类\idxterm{zxddl@{最小单调类}}, 如果
     \(\msH\subset M(\msH)\), 而且对于任意含\msH 的单调集合类\msM, 有$M(\msH)\subset \msM$.
 \end{enumerate}
 \end{monotonic_set_class}
@@ -124,7 +124,7 @@ $\Omega$是一个集合，$\mathscr{F}$是$\Omega$的一些子集的集合。
 \subsection{Borel $\sigma-$代数}
 
 \begin{smallestsigmaalgebraset}[给定集系最小$\sigma-$代数]
-\index{给定集系最小$\sigma-$代数}
+\idxterm{gdjxzxsds@{给定集系最小$\sigma-$代数}}
 给定$\Omega$的集系$\mathscr{H}$的最小$\sigma-$代数$\sigma(\mathscr{H})$:
 \begin{enumerate}
     \item$\mathscr{H}\in\sigma(\mathscr{H})$
@@ -146,8 +146,9 @@ $A\in \msB$称为 borel可测集
 
 \newtheorem{probability_measure}[theorem_root]{\defn}
 \begin{probability_measure}[概率测度]
+    \label{def:probability-measure}
     设\(P(A), A\in\msF\), 是定义在\mO 中$sigma-$代数\msF 上的实值函数.
-    称$P(A)$为\msF 上的概率测度(简称概率), 如果它满足下列条件:\index{{概率测度}}
+    称$P(A)$为\msF 上的概率测度(简称概率), 如果它满足下列条件:\idxterm{glcd@{概率测度}}
     \begin{enumerate}
         \item 非负性:\quad \(\forall A\in\msF, 0\le p(A)\le 1\)
         \item 规范性:\quad \(p(\mO) = 1\)
@@ -180,7 +181,7 @@ m^\ast(A) = m^\ast(A\cap E) +  m^\ast(A/ E)
     \item \(\forall A, B\in\msF, A\subset B\), then \(P(A)\le P(B)\)
     \item 半可加性.\quad 对于任意有穷个\(A_1, A_2,\cdots, A_n\in\msF\), 有
     \begin{align}P\left(\bigcup\limits_{m=1}^n\,A_m\right) \le \sum\limits_{m=1}^n\,P(A_m)\end{align}
-    \item 加法公式.\index{{加法公式}}\quad \(\forall A, B\in\msF\), 有\begin{align} P(A\cup B) = P(A) + P(B) - P(A\cap B)\end{align}
+    \item 加法公式.\idxterm{jfgs@{加法公式}}\quad \(\forall A, B\in\msF\), 有\begin{align} P(A\cup B) = P(A) + P(B) - P(A\cap B)\end{align}
     \item 一般加法公式.\quad \(\forall A_m\in\msF, m = 1, 2, \cdots, n\), 有\begin{align}P\left(\bigcup\limits_{m=1}^n\,A_m\right) = \sum\limits_{m=1}^n\,(-1)^m s_m\end{align}
     其中有
     \begin{align*}
@@ -191,7 +192,7 @@ m^\ast(A) = m^\ast(A\cap E) +  m^\ast(A/ E)
     \end{align*}
     \item 连续性定理.\quad 设有\(A_n\in\msF, n\in\Ns^+\), 并且\(\,\lim\limits_{n\to\infty}\,A_n = A\), 则有\(\,\lim\limits_{n\to\infty}P(A_n) = P(\lim\limits_{n\to\infty}A_n)\)
     \begin{proof}首先可以利用可数次加性证明\((A_n)_{n=1}^\infty\)是单调集合的情况(递增\(S_{i+1} = A_{i+1} / A_i\), 递减\(S_{i+1} = A_{i} / A_{i+1}\)).
-        \index{{概率连续性定理}}
+        \idxterm{gllxxdl@{概率连续性定理}}
         而后设\(B_n = \bigcup\limits_{k=1}^n\bigcap\limits_{m=k}^\infty A_m\), \(B_n\)是递增集合序列, 所以有
         \begin{align}\label{equ:seqcon1}\lim\limits_{n\to\infty}P(B_n) = P(\lim\limits_{n\to\infty}B_n)\end{align}
         可以知道, \(\lim\limits_{n\to\infty}B_n = \liminf\limits_{n\to\infty}A_n = \lim\limits_{n\to\infty}A_n\),
@@ -227,7 +228,7 @@ m^\ast(A) = m^\ast(A\cap E) +  m^\ast(A/ E)
 
 \newtheorem{conditional_probability}[theorem_root]{\defn}
 \begin{conditional_probability}[条件概率]
-\index{{条件概率}}
+\idxterm{tjgl@{条件概率}}
 假设\prbsp 是一概率空间, \(A, B\in\msF\)是任意二事件, 假设\(P(B) > 0\), 则,
 \begin{align}
     P(A\mid B) = {P(AB)\over P(B)}
@@ -250,7 +251,7 @@ m^\ast(A) = m^\ast(A\cap E) +  m^\ast(A/ E)
 
 \newtheorem{addition_formula}[theorem_root]{\theorem}
 \begin{addition_formula}[乘法公式]
-    \index{{乘法公式}}
+    \idxterm{cfgs@{乘法公式}}
 假设\(A_m\in\msF\,m = 1, 2, \cdots, n(n\ge 2)\), 是任意\(n\)个事件, 并且\(P(A_1A_2\cdots A_{n-1}>0\), 则
 \begin{align}
     P(A_1A_2\cdots A_n) = &P(A_1)P(A_2\mid A_1)P(A_3\mid A_1A_2)\cdots\cr
@@ -260,7 +261,7 @@ m^\ast(A) = m^\ast(A\cap E) +  m^\ast(A/ E)
 
 \newtheorem{full_probability_formula}[theorem_root]{\theorem}
 \begin{full_probability_formula}[全概率公式]
-    \index{{全概率公式}}
+    \idxterm{qglgs@{全概率公式}}
     假设\(H_i\in\msF\,(i\in I)\) 为任意用穷可数个事件, 满足条件:
     \(H_i\cap H_j = \emptyset, i\ne j\); \(\bigcup\limits_{i\in I}\,H_i = \Omega\); 
     \(P(H_i) > 0\), 那么, 对于任意事件\(A\in\msF\), 有
