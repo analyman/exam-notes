@@ -19,6 +19,7 @@
 
 \let\exx\example
 % <vim-code>1,$s/^\([A-z]*\) &/\\index{\1}&/g</vim-code> to index all word
+\begin{comment}
 \begin{engvc}[18-8-16]
 axis & "\ae ks\ci s& noun. & 轴线;轴\crr
 romantic & ro\cu "m\ae nt\ci k& adj. & 浪漫的\crr
@@ -1316,6 +1317,8 @@ familiar & f@"m\ci l\ci \rse & adj. & 熟悉的\crr
     \tword{efficient}{\ci "f\ci \cs @nt}{效率高的}
     \tword{sufficient}{s@"f\ci \cs @nt}{足够的; 充足的}
     \tword{deficient}{d\ci "f\ci \cs @nt}{缺乏的}
+    \tword{suffice}{s@"faIs}{足够; 足以; 使满足}
+    \texx{No words will suffice to convey my grief.}
 }
 integer & "\ci nt\ci d\cz \rse & noun. & 整数\crr
 destination & ""d\ce st\ci "ne\cs @n & noun. & 目的地; 终点\crr
@@ -1362,6 +1365,8 @@ regulate & r\ce "gj\cu let & verb. & 管制; 调整\crr
     \example
     \eng Hormones regulate many insect functions, including ecdysis and metamorphosis.
     \chn 激素调节昆虫的许多功能, 包括蜕皮和变态.
+    \relative
+    \tword{regularity}{""rEgj@"l\ae r@ti}{规律性; 规则性}
 }
 desolate & "d\ce s@l\ci t & adj.\newline verb. & 荒凉的; 孤寂凄凉的\newline 使荒无人烟的\crr
 \linetab{
@@ -2330,9 +2335,11 @@ limp & lImp & verb.\newline adj. & 跛行; 蹒跚\newline 无力的; 无生气�
 \linetab{
     \relative
     \tword{limb}{lIm}{肢体; 枝条}
+    \tword{limbic}{"lImbIk}{边缘的; 边缘叶的}
     \tword{lamb}{l\ae m}{羊羔}
     \tword{lamp}{l\ae mp}{灯}
     \tword{lump}{l2mp}{小块; 肿块}
+    \texx{If you lump manufacturing and services together, producivity has grown on average by 1.2% since 1987.}
     \tword{lame}{lem}{跛足的}
     \tword{tame}{tem}{养训的}
 }
@@ -3670,6 +3677,7 @@ prosperous & "pr\ca sp@r@s & adj. & 繁荣的; 兴旺的\crr
     and \ca sians whose economies the war had destroyed.
     \relative
     \tword{prosper}{prA"sp\rse}{繁荣; 成功; 使繁荣; 使成功}
+    \tword{prosperity}{prA"spEr@ti}{繁荣; 兴旺}
 }
 propaganda & ""pr\ca p@"g\ae nd@ & noun. & 宣传; 宣传活动\crr
 propagandize & ""pr\ca p@"g\ae nda\ci z & verb. & 宣传\crr
@@ -4449,6 +4457,15 @@ speculate & "spEkj@""let & verb. & 推测; 思索; 投机\crr
     \exx\eng It would be pointless to specualte without any proof.
     \relative
     \tword{spectacle}{"spEkt@k@l}{景象; 奇观; 场面}
+    \tword{speculation}{""spEkju"leS@n}{投机; 推测; 思索; 投机买卖}
+    \tword{speculative}{"spEkjul@tIv}{推测的; 推理的; 思索的; 投机的}
+    \tword{speculativeness}{s"pekjUl@tIvn@s}{思辨; 思索}
+    \begin{engdef}
+        \item{verb}[1]form a thoery or conjecture about a subject  
+        without firm evidence.
+        \item{verb}[2]invest to stocks, property, or other ventures in the 
+        hope of gain but with the risk of loss.
+    \end{engdef}
 }
 concise & k@n"saIs & adj. & 简明的; 简要的\crr
 indifferent & In"dIf@r@nt & adj. & 漠不关心的\newline 不注意的\crr
@@ -4549,6 +4566,8 @@ lion & "laI@n & noun. & 狮子\crr
     \tword{cock}{kAk}{雄鸡}
     \tword{owl}{aUl}{猫头鹰}
     \tword{squirrel}{"skw\textrhookrevepsilon r@l}{松鼠(noun.) 储藏(verb.)}
+    \tword{deer}{dI\rse}{鹿}
+    \tword{poultry}{"poUltri}{家禽}
     }{
     \tword{hawk}{hOk}{鹰}
     \tword{eagle}{"ig@l}{鹰}
@@ -4564,6 +4583,7 @@ lion & "laI@n & noun. & 狮子\crr
     \tword{lamb}{l\ae m}{羊羔}
     \tword{monkey}{"m2Nki}{猴子}
     \tword{pig}{pIg}{猪}
+    \tword{hen}{hEn}{母鸡}
     }
 }
 essay & "Ese & noun.\newline verb. & 散文; 文章\newline 尝试; 企图\crr
@@ -5041,6 +5061,7 @@ reccession & rI"sES@n & noun. & 后退; 不景气\crr
     \tword{recede}{rI"sid}{后退; 减弱; 变坏; 跌落}
     \tword{concession}{k@n"sES@n}{让步}
     \tword{procession}{pr@"sES@n}{列队行进(noun. verb.)}
+    \texx{The troops walked in procession through the street.}
     \tword{succession}{s@k"sES@n}{继承; 继任}
 }
 scrutiny & "skrutni & noun. & 细阅; 详细检查; 仔细研究\crr
@@ -5100,6 +5121,7 @@ interpersonal & ""Int\rse p\rse s@nl & adj. & 人与人之间的; 人际关系�
     \tword{intervene}{""Int\rse "vin}{干涉; 阻碍}
     \tword{intercept}{""Int\rse "sept}{截击; 拦截(verb.) 截距(noun.)}
     \tword{interaction}{""Int\rse "\ae kS@n}{互相影响(noun.)}
+    \tword{interplay}{"Int\rse ple}{相互作用(verb. noun.)}
     \tword{interchangeable}{""Int\rse "tSendZ@bl}{可互换的}
 }
 oppression & @"prES@n & noun. & 压迫; 压制; 抑制; 镇压\crr
@@ -5978,6 +6000,8 @@ lenient & "lini@nt & adj. & 宽厚的; 仁慈的; 不严格的\crr
 \linetab{
     \exx\eng The study found that, among prosecuted firms, those with the most
     comprehensive CSR programs, tended to get more lenient penalties.
+    \relative
+    \tword{leniency}{"lini@nsi}{宽大; 仁慈}
 }
 inaugurate & I"nOg@ret & verb. & 开创; 为...举行就职(落成; 开幕)典礼\crr
 \linetab{
@@ -7481,6 +7505,7 @@ mundane & m2n"den & adj. & 世俗的; 平凡的\crr
     \eng This kind of do-it-youself activities can yield a sense of satisfaction and pribe, and add excitement ot an otherwise mundane.
     \relative
     \tword{secular}{"sEkj@l\rse}{世俗的; 非宗教的}
+    \texx{A pattern known as the secular trend in height.}
     \tphrase{mundane world}{尘世}
 }
 coast & koUst & noun. & 海岸; 海滨\crr
@@ -7771,6 +7796,10 @@ testimony & "testImoUni & noun. & 证明; 证据; 证词\crr
     folklore and arts of prehistoric humans.
 }
 refute & rI"fjut & verb. & 辩驳; 驳斥; 反驳\crr
+\linetab{
+    \exx\eng Instructors may call on you to examine that interpretation and 
+    defend it, refute it, or offer some new view of your own.
+}
 sting & stIN & verb.\newline noun. & 刺; 刺痛\newline 刺; 刺痛\crr
 \linetab{
     \exx\eng Those harsh words sting me bitterly.
@@ -7827,6 +7856,8 @@ reciprocal & rI"sIpr@k@l & adj.\newline noun. & 互惠的; 互相的; 倒数的\
 meadow & "medoU & noun. & 草地; 牧场\crr
 \linetab{
     \exx\eng The idea that "housing crisi" equals "conreeted meadows" is pure lobby talk.
+    \relative
+    \tword{pasture}{"p\ae stS\rse}{牧场; 放牧; 牧草(noun.) 放牧; 吃草(verb.)}
 }
 hardline & "hArd""laIn & noun.\newline adj. & 强硬路线; 强硬派\newline 强硬路线的\crr
 \linetab{
@@ -8201,6 +8232,7 @@ ambition & "\ae mbIS@n & noun. & 野心\crr
     \tword{ambitious}{\ae m"bIS@s}{有野心的; 有雄心的}
     \tword{ambiguity}{""\ae mbI"gjuIti}{模棱两可}
     \tword{ambiguous}{\ae m"bIgju@s}{模棱两可的}
+    \texx{have ambiguous fomantic relationship.}
 }
 disclose & dIs"kloUz & verb. & 揭露; 透露; 泄露\crr
 \linetab{
@@ -8489,7 +8521,16 @@ highland & "haIl@nd & noun. & 高地; 高原\crr
 forge & fOrdZ & verb.\newline noun. & 伪造; 制造\newline 锻造车间\crr
 \linetab{
     \exx\eng As we learned from the fans of our weekly podcast
-    on chain restaurants, people forge fierce allegiances to their regional chains.
+    on chain restaurants, people forge fierce allegiances to their regional chains.\newline
+    \eng Journalists forge on a daily basis as they cover and comment on the news.
+    \begin{engdefn}
+        \item{noun}a blacksmith's workshop; smithy.
+        \item{verb}[1] make or shape (a metal object) by heating it in 
+        a fire or furnace and beating or hammering it.
+        \item{verb}[2] produce a copy or imitation of (a document, signature, banknote, work or art) for 
+        the purpose of deception.
+        \item{verb}[3] move forward gradually and steadily.
+    \end{engdefn}
 }
 inclusive & In"klusIv & adj. & 包含全部费用; 包含的; 包容的\crr
 \linetab{
@@ -8747,4 +8788,468 @@ tier & tI\rse & noun. & 排; 层\crr
     \exx\eng Among the commission's 51 members are top-tier-university president, scholars, lawyers, 
     judges, and business executives.
 }
+\end{engvc}
+\end{comment}
+
+\begin{engvc}[18-10-5]
+chalk & tSOk & noun.\newline verb. & 粉笔\newline 用粉笔写下\crr
+\linetab{
+    \exx\eng chalked her success up to nothing more than a series of chance.
+}
+wreath & riT & noun. & 花圈; 花环; 圈状物; 环状物\crr
+\linetab{
+    \exx\eng They twisted flowers into a wreath.
+}
+contradict & ""kAntr@"dIkt & verb. & 否认; 反驳; 与...矛盾; 发生矛盾\crr
+\linetab{
+    \relative
+    \tword{contrary}{"kAntr@ri}{相反; 对立(adj. adv. noun.)}
+    \tword{contract}{"kAntr\ae kt}{合同; 契约(noun.) 使收缩; 订合同; 感染(verb.)}
+}
+endorse & In"dOrs & verb. & 在(支票)背面签字; 签署; 支持; 赞同\crr
+\linetab{
+    \exx\eng At the next election none of the big parties seem likely to 
+    endorse this sentiment.
+}
+frustrate & "fr2stret & verb. & 挫败; 使沮丧\crr
+\linetab{
+    \exx\eng The repeated falures really frustrate me.
+}
+indispensable & ""IndI"spEns@b@l & adj. & 不可缺少的\crr
+\linetab{
+    \exx\eng The belief that education is indispensable to all children originated 
+    from the optimistic attitude of industrialized countries.
+}
+redeem & rI"dim & verb. & 兑现; 赎回; 挽回; 履行; 补偿; 偿还\crr
+\linetab{
+    \exx\eng He was trying to redeem himself for his earlier faliure.
+}
+starve & stArv & verb. & 挨饿; 饿死\crr
+\linetab{
+    \exx\eng The poor starve and rich feast.
+}
+component & k@m"pOun@nt & noun.\newline adj. & 成分; 部分\newline 组成的\crr
+\linetab{
+    \exx\eng Of all the components of a good night's sleep, dreams seem to be least within our control.
+    \tword{composite}{k@m"pOzIt}{合成的}
+    \tword{compose}{k@m"poUz}{组成; 调解; 使安定}
+    \tword{comprise}{kAn"praIz}{包括; 构成}
+    \tword{compound}{"kAmpaUnd}{调和; 和解; 妥协; 使严重(verb.) 合成的; 复合的(adj. noun.)}
+    \tword{opponent}{@"poUn@nt}{对手}
+}
+discovery & dI"sk2v@ri & noun. & 发现; 发觉\crr
+\linetab{
+    \exx\eng but it takes collective scrutiny and acceptance to transform a
+    discovery claim into a mature discovery.
+}
+portion & "pOrSn & noun.\newline verb. & 部分; 一份\newline 分配; 把...分成份额\crr
+\linetab{
+    \exx\eng portion out the cake, so everyone can have a piece.
+}
+presently & "prEz@ntli & adv. & 现在; 马上; 不久\crr
+transient & "tr\ae nzI@nt & adj. & 短暂的\crr
+\linetab{
+    \exx\eng Futurist is more of a transient phenomenon that literature.
+    \relative
+    \tword{fleeting}{"flitIN}{短暂的; 疾驰的; 稍纵即逝的}
+    \tword{momentary}{"moUm@nteri}{短暂的; 瞬间的; 时时刻刻的; 随时会发生的}
+}
+evident & "EvId@nt & adj. & 明显的\crr
+\linetab{
+    \exx\eng This fact is too evident to require proof.
+}
+reflection & rI"flEkS@n & noun. & 反射; 反映; 反省; 沉思\crr
+\linetab{
+    \exx\eng Most of the teachers make little or no independent reflections on 
+    human problems which involve moral judgement.
+}
+discriminate & dI"skrIm@net & verb. & 歧视; 区别; 区分\crr
+\linetab{
+    \exx\eng Discriminate between facts and personal opinions.
+}
+issue & "ISu & noun.\newline verb. & 问题; 发行物; 重要议题; 流出\newline 发行; 发表; 流出; 在...上挑起争论\crr
+\linetab{
+    \exx\eng They issue an update on the rain forecast.
+}
+puzzle & "p2z@l & noun.\newline verb. & 谜; 难题; 拼图\newline 使迷惑; 使伤脑筋\crr
+\linetab{
+    \exx\eng They are busy with word puzzle.
+}
+resort & rI"zOrt & noun.\newline verb. & 度假胜地; 常去之地; 采用的办法\newline 求助; 诉诸; 常去\crr
+\linetab{
+    \exx\eng Many teenagers resort to drugs or alcohol for mental relief.
+}
+superficial & ""sup\rse"fISl & adj. & 表面的; 肤浅的; 浅薄的\crr
+\linetab{
+    \relative
+    \tword{facetious}{f@"siS@s}{轻浮的; 开不正经玩笑的; 爱开玩笑的}
+    \tword{deface}{dI"fes}{毁坏; 毁谤}
+    \tword{efface}{I"fes}{擦掉; 消除}
+}
+resent & rI"zEnt & verb. & 愤恨; 憎恶; 怨恨\crr
+\linetab{
+    \relative
+    \tword{assent}{@"sEnt}{同意; 赞同(verb. noun.)}
+    \tword{consent}{k@n"sEnt}{同意(noun. verb.)}
+    \tword{dissent}{dIs"sEnt}{不同意(verb.) 意见的分歧(noun.)}
+    \tword{present}{"prEznt}{出席的}
+    \tword{absent}{"\ae bs@nt}{缺席的}
+}
+expertise & ""eksp\rse"tiz & noun. & 专门技能; 专门知识\crr
+\linetab{
+    \exx\eng This takes advantage of their expertise while 
+    easing them into their post employment lives.
+}
+anniversary & ""\ae nI"v\rse s@ri & noun. & 周年纪念日\crr
+\linetab{
+    \exx\eng He gave me a necklace as an aniversary gift.
+}
+clutch & kl2tS & verb.\newline noun. & 抓住\newline 紧抓; 离合器; 一窝雏; 一小群; 紧要关头\crr
+\linetab{
+    \remark
+    \halign\bgroup\strut#\hfil\quad & #\hfil\cr
+    clutch & 强调匆忙, 紧急地抓, 抓紧\cr
+    clasp & 指用手紧握或用臂紧抱\cr
+    take & 最普通用词, 不带感情色彩. 用手抓取东西或控制某物\cr
+    grasp & 紧紧抓住, 抓牢\cr
+    grip & 语气强于 grasp\cr
+    snatch & 突然抢走, 侧重动作快或具有暴力性质\cr
+    seize & 突然抓住某物, 强调突然的猛烈动作\cr
+    \egroup
+}
+poke & poUk & noun.\newline verb. & 戳; 刺; 捅\crr
+\linetab{
+    \relative
+    \tphrase{poke and prob}{挑出并删改}
+}
+whereas & ""wer"\ae z & conjunction. & 然而; 鉴于\crr
+potrait & "pOrtret & noun. & 肖像; 画像\crr
+\linetab{
+    \exx\eng The article gives a detailed portrait of a great soldier.
+}
+commence & k@"mEns & verb. & 开始发生; 着手\crr
+\linetab{
+    \exx\eng The meeting is planned to commence at noon.
+}
+commute & k@"mjut & verb.\newline noun. & 上下班往返; 改变为; 减轻\newline 上下班往返\crr
+\linetab{
+    \exx\eng Urban japanese have long endured lengthy 
+    commutes and crowded living conditions.
+}
+orthodox & "OrT@dAks & adj. & 正统的; 规范的; 传统的\crr
+\linetab{
+    \exx\eng The young people don't like orthodox teaching.
+}
+concede & k@n"sid & verb. & 承认(失败); 让步\crr
+\linetab{
+    \exx\eng The government was forced to concede failure.
+}
+grope & groUp & verb. & 摸索; 搜索; 搜寻\crr
+\linetab{
+    \exx\eng They tried to grope their way in the dark.
+}
+resemblance & rI"zEmbl@ns & noun. & 相似; 相像\crr
+\linetab{
+    \exx\eng Your story shows little resemblance to the facts.
+}
+reservoir & "rez\rse vwAr & noun. & 水库; 蓄水池\crr
+spectator & "spektet\rse & noun. & 观众; 旁观者\crr
+\linetab{
+    \exx\eng As a spectator, I find your speevch is excellent.
+}
+spite & spaIt &: noun.\newline verb. & 怨恨; 恶意\newline 向...表示恶意; 欺负; 刁难; 激怒\crr
+\linetab{
+    \exx\eng They trampled his flowers out of spite.
+    \relative
+    \tphrase{in spite of}{尽管}
+    \tphrase{out of spite}{出于怨恨}
+}
+tin & tIn & noun. & 锡; 罐头; 听头\crr
+\linetab{
+    \exx\eng We fuse copper and tin to make bronze.
+}
+withhold & wID"hoUld & verb. & 拒绝给予; 扣留; 忍住\crr
+\linetab{
+    \exx\eng Federal officers' duty to withhold immigrant's information.
+}
+shallow & "S\ae loU & adj. & 浅的; 浅薄的\crr
+\linetab{
+    \exx\eng It is only shallow people who judges by appearances.
+}
+terrify & "tEr@fai & verb. & 使恐惧; 使惊吓\crr
+chorus & "kOr@s & noun.\newline verb. & 合唱; 异口同声地说\newline 合唱团; 合唱\crr
+\linetab{
+    \exx\eng Modern women may raise a chorus of complaints that they are under great pressure.
+}
+defect & "difEkt & noun.\newline verb. & 瑕疵; 毛病; 缺陷; 缺点\newline 叛逃; 背叛; 倒戈\crr
+\linetab{
+    \exx\eng We thought that his troops might defect.
+}
+menace & "mEn@s & noun.\newline verb. & 威胁; 恐吓; 危险物\crr
+\linetab{
+    \exx\eng These weapons menace the world peace.
+}
+slit & slIt & noun.\newline verb. & 裂缝; 狭长的切口\newline 切长口子; 撕裂; 使成狭隘\crr
+\linetab{
+    \exx\eng He lit the evelope.\newline
+    \eng He slit his eyes and said nothing.
+}
+slum & sl2m & noun. & 贫民窟; 贫民区\crr
+ray & re & noun. & 光线; 光束; 一线\crr
+\linetab{
+    \exx\eng A ray of light pierced the darkness.
+}
+leaflet & "lifl@t &: noun.\newline verb. & 传单\newline 散发传单\crr
+\linetab{
+    \exx\eng They were giving out the leaflet for the charity.
+}
+tick & tIk & noun.\newline verb. & 滴答声; 发出滴答声; 标记号; 打上勾\crr
+\linetab{
+    \exx\eng The longer their body clock ticks, the more disabling conditions they face.
+}
+slender & "slEnd\rse & adj. & 苗条的; 微薄的\crr
+\linetab{
+    \exx\eng She was slender and had long dark hair.
+}
+climax & "klaI"m\ae ks & noun. & 高潮; 极点\crr
+\linetab{
+    \exx\eng The heat of sumemr has reched its climax.
+}
+relay & "rile & noun.\newline verb. & 接力赛\newline 接转; 传播\crr
+\linetab{
+    \exx\eng It is a machine intended as a communications relay, 
+    to extend internet access to parts of the world that lack connectivity.
+}
+bait & bet & noun.\newline verb. & 鱼饵; 诱惑物\newline 下诱饵\crr
+\linetab{
+    \exx\eng Some individuals would therefore not have been caught, since no baited 
+    hooks would have been available to trap them.
+}
+badminton & "b\ae d"mInt@n & noun. & 羽毛球运动; 羽毛球\crr
+fabulous & "f\ae bj@l@s & adj. & 难以置信的; 寓言般的; 极巨大的; 极好的\crr
+\linetab{
+    \exx\eng The second half of the 20th century saw a colleciton 
+    of geniuses, warrios and visionaries labor to create a fabular machine.
+}
+gender & "dZEnd\rse & noun. & 性别; 性\crr
+oath & oUT & noun. & 誓言; 誓约; 咒骂语\crr
+\linetab{
+    \exx\eng Repeat the oath after me.
+}
+scrap & skr\ae p & noun.\newline verb.\newline adj. & 小块; 碎片; 非金属; 吵架\newline 废弃; 取消\newline 废弃的\crr
+\linetab{
+    \exx\eng It won't make a scrap of difference.
+}
+advent & "\ae dvEnt & noun. & 到来; 来临\crr
+\linetab{
+    \exx\eng With the advent of the rockets, the Space Age began.
+}
+fasten & "f\ae sn & verb. & 栓紧; 使牢固\crr
+\linetab{
+    \exx\eng Do not fasten all the windows up while you sleep.
+}
+hasty & "hesti & adj. & 匆忙的; 草率的; 急躁的\crr
+\linetab{
+    \exx\eng His hasty decision was a mistake.
+}
+reckon & "rEk@n & verb. & 计算; 估计; 认为; 考虑到\crr
+\linetab{
+    \exx\eng In science generally the nineteenth century must be reckoned as the crucial period for this 
+    change is the structure of science.
+}
+gallery & "g\ae l@ri & noun. & 画廊; 美术馆\crr
+\linetab{
+    \exx\eng His pictures are on display at the art gallery.
+}
+velvet & "vElvIt & noun.\newline adj. & 天鹅绒; 丝绒\newline 天鹅绒的\crr
+\linetab{
+    \exx\eng I think that she has an iron hand in a velvet glove.
+}
+raid & red & noun.\newline verb. & 袭击; 突袭; 劫掠\newline 奇袭; 搜捕; 劫掠\crr
+\linetab{
+    \exx\eng French investigators raided the offices of the maker 
+    of Peugeot and Citroen cars over irregularies.
+}
+sentiment & "sEnt@m@nt & noun. & 情绪; 看法; 感情\crr
+\linetab{
+    \exx\eng Anti-immigrant sentiment typically increases, as does conflict between races and classes.
+}
+shipment & "SIpm@nt & noun. & 运输; 装运; 运输的货物\crr
+\linetab{
+    \exx\eng The goods are all ready for shipment.
+}
+tent & tEnt & noun. & 帐篷\crr
+aerial & "Eri@l & adj.\newline noun. & 空气的; 空中的\newline 天线\crr
+\linetab{
+    \exx\eng He showed me some aerial photographs.
+}
+coarse & kOrs & adj. & 粗糙的; 粗鲁的\crr
+\linetab{
+    \exx\eng My clothes were made of coarse cloth.
+}
+couch & kaUtS & noun.\newline verb. & 长沙发; 卧榻; 长椅\newline 表达; 措辞\crr
+rod & rAd & noun. & 杆; 棒\crr
+\linetab{
+    \exx\eng He catches fish with a fishing rod.
+}
+boot & but & noun.\newline verb. & 靴子; 踢; 解雇; 行李箱\newline 穿(靴); 踢\crr
+\linetab{
+    \exx\eng Britain requires vise applicants to fill in a ten page form and declare that they have  never incited terroism to boot.
+}
+distress & dI"strEs & noun.\newline verb. & 忧虑; 悲伤; 危难\newline 使烦乱\crr
+\linetab{
+    \exx\eng Close friend's death can distress a person greatly.
+}
+riot & "raI@t & noun. & 骚乱; 暴乱\crr
+\linetab{
+    \exx\eng The riot was inspired by extremists.
+}
+dizzy & "dIzi & adj. & 头晕目眩的; 头昏眼花的\crr
+\linetab{
+    \exx\eng The airplane flew to a dizzy height.
+}
+lobby & "lAbi & verb.\newline noun. & 游说\newline 大厅; 休息室\crr
+\linetab{
+    \exx\eng That the antismoking lobby was out to destroy our way of life and the government should stay out of the way.
+}
+disguise & dIs"gaIz & verb.\newline noun. & 伪装\crr
+\linetab{
+    \exx\eng it was difficult to disguise his anxiety.
+}
+mortgage & "mOrgIdZ & noun.\newline verb. & 抵押; 按揭\crr
+\linetab{
+    \exx\eng I can't affort to pay ma monthly mortgage payments on my own, 
+    so I have to rent rooms out to people to mark that happen.
+}
+moss & mOs & noun. & 苔藓\crr
+brook & brUk & noun.\newline verb. & 小河; 溪\newline 忍受; 容忍\crr
+\linetab{
+    \exx\eng His pride would not brook such insults.
+}
+burst & b\rse st & verb.\newline noun. & 爆裂; 突然而起\crr
+\linetab{
+    \exx\eng The police burst through the door.
+}
+crisp & krIsp & adj. & 脆的; 易碎的; 新鲜的\crr
+hygiene & "gaIdZin & noun. & 卫生; 卫生学\crr
+\linetab{
+    \exx\eng This is in line with the modern pursuit of health 
+    and hygiene of the residence requirement.
+}
+crust & kr2st & noun. & 外壳; 硬壳; 面包壳; 地壳\crr
+\linetab{
+    \exx\eng The clust of the bread is burnt.
+}
+futile & "fjutaIl & adj. & 无用的; 徒劳的; 没出息的\crr
+\linetab{
+    \exx\eng Efforts to convince him were futile.
+}
+cylinder & "sIlInd\rse & noun. & 圆柱; 圆筒; 气缸\crr
+\linetab{
+    \exx\eng the cylinder is a part of the washing machine.
+}
+surge & s\rse dZ & noun.\newline verb. & 汹涌; 涌起; 猛增\newline 汹涌; 波涛; 激增\crr
+\linetab{
+    \exx\eng we feel a surge of dignity with each new word we learn of the machine's own tongue.
+}
+mud & m2d & noun. & 泥; 泥土\crr
+bunch & b2ntS & noun. & 束; 捆; 一群; 一帮\crr
+beef & bif & noun. & 牛肉\crr
+biscuit & "bIskit & noun. & 饼干\crr
+\linetab{
+    \exx\eng Would you like some cake or biscuit.
+}
+brochure & bro"SU\rse & noun. & 小册子; 手册; 指南\crr
+\linetab{
+    \exx\eng For example, a grandmotherly woman staffing an animal rights booth at a recent street fair was distributing a brochure.
+}
+bull & bUl & noun. & 公牛; 雄性大动物; 胡扯; 废话\crr
+\linetab{
+    \exx\eng I think it's a load of bull.
+}
+disc & dIsk & noun. & 圆盘; 磁碟; 唱片\crr
+\linetab{
+    \remark
+    disc = disk
+}
+ditch & dItS &: noun.\newline verb. & 沟; 渠\newline 开沟于; 摆脱; 抛弃; 紧急降落\crr
+\linetab{
+    \exx\eng The driver had to ditch the bus.
+}
+liter & "lit\rse & noun. & 公升\crr
+\linetab{
+    \exx\eng the net weight of Mengniu milk is 195 milli liter.
+}
+literacy & "lIt@r@si & noun. & 识字; 有读写能力; 有文化\crr
+\linetab{
+    \relative
+    \tword{liberate}{"lIt@rIt}{识字的}
+    \tword{illiterate}{I"lIt@rIt}{不识字的; 文盲的}
+    \tword{illiteracy}{I"lIt@r@si}{文盲}
+    \tword{literature}{"lIt@r@""tSUr}{文学}
+    \tword{literal}{"lIt@r@l}{文字上的; 字面上的}
+    \tword{literati}{""lIlt@"rAti}{文人(总称)}
+}
+mosquito & m@"skito & noun. & 蚊子\crr
+\linetab{
+    \relative
+    \tword{insect}{"In""sEkt}{昆虫}
+    \tword{cockroach}{"kAkroUtS}{蟑螂}
+    \tword{ant}{\ae nt}{蚂蚁}
+    \tword{fly}{flai}{苍蝇}
+    \tword{moth}{mOT}{飞蛾}
+    \tword{earthworm}{"3rTw\rse m}{蚯蚓}
+    \tword{beetle}{"bitl}{甲虫}
+    \tword{grasshopper}{"gr\ae ShAp@r}{草蜢}
+}
+nickel & "nIk@l & 镍; 镍币; 五分镍币\crr
+\linetab{
+    \exx\eng nickel can be used for making coins.
+}
+paw & pO & noun. & 爪子; 脚爪\crr
+\linetab{
+    \exx\eng Cats know when to hide their paws.
+}
+rainbow & "renboU & noun. & 彩虹\crr
+\linetab{
+    \exx\eng There is a colorful rainbow across the sky.
+}
+spade & sped & noun. & 铁锹; (纸牌中的)黑桃\crr
+\linetab{
+    \exx\eng spade card, heart card, diamond card, club card.
+}
+voltage & "voUltIdZ & noun. & 电压\crr
+wallet & "wAlIt & noun. & 钱包; 皮夹\crr
+doll & dAl & noun. & 洋娃娃; 玩偶\crr
+\linetab{
+    \exx\eng She asked me to make some clothes for doll.
+}
+vinegar & "vInIg\rse & noun. & 醋\crr
+\linetab{
+    \exx\eng Vinegar is used in preserving food.
+}
+clamp & kl\ae mp & verb.\newline noun. & 紧夹住\newline 夹具; 夹钳\crr
+\linetab{
+    \exx\eng As the cost to everyone else has become clearer, politicians have begun to clamp down.
+    \relative
+    \tphrase{clamp down}{取缔; 施加压力; 压制; 严加惩处}
+}
+demographic & ""dem@"gr\ae fIk & adj. & 人口统计的; 人口的\crr
+\linetab{
+    \exx\eng profound demographic change is driving a rethinking of settled assumptions.
+}
+preoccupation & pri""Akju"peSn & noun. & 入神; 当务之急; 心里总想着的事物\crr
+\linetab{
+    \exx\eng establish theme and preoccupation.
+}
+repository & rI"pAz@tOri & noun. & 仓库; 储藏室; 存放处; 智囊\crr
+\linetab{
+    \exx\eng Finally, there are open-access archives, where  organizations such as international laboratories support 
+    institutional repositories.
+}
+scapegoat & "skepgoUt & noun.\newline verb. & 替罪羊; 代人受过者\newline 使...成为替罪羊\crr
+\linetab{
+    \exx\eng I was made the scapegoat for this matter.
+}
+weave & wiv & verb. & 编织; 编制\crr
 \end{engvc}
